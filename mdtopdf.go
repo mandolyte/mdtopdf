@@ -99,8 +99,7 @@ func NewPdfRenderer(pdfFile, tracerFile string) *PdfRenderer {
 	r.IndentValue = 36
 	r.Blockquote = Styler{Font: "Arial", Style: "i", Size: 12, Spacing: 2}
 
-	r.Pdf = gofpdf.New(r.Orientation, r.units,
-		r.Papersize, r.fontdir)
+	r.Pdf = gofpdf.New(r.Orientation, r.units, r.Papersize, r.fontdir)
 	r.Pdf.AddPage()
 	// set default font
 	r.setFont(r.Normal)
