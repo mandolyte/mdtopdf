@@ -81,6 +81,7 @@ func NewPdfRenderer(pdfFile, tracerFile string) *PdfRenderer {
 
 	// Normal Text
 	r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2}
+	r.current = r.Normal // set default
 
 	// Backticked text
 	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2}
@@ -118,8 +119,10 @@ func (r *PdfRenderer) Process(content []byte) error {
 		if err != nil {
 			return fmt.Errorf("os.Create() on tracefile error:%v", err)
 		}
+		defer f.Close()
+		r.w = bufio.NewWriter(f)
+		defer r.w.Flush()
 	}
-	r.w = bufio.NewWriter(f)
 
 	// just in case, change all CRLF to LF
 	content = []byte(strings.Replace(string(content), "\r\n", "\n", -1))
@@ -164,9 +167,11 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 			r.write(r.current, fmt.Sprintf("%v. ", r.currentItemNumber))
 		}
 		r.write(r.current, s)
-		if r.inHeading || r.inUnorderedItem || r.inOrderedItem || r.inDefinitionItem {
-			r.write(r.current, "\n") // output a newline with heading LH size
-		}
+		/*
+			if r.inHeading || r.inUnorderedItem || r.inOrderedItem || r.inDefinitionItem {
+				r.write(r.current, "\n") // output a newline with heading LH size
+			}
+		*/
 	case bf.Softbreak:
 		r.Tracer("Softbreak", "Not handled")
 	case bf.Hardbreak:
@@ -343,6 +348,7 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 			}
 			r.Tracer(fmt.Sprintf("%v Item (leaving)", listKind),
 				fmt.Sprintf("%v", node.ListData))
+			r.cr()
 		}
 	case bf.CodeBlock:
 		r.Tracer("Codeblock", fmt.Sprintf("%v", node.CodeBlockData))
@@ -412,7 +418,7 @@ func (r *PdfRenderer) RenderFooter(w io.Writer, ast *bf.Node) {
 func (r *PdfRenderer) cr() {
 	//r.Tracer("fpdf.Ln()", fmt.Sprintf("LH=%v", r.current.Size+r.current.Spacing))
 	//r.Pdf.Ln(r.current.Size + r.current.Spacing)
-	r.Tracer("cr()", "")
+	r.Tracer("cr()", fmt.Sprintf("LH=%v", r.current.Size+r.current.Spacing))
 	r.write(r.current, "\n")
 }
 
