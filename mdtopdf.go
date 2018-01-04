@@ -43,8 +43,8 @@ type PdfRenderer struct {
 	Backtick Styler
 
 	// blockquote text
-	Blockquote            Styler
-	BlockquoteIndentValue float64
+	Blockquote  Styler
+	IndentValue float64
 
 	// headings
 	H1 Styler
@@ -60,7 +60,6 @@ type PdfRenderer struct {
 	inUnorderedItem   bool
 	inOrderedItem     bool
 	inDefinitionItem  bool
-	DebugMode         bool
 	currentItemNumber int
 }
 
@@ -79,7 +78,6 @@ func NewPdfRenderer(pdfFile, tracerFile string) *PdfRenderer {
 	r.units = "pt"
 	r.Papersize = "A4"
 	r.fontdir = "."
-	r.DebugMode = false
 
 	// Normal Text
 	r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2}
@@ -97,7 +95,7 @@ func NewPdfRenderer(pdfFile, tracerFile string) *PdfRenderer {
 
 	r.inBlockquote = false
 	r.inHeading = false
-	r.BlockquoteIndentValue = 36
+	r.IndentValue = 36
 	r.Blockquote = Styler{Font: "Arial", Style: "i", Size: 12, Spacing: 2}
 
 	r.Pdf = gofpdf.New(r.Orientation, r.units,
@@ -219,12 +217,12 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		r.Tracer("Document", "Not Handled")
 		//break
 	case bf.Paragraph:
-		if r.inUnorderedItem || r.inOrderedItem || r.inDefinitionItem {
-			// ignore paragraph signals for list items
-			break
-		}
 		if entering {
 			r.Tracer("Paragraph (entering)", "")
+			if r.inUnorderedItem || r.inOrderedItem || r.inDefinitionItem {
+				r.Tracer("Para within a list", "breaking")
+				break
+			}
 			if r.inBlockquote {
 				// no change to styler
 			} else {
@@ -233,6 +231,10 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 			//r.cr()
 		} else {
 			r.Tracer("Paragraph (leaving)", "")
+			if r.inUnorderedItem || r.inOrderedItem || r.inDefinitionItem {
+				r.Tracer("Para within a list", "breaking")
+				break
+			}
 			r.cr()
 			r.cr()
 		}
@@ -241,13 +243,13 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 			r.Tracer("BlockQuote (entering)", "")
 			r.inBlockquote = true
 			curleftmargin, _, _, _ := r.Pdf.GetMargins()
-			r.Pdf.SetLeftMargin(curleftmargin + r.BlockquoteIndentValue)
+			r.Pdf.SetLeftMargin(curleftmargin + r.IndentValue)
 			r.current = r.Blockquote
 		} else {
 			r.Tracer("BlockQuote (leaving)", "")
 			r.inBlockquote = false
 			curleftmargin, _, _, _ := r.Pdf.GetMargins()
-			r.Pdf.SetLeftMargin(curleftmargin - r.BlockquoteIndentValue)
+			r.Pdf.SetLeftMargin(curleftmargin - r.IndentValue)
 			r.current = r.Normal
 			r.cr()
 		}
@@ -299,9 +301,13 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 				r.currentItemNumber = 0
 			case "Definition":
 			}
+			curleftmargin, _, _, _ := r.Pdf.GetMargins()
+			r.Pdf.SetLeftMargin(curleftmargin + r.IndentValue)
 			r.Tracer(fmt.Sprintf("%v List (entering)", listKind),
 				fmt.Sprintf("%v", node.ListData))
 		} else {
+			curleftmargin, _, _, _ := r.Pdf.GetMargins()
+			r.Pdf.SetLeftMargin(curleftmargin - r.IndentValue)
 			r.Tracer(fmt.Sprintf("%v List (leaving)", listKind),
 				fmt.Sprintf("%v", node.ListData))
 			r.cr()
@@ -413,7 +419,7 @@ func (r *PdfRenderer) cr() {
 // Tracer traces parse and pdf generation activity.
 // Output goes to Stdout when DebugMode value is set to true
 func (r *PdfRenderer) Tracer(source, msg string) {
-	if r.DebugMode {
-		fmt.Printf("[%v] %v\n", source, msg)
+	if r.tracerFile != "" {
+		r.w.WriteString(fmt.Sprintf("[%v] %v\n", source, msg))
 	}
 }
