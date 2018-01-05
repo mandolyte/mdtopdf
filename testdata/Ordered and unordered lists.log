@@ -1,312 +1,355 @@
 [RenderHeader] Not handled
 [Document] Not Handled
-[cr()] 
+[cr()] LH=14
 [Heading (2, entering)] {2  false}
 [Text] Unordered
 [Heading (leaving)] 
+[cr()] LH=27
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] Asterisks tight:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Unordered List (entering)] {16 true 0 0 [] false}
-[Unordered Item (entering)] {16 false 42 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[1 List (entering)] {16 true 0 0 [] false}
+[1 Item (entering)] {16 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] asterisk 1
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {16 false 42 46 [] false}
-[Unordered Item (entering)] {0 false 42 46 [] false}
+[1 Item (leaving)] {16 false 42 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {0 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] asterisk 2
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {0 false 42 46 [] false}
-[Unordered Item (entering)] {32 false 42 46 [] false}
+[1 Item (leaving)] {0 false 42 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {32 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] asterisk 3
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {32 false 42 46 [] false}
-[Unordered List (leaving)] {16 true 0 0 [] false}
-[cr()] 
+[1 Item (leaving)] {32 false 42 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 true 0 0 [] false}
+[cr()] LH=14
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] Asterisks loose:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Unordered List (entering)] {16 false 0 0 [] false}
-[Unordered Item (entering)] {24 false 42 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[1 List (entering)] {16 false 0 0 [] false}
+[1 Item (entering)] {24 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] asterisk 1
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {24 false 42 46 [] false}
-[Unordered Item (entering)] {8 false 42 46 [] false}
+[1 Item (leaving)] {24 false 42 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {8 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] asterisk 2
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {8 false 42 46 [] false}
-[Unordered Item (entering)] {40 false 42 46 [] false}
+[1 Item (leaving)] {8 false 42 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {40 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] asterisk 3
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {40 false 42 46 [] false}
-[Unordered List (leaving)] {16 false 0 0 [] false}
-[cr()] 
+[1 Item (leaving)] {40 false 42 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 false 0 0 [] false}
+[cr()] LH=14
 [HorizontalRule] Not handled
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] Pluses tight:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Unordered List (entering)] {16 true 0 0 [] false}
-[Unordered Item (entering)] {16 false 43 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[1 List (entering)] {16 true 0 0 [] false}
+[1 Item (entering)] {16 false 43 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Plus 1
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {16 false 43 46 [] false}
-[Unordered Item (entering)] {0 false 43 46 [] false}
+[1 Item (leaving)] {16 false 43 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {0 false 43 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Plus 2
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {0 false 43 46 [] false}
-[Unordered Item (entering)] {32 false 43 46 [] false}
+[1 Item (leaving)] {0 false 43 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {32 false 43 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Plus 3
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {32 false 43 46 [] false}
-[Unordered List (leaving)] {16 true 0 0 [] false}
-[cr()] 
+[1 Item (leaving)] {32 false 43 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 true 0 0 [] false}
+[cr()] LH=14
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] Pluses loose:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Unordered List (entering)] {16 false 0 0 [] false}
-[Unordered Item (entering)] {24 false 43 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[1 List (entering)] {16 false 0 0 [] false}
+[1 Item (entering)] {24 false 43 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Plus 1
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {24 false 43 46 [] false}
-[Unordered Item (entering)] {8 false 43 46 [] false}
+[1 Item (leaving)] {24 false 43 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {8 false 43 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Plus 2
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {8 false 43 46 [] false}
-[Unordered Item (entering)] {40 false 43 46 [] false}
+[1 Item (leaving)] {8 false 43 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {40 false 43 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Plus 3
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {40 false 43 46 [] false}
-[Unordered List (leaving)] {16 false 0 0 [] false}
-[cr()] 
+[1 Item (leaving)] {40 false 43 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 false 0 0 [] false}
+[cr()] LH=14
 [HorizontalRule] Not handled
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] Minuses tight:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Unordered List (entering)] {16 true 0 0 [] false}
-[Unordered Item (entering)] {16 false 45 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[1 List (entering)] {16 true 0 0 [] false}
+[1 Item (entering)] {16 false 45 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Minus 1
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {16 false 45 46 [] false}
-[Unordered Item (entering)] {0 false 45 46 [] false}
+[1 Item (leaving)] {16 false 45 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {0 false 45 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Minus 2
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {0 false 45 46 [] false}
-[Unordered Item (entering)] {32 false 45 46 [] false}
+[1 Item (leaving)] {0 false 45 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {32 false 45 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Minus 3
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {32 false 45 46 [] false}
-[Unordered List (leaving)] {16 true 0 0 [] false}
-[cr()] 
+[1 Item (leaving)] {32 false 45 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 true 0 0 [] false}
+[cr()] LH=14
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] Minuses loose:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Unordered List (entering)] {16 false 0 0 [] false}
-[Unordered Item (entering)] {24 false 45 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[1 List (entering)] {16 false 0 0 [] false}
+[1 Item (entering)] {24 false 45 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Minus 1
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {24 false 45 46 [] false}
-[Unordered Item (entering)] {8 false 45 46 [] false}
+[1 Item (leaving)] {24 false 45 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {8 false 45 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Minus 2
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {8 false 45 46 [] false}
-[Unordered Item (entering)] {40 false 45 46 [] false}
+[1 Item (leaving)] {8 false 45 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {40 false 45 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Minus 3
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {40 false 45 46 [] false}
-[Unordered List (leaving)] {16 false 0 0 [] false}
-[cr()] 
-[cr()] 
+[1 Item (leaving)] {40 false 45 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 false 0 0 [] false}
+[cr()] LH=14
+[cr()] LH=14
 [Heading (2, entering)] {2  false}
 [Text] Ordered
 [Heading (leaving)] 
+[cr()] LH=27
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] Tight:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Ordered List (entering)] {17 true 0 0 [] false}
-[Ordered Item (entering)] {17 false 42 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[2 List (entering)] {17 true 0 0 [] false}
+[2 Item (entering)] {17 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] First
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {17 false 42 46 [] false}
-[Ordered Item (entering)] {1 false 42 46 [] false}
+[2 Item (leaving)] {17 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {1 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Second
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {1 false 42 46 [] false}
-[Ordered Item (entering)] {33 false 42 46 [] false}
+[2 Item (leaving)] {1 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {33 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Third
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {33 false 42 46 [] false}
-[Ordered List (leaving)] {17 true 0 0 [] false}
-[cr()] 
+[2 Item (leaving)] {33 false 42 46 [] false}
+[cr()] LH=14
+[2 List (leaving)] {17 true 0 0 [] false}
+[cr()] LH=14
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] and:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Ordered List (entering)] {17 true 0 0 [] false}
-[Ordered Item (entering)] {17 false 42 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[2 List (entering)] {17 true 0 0 [] false}
+[2 Item (entering)] {17 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] One
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {17 false 42 46 [] false}
-[Ordered Item (entering)] {1 false 42 46 [] false}
+[2 Item (leaving)] {17 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {1 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Two
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {1 false 42 46 [] false}
-[Ordered Item (entering)] {33 false 42 46 [] false}
+[2 Item (leaving)] {1 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {33 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Three
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {33 false 42 46 [] false}
-[Ordered List (leaving)] {17 true 0 0 [] false}
-[cr()] 
+[2 Item (leaving)] {33 false 42 46 [] false}
+[cr()] LH=14
+[2 List (leaving)] {17 true 0 0 [] false}
+[cr()] LH=14
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] Loose using tabs:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Ordered List (entering)] {17 false 0 0 [] false}
-[Ordered Item (entering)] {25 false 42 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[2 List (entering)] {17 false 0 0 [] false}
+[2 Item (entering)] {25 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] First
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {25 false 42 46 [] false}
-[Ordered Item (entering)] {9 false 42 46 [] false}
+[2 Item (leaving)] {25 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {9 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Second
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {9 false 42 46 [] false}
-[Ordered Item (entering)] {41 false 42 46 [] false}
+[2 Item (leaving)] {9 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {41 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Third
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {41 false 42 46 [] false}
-[Ordered List (leaving)] {17 false 0 0 [] false}
-[cr()] 
+[2 Item (leaving)] {41 false 42 46 [] false}
+[cr()] LH=14
+[2 List (leaving)] {17 false 0 0 [] false}
+[cr()] LH=14
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] and using spaces:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Ordered List (entering)] {17 false 0 0 [] false}
-[Ordered Item (entering)] {25 false 42 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[2 List (entering)] {17 false 0 0 [] false}
+[2 Item (entering)] {25 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] One
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {25 false 42 46 [] false}
-[Ordered Item (entering)] {9 false 42 46 [] false}
+[2 Item (leaving)] {25 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {9 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Two
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {9 false 42 46 [] false}
-[Ordered Item (entering)] {41 false 42 46 [] false}
+[2 Item (leaving)] {9 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {41 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Three
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {41 false 42 46 [] false}
-[Ordered List (leaving)] {17 false 0 0 [] false}
-[cr()] 
+[2 Item (leaving)] {41 false 42 46 [] false}
+[cr()] LH=14
+[2 List (leaving)] {17 false 0 0 [] false}
+[cr()] LH=14
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] Multiple paragraphs:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Ordered List (entering)] {17 false 0 0 [] false}
-[Ordered Item (entering)] {25 false 42 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[2 List (entering)] {17 false 0 0 [] false}
+[2 Item (entering)] {25 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Item 1, graf one.
@@ -317,93 +360,221 @@
 [Text] Item 2. graf two. The quick brown fox jumped over the lazy dog's back.
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {25 false 42 46 [] false}
-[Ordered Item (entering)] {9 false 42 46 [] false}
+[2 Item (leaving)] {25 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {9 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Item 2.
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {9 false 42 46 [] false}
-[Ordered Item (entering)] {41 false 42 46 [] false}
+[2 Item (leaving)] {9 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {41 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Item 3.
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {41 false 42 46 [] false}
-[Ordered List (leaving)] {17 false 0 0 [] false}
-[cr()] 
-[cr()] 
+[2 Item (leaving)] {41 false 42 46 [] false}
+[cr()] LH=14
+[2 List (leaving)] {17 false 0 0 [] false}
+[cr()] LH=14
+[cr()] LH=14
 [Heading (2, entering)] {2  false}
 [Text] Nested
 [Heading (leaving)] 
-[Unordered List (entering)] {16 true 0 0 [] false}
-[Unordered Item (entering)] {48 false 42 46 [] false}
+[cr()] LH=27
+[1 List (entering)] {16 true 0 0 [] false}
+[1 Item (entering)] {48 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Tab
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered List (entering)] {16 true 0 0 [] false}
-[Unordered Item (entering)] {16 false 42 46 [] false}
+[1 List (entering)] {16 true 0 0 [] false}
+[cr()] LH=14
+[1 Item (entering)] {16 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Tab
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered List (entering)] {16 true 0 0 [] false}
-[Unordered Item (entering)] {16 false 42 46 [] false}
+[1 List (entering)] {16 true 0 0 [] false}
+[cr()] LH=14
+[1 Item (entering)] {16 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Tab
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {16 false 42 46 [] false}
-[Unordered List (leaving)] {16 true 0 0 [] false}
-[cr()] 
-[Unordered Item (leaving)] {16 false 42 46 [] false}
-[Unordered List (leaving)] {16 true 0 0 [] false}
-[cr()] 
-[Unordered Item (leaving)] {48 false 42 46 [] false}
-[Unordered List (leaving)] {16 true 0 0 [] false}
-[cr()] 
+[1 Item (leaving)] {16 false 42 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 true 0 0 [] false}
+[cr()] LH=14
+[1 Item (leaving)] {16 false 42 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 true 0 0 [] false}
+[cr()] LH=14
+[1 Item (leaving)] {48 false 42 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 true 0 0 [] false}
+[cr()] LH=14
 [Paragraph (entering)] 
+[cr()] LH=14
 [Text] Here's another:
 [Paragraph (leaving)] 
-[cr()] 
-[cr()] 
-[Ordered List (entering)] {17 true 0 0 [] false}
-[Ordered Item (entering)] {17 false 42 46 [] false}
+[cr()] LH=14
+[cr()] LH=14
+[2 List (entering)] {17 true 0 0 [] false}
+[2 Item (entering)] {17 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] First
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Ordered Item (leaving)] {17 false 42 46 [] false}
-[Ordered Item (entering)] {1 false 42 46 [] false}
+[2 Item (leaving)] {17 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {1 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Second:
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered List (entering)] {16 true 0 0 [] false}
-[Unordered Item (entering)] {16 false 42 46 [] false}
+[1 List (entering)] {16 true 0 0 [] false}
+[cr()] LH=14
+[1 Item (entering)] {16 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Fee
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {16 false 42 46 [] false}
-[Unordered Item (entering)] {0 false 42 46 [] false}
+[1 Item (leaving)] {16 false 42 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {0 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Fie
 [Paragraph (leaving)] 
 [Para within a list] breaking
-[Unordered Item (leaving)] {0 false 42 46 [] false}
-[Unordered Item (entering)] {0 false 42 46 [] false}
+[1 Item (leaving)] {0 false 42 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {0 false 42 46 [] false}
 [Paragraph (entering)] 
 [Para within a list] breaking
 [Text] Foe
-[Paragraph (leavin
+[Paragraph (leaving)] 
+[Para within a list] breaking
+[1 Item (leaving)] {0 false 42 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 true 0 0 [] false}
+[cr()] LH=14
+[2 Item (leaving)] {1 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {33 false 42 46 [] false}
+[Paragraph (entering)] 
+[Para within a list] breaking
+[Text] Third
+[Paragraph (leaving)] 
+[Para within a list] breaking
+[2 Item (leaving)] {33 false 42 46 [] false}
+[cr()] LH=14
+[2 List (leaving)] {17 true 0 0 [] false}
+[cr()] LH=14
+[Paragraph (entering)] 
+[cr()] LH=14
+[Text] Same thing but with paragraphs:
+[Paragraph (leaving)] 
+[cr()] LH=14
+[cr()] LH=14
+[2 List (entering)] {17 false 0 0 [] false}
+[2 Item (entering)] {25 false 42 46 [] false}
+[Paragraph (entering)] 
+[Para within a list] breaking
+[Text] First
+[Paragraph (leaving)] 
+[Para within a list] breaking
+[2 Item (leaving)] {25 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {9 false 42 46 [] false}
+[Paragraph (entering)] 
+[Para within a list] breaking
+[Text] Second:
+[Paragraph (leaving)] 
+[Para within a list] breaking
+[1 List (entering)] {16 true 0 0 [] false}
+[cr()] LH=14
+[1 Item (entering)] {16 false 42 46 [] false}
+[Paragraph (entering)] 
+[Para within a list] breaking
+[Text] Fee
+[Paragraph (leaving)] 
+[Para within a list] breaking
+[1 Item (leaving)] {16 false 42 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {0 false 42 46 [] false}
+[Paragraph (entering)] 
+[Para within a list] breaking
+[Text] Fie
+[Paragraph (leaving)] 
+[Para within a list] breaking
+[1 Item (leaving)] {0 false 42 46 [] false}
+[cr()] LH=14
+[1 Item (entering)] {0 false 42 46 [] false}
+[Paragraph (entering)] 
+[Para within a list] breaking
+[Text] Foe
+[Paragraph (leaving)] 
+[Para within a list] breaking
+[1 Item (leaving)] {0 false 42 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 true 0 0 [] false}
+[cr()] LH=14
+[2 Item (leaving)] {9 false 42 46 [] false}
+[cr()] LH=14
+[2 Item (entering)] {41 false 42 46 [] false}
+[Paragraph (entering)] 
+[Para within a list] breaking
+[Text] Third
+[Paragraph (leaving)] 
+[Para within a list] breaking
+[2 Item (leaving)] {41 false 42 46 [] false}
+[cr()] LH=14
+[2 List (leaving)] {17 false 0 0 [] false}
+[cr()] LH=14
+[Paragraph (entering)] 
+[cr()] LH=14
+[Text] This was an error in Markdown 1.0.1:
+[Paragraph (leaving)] 
+[cr()] LH=14
+[cr()] LH=14
+[1 List (entering)] {16 false 0 0 [] false}
+[1 Item (entering)] {24 false 42 46 [] false}
+[Paragraph (entering)] 
+[Para within a list] breaking
+[Text] this
+[Paragraph (leaving)] 
+[Para within a list] breaking
+[1 List (entering)] {16 true 0 0 [] false}
+[cr()] LH=14
+[1 Item (entering)] {48 false 42 46 [] false}
+[Paragraph (entering)] 
+[Para within a list] breaking
+[Text] sub
+[Paragraph (leaving)] 
+[Para within a list] breaking
+[1 Item (leaving)] {48 false 42 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 true 0 0 [] false}
+[cr()] LH=14
+[Paragraph (entering)] 
+[Para within a list] breaking
+[Text] that
+[Paragraph (leaving)] 
+[Para within a list] breaking
+[1 Item (leaving)] {24 false 42 46 [] false}
+[cr()] LH=14
+[1 List (leaving)] {16 false 0 0 [] false}
+[cr()] LH=14
+[Document] Not Handled
+[RenderFooter] Not handled

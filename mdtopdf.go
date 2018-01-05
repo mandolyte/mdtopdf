@@ -33,9 +33,6 @@ type PdfRenderer struct {
 	// default margins for safe keeping
 	mleft, mtop, mright, mbottom float64
 
-	// current settings
-	current Styler
-
 	// normal text
 	Normal Styler
 
@@ -54,13 +51,10 @@ type PdfRenderer struct {
 	H5 Styler
 	H6 Styler
 
-	// state booleans
-	inBlockquote      bool
-	inHeading         bool
-	inUnorderedItem   bool
-	inOrderedItem     bool
-	inDefinitionItem  bool
-	currentItemNumber int
+	// width of tab in number of spaces
+	TabWidth int
+
+	cs states
 }
 
 // NewPdfRenderer creates and configures an PdfRenderer object,
@@ -78,10 +72,10 @@ func NewPdfRenderer(pdfFile, tracerFile string) *PdfRenderer {
 	r.units = "pt"
 	r.Papersize = "A4"
 	r.fontdir = "."
+	r.TabWidth = 4
 
 	// Normal Text
 	r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2}
-	r.current = r.Normal // set default
 
 	// Backticked text
 	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2}
@@ -94,8 +88,8 @@ func NewPdfRenderer(pdfFile, tracerFile string) *PdfRenderer {
 	r.H5 = Styler{Font: "Arial", Style: "b", Size: 16, Spacing: 5}
 	r.H6 = Styler{Font: "Arial", Style: "b", Size: 14, Spacing: 5}
 
-	r.inBlockquote = false
-	r.inHeading = false
+	//r.inBlockquote = false
+	//r.inHeading = false
 	r.IndentValue = 36
 	r.Blockquote = Styler{Font: "Arial", Style: "i", Size: 12, Spacing: 2}
 
@@ -104,6 +98,13 @@ func NewPdfRenderer(pdfFile, tracerFile string) *PdfRenderer {
 	// set default font
 	r.setFont(r.Normal)
 	r.mleft, r.mtop, r.mright, r.mbottom = r.Pdf.GetMargins()
+
+	//r.current = r.Normal // set default
+	r.cs = states{stack: make([]*containerState, 0)}
+	initcurrent := &containerState{containerType: bf.Paragraph,
+		listkind:  notlist,
+		textStyle: r.Normal, leftMargin: r.mleft}
+	r.cs.push(initcurrent)
 	return r
 }
 
@@ -123,8 +124,14 @@ func (r *PdfRenderer) Process(content []byte) error {
 		defer r.w.Flush()
 	}
 
-	// just in case, change all CRLF to LF
-	content = []byte(strings.Replace(string(content), "\r\n", "\n", -1))
+	// Preprocess content:
+	// a) change all CRLF to LF
+	s := string(content)
+	s = strings.Replace(s, "\r\n", "\n", -1)
+	// b) change tabs to spaces determined by TabWidth
+	//s = strings.Replace(s, "\t", strings.Repeat(" ", r.TabWidth), -1)
+
+	content = []byte(s)
 	_ = bf.Run(content, bf.WithRenderer(r))
 
 	err = r.Pdf.OutputFileAndClose(r.pdfFile)
@@ -156,16 +163,19 @@ func (r *PdfRenderer) write(s Styler, t string) {
 func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.WalkStatus {
 	switch node.Type {
 	case bf.Text:
-		r.setFont(r.current)
+		//r.setFont(r.current)
+		currentStyle := r.cs.peek().textStyle
+		r.setFont(currentStyle)
 		s := string(node.Literal)
 		s = strings.Replace(s, "\n", " ", -1)
 		r.Tracer("Text", s)
-		if r.inUnorderedItem {
-			r.write(r.current, "- ")
-		} else if r.inOrderedItem {
-			r.write(r.current, fmt.Sprintf("%v. ", r.currentItemNumber))
+		if r.cs.peek().listkind == unordered {
+			r.write(currentStyle, "- ")
+		} else if r.cs.peek().listkind == ordered {
+			n := r.cs.peek().itemNumber
+			r.write(currentStyle, fmt.Sprintf("%v. ", n))
 		}
-		r.write(r.current, s)
+		r.write(currentStyle, s)
 		/*
 			if r.inHeading || r.inUnorderedItem || r.inOrderedItem || r.inDefinitionItem {
 				r.write(r.current, "\n") // output a newline with heading LH size
@@ -178,18 +188,20 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 	case bf.Emph:
 		if entering {
 			r.Tracer("Emph (entering)", "")
-			r.current.Style += "i"
+			r.cs.peek().textStyle.Style += "i"
 		} else {
 			r.Tracer("Emph (leaving)", "")
-			r.current.Style = strings.Replace(r.current.Style, "i", "", -1)
+			r.cs.peek().textStyle.Style = strings.Replace(
+				r.cs.peek().textStyle.Style, "i", "", -1)
 		}
 	case bf.Strong:
 		if entering {
 			r.Tracer("Strong (entering)", "")
-			r.current.Style += "b"
+			r.cs.peek().textStyle.Style += "b"
 		} else {
 			r.Tracer("Strong (leaving)", "")
-			r.current.Style = strings.Replace(r.current.Style, "b", "", -1)
+			r.cs.peek().textStyle.Style = strings.Replace(
+				r.cs.peek().textStyle.Style, "b", "", -1)
 		}
 	case bf.Del:
 		if entering {
@@ -223,21 +235,22 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 	case bf.Paragraph:
 		if entering {
 			r.Tracer("Paragraph (entering)", "")
-			if r.inUnorderedItem || r.inOrderedItem || r.inDefinitionItem {
-				r.Tracer("Para within a list", "breaking")
-				break
+			if r.cs.peek().containerType == bf.Item {
+				t := r.cs.peek().listkind
+				if t == unordered || t == ordered || t == definition {
+					r.Tracer("Para within a list", "breaking")
+					break
+				}
 			}
-			if r.inBlockquote {
-				// no change to styler
-			} else {
-				r.current = r.Normal
-			}
-			//r.cr()
+			r.cr()
 		} else {
 			r.Tracer("Paragraph (leaving)", "")
-			if r.inUnorderedItem || r.inOrderedItem || r.inDefinitionItem {
-				r.Tracer("Para within a list", "breaking")
-				break
+			if r.cs.peek().containerType == bf.Item {
+				t := r.cs.peek().listkind
+				if t == unordered || t == ordered || t == definition {
+					r.Tracer("Para within a list", "breaking")
+					break
+				}
 			}
 			r.cr()
 			r.cr()
@@ -245,16 +258,17 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 	case bf.BlockQuote:
 		if entering {
 			r.Tracer("BlockQuote (entering)", "")
-			r.inBlockquote = true
 			curleftmargin, _, _, _ := r.Pdf.GetMargins()
+			x := &containerState{containerType: bf.BlockQuote,
+				textStyle: r.Blockquote, listkind: notlist,
+				leftMargin: curleftmargin + r.IndentValue}
+			r.cs.push(x)
 			r.Pdf.SetLeftMargin(curleftmargin + r.IndentValue)
-			r.current = r.Blockquote
 		} else {
 			r.Tracer("BlockQuote (leaving)", "")
-			r.inBlockquote = false
 			curleftmargin, _, _, _ := r.Pdf.GetMargins()
 			r.Pdf.SetLeftMargin(curleftmargin - r.IndentValue)
-			r.current = r.Normal
+			r.cs.pop()
 			r.cr()
 		}
 	case bf.HTMLBlock:
@@ -262,92 +276,99 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 	case bf.Heading:
 		if entering {
 			r.cr()
-			r.inHeading = true
+			//r.inHeading = true
 			switch node.HeadingData.Level {
 			case 1:
 				r.Tracer("Heading (1, entering)", fmt.Sprintf("%v", node.HeadingData))
-				r.current = r.H1
+				x := &containerState{containerType: bf.Heading,
+					textStyle: r.H1, listkind: notlist,
+					leftMargin: r.cs.peek().leftMargin}
+				r.cs.push(x)
 			case 2:
 				r.Tracer("Heading (2, entering)", fmt.Sprintf("%v", node.HeadingData))
-				r.current = r.H2
+				x := &containerState{containerType: bf.Heading,
+					textStyle: r.H2, listkind: notlist,
+					leftMargin: r.cs.peek().leftMargin}
+				r.cs.push(x)
 			case 3:
 				r.Tracer("Heading (3, entering)", fmt.Sprintf("%v", node.HeadingData))
-				r.current = r.H3
+				x := &containerState{containerType: bf.Heading,
+					textStyle: r.H3, listkind: notlist,
+					leftMargin: r.cs.peek().leftMargin}
+				r.cs.push(x)
 			case 4:
 				r.Tracer("Heading (4, entering)", fmt.Sprintf("%v", node.HeadingData))
-				r.current = r.H4
+				x := &containerState{containerType: bf.Heading,
+					textStyle: r.H4, listkind: notlist,
+					leftMargin: r.cs.peek().leftMargin}
+				r.cs.push(x)
 			case 5:
 				r.Tracer("Heading (5, entering)", fmt.Sprintf("%v", node.HeadingData))
-				r.current = r.H5
+				x := &containerState{containerType: bf.Heading,
+					textStyle: r.H5, listkind: notlist,
+					leftMargin: r.cs.peek().leftMargin}
+				r.cs.push(x)
 			case 6:
 				r.Tracer("Heading (6, entering)", fmt.Sprintf("%v", node.HeadingData))
-				r.current = r.H6
+				x := &containerState{containerType: bf.Heading,
+					textStyle: r.H6, listkind: notlist,
+					leftMargin: r.cs.peek().leftMargin}
+				r.cs.push(x)
 			}
 		} else {
 			r.Tracer("Heading (leaving)", "")
-			r.current = r.Normal
-			r.inHeading = false
+			r.cr()
+			r.cs.pop()
 		}
 	case bf.HorizontalRule:
 		r.Tracer("HorizontalRule", "Not handled")
 	case bf.List:
-		listKind := "Unordered"
+		kind := unordered
 		if node.ListFlags&bf.ListTypeOrdered != 0 {
-			listKind = "Ordered"
+			kind = ordered
 		}
 		if node.ListFlags&bf.ListTypeDefinition != 0 {
-			listKind = "Definition"
+			kind = definition
 		}
 		if entering {
-			switch listKind {
-			case "Unordered":
-			case "Ordered":
-				r.currentItemNumber = 0
-			case "Definition":
-			}
+			r.Tracer(fmt.Sprintf("%v List (entering)", kind),
+				fmt.Sprintf("%v", node.ListData))
 			curleftmargin, _, _, _ := r.Pdf.GetMargins()
 			r.Pdf.SetLeftMargin(curleftmargin + r.IndentValue)
-			r.Tracer(fmt.Sprintf("%v List (entering)", listKind),
-				fmt.Sprintf("%v", node.ListData))
+			x := &containerState{containerType: bf.List,
+				textStyle: r.Normal, itemNumber: 0,
+				listkind:   kind,
+				leftMargin: curleftmargin + r.IndentValue}
+			// before pushing check to see if this is a sublist
+			// if so, then output a newline
+			if r.cs.peek().containerType == bf.Item {
+				r.cr()
+			}
+			r.cs.push(x)
 		} else {
+			r.Tracer(fmt.Sprintf("%v List (leaving)", kind),
+				fmt.Sprintf("%v", node.ListData))
 			curleftmargin, _, _, _ := r.Pdf.GetMargins()
 			r.Pdf.SetLeftMargin(curleftmargin - r.IndentValue)
-			r.Tracer(fmt.Sprintf("%v List (leaving)", listKind),
-				fmt.Sprintf("%v", node.ListData))
+			r.cs.pop()
 			r.cr()
 		}
 	case bf.Item:
-		listKind := "Unordered"
-		if node.ListFlags&bf.ListTypeOrdered != 0 {
-			listKind = "Ordered"
-		}
-		if node.ListFlags&bf.ListTypeDefinition != 0 {
-			listKind = "Definition"
-		}
 		if entering {
-			switch listKind {
-			case "Unordered":
-				r.inUnorderedItem = true
-			case "Ordered":
-				r.inOrderedItem = true
-				r.currentItemNumber++
-			case "Definition":
-				r.inDefinitionItem = true
-			}
-			r.Tracer(fmt.Sprintf("%v Item (entering)", listKind),
+			r.Tracer(fmt.Sprintf("%v Item (entering)",
+				r.cs.peek().listkind),
 				fmt.Sprintf("%v", node.ListData))
+			x := &containerState{containerType: bf.Item,
+				textStyle: r.Normal, itemNumber: r.cs.peek().itemNumber + 1,
+				listkind:   r.cs.peek().listkind,
+				leftMargin: r.cs.peek().leftMargin}
+			r.cs.push(x)
 		} else {
-			switch listKind {
-			case "Unordered":
-				r.inUnorderedItem = false
-			case "Ordered":
-				r.inOrderedItem = false
-			case "Definition":
-				r.inDefinitionItem = false
-			}
-			r.Tracer(fmt.Sprintf("%v Item (leaving)", listKind),
+			r.Tracer(fmt.Sprintf("%v Item (leaving)",
+				r.cs.peek().listkind),
 				fmt.Sprintf("%v", node.ListData))
 			r.cr()
+			r.cs.pop()
 		}
 	case bf.CodeBlock:
 		r.Tracer("Codeblock", fmt.Sprintf("%v", node.CodeBlockData))
@@ -358,7 +379,6 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 			r.Pdf.CellFormat(0, r.Backtick.Size,
 				lines[n], "", 1, "LT", true, 0, "")
 		}
-		r.cr()
 
 	case bf.Table:
 		if entering {
@@ -417,8 +437,9 @@ func (r *PdfRenderer) RenderFooter(w io.Writer, ast *bf.Node) {
 func (r *PdfRenderer) cr() {
 	//r.Tracer("fpdf.Ln()", fmt.Sprintf("LH=%v", r.current.Size+r.current.Spacing))
 	//r.Pdf.Ln(r.current.Size + r.current.Spacing)
-	r.Tracer("cr()", fmt.Sprintf("LH=%v", r.current.Size+r.current.Spacing))
-	r.write(r.current, "\n")
+	LH := r.cs.peek().textStyle.Size + r.cs.peek().textStyle.Spacing
+	r.Tracer("cr()", fmt.Sprintf("LH=%v", LH))
+	r.write(r.cs.peek().textStyle, "\n")
 }
 
 // Tracer traces parse and pdf generation activity.
