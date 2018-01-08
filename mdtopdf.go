@@ -35,6 +35,7 @@ type PdfRenderer struct {
 
 	// normal text
 	Normal Styler
+	em     float64
 
 	// backticked text
 	Backtick Styler
@@ -50,9 +51,6 @@ type PdfRenderer struct {
 	H4 Styler
 	H5 Styler
 	H6 Styler
-
-	// width of tab in number of spaces
-	TabWidth int
 
 	cs states
 }
@@ -72,7 +70,6 @@ func NewPdfRenderer(pdfFile, tracerFile string) *PdfRenderer {
 	r.units = "pt"
 	r.Papersize = "A4"
 	r.fontdir = "."
-	r.TabWidth = 4
 
 	// Normal Text
 	r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2}
@@ -90,7 +87,6 @@ func NewPdfRenderer(pdfFile, tracerFile string) *PdfRenderer {
 
 	//r.inBlockquote = false
 	//r.inHeading = false
-	r.IndentValue = 36
 	r.Blockquote = Styler{Font: "Arial", Style: "i", Size: 12, Spacing: 2}
 
 	r.Pdf = gofpdf.New(r.Orientation, r.units, r.Papersize, r.fontdir)
@@ -98,6 +94,8 @@ func NewPdfRenderer(pdfFile, tracerFile string) *PdfRenderer {
 	// set default font
 	r.setFont(r.Normal)
 	r.mleft, r.mtop, r.mright, r.mbottom = r.Pdf.GetMargins()
+	r.em = r.Pdf.GetStringWidth("m")
+	r.IndentValue = 3 * r.em
 
 	//r.current = r.Normal // set default
 	r.cs = states{stack: make([]*containerState, 0)}
@@ -124,12 +122,9 @@ func (r *PdfRenderer) Process(content []byte) error {
 		defer r.w.Flush()
 	}
 
-	// Preprocess content:
-	// a) change all CRLF to LF
+	// Preprocess content by changing all CRLF to LF
 	s := string(content)
 	s = strings.Replace(s, "\r\n", "\n", -1)
-	// b) change tabs to spaces determined by TabWidth
-	//s = strings.Replace(s, "\t", strings.Repeat(" ", r.TabWidth), -1)
 
 	content = []byte(s)
 	_ = bf.Run(content, bf.WithRenderer(r))
@@ -170,17 +165,32 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		s = strings.Replace(s, "\n", " ", -1)
 		r.Tracer("Text", s)
 		if r.cs.peek().listkind == unordered {
-			r.write(currentStyle, "- ")
+			r.Tracer("Text in list",
+				fmt.Sprintf("Type is %v", r.cs.peek().listkind))
+			if r.cs.peek().firstParagraph {
+				r.Tracer("... is first paragraph", "Add bullet")
+				//r.write(currentStyle, "- ")
+				r.Pdf.CellFormat(3*r.em, r.Normal.Size+r.Normal.Spacing,
+					"- ",
+					"", 0, "RB", false, 0, "")
+			}
 		} else if r.cs.peek().listkind == ordered {
 			n := r.cs.peek().itemNumber
-			r.write(currentStyle, fmt.Sprintf("%v. ", n))
+			r.Tracer("Text in list",
+				fmt.Sprintf("Type is %v, item #%v",
+					r.cs.peek().listkind, n))
+			//r.write(currentStyle, fmt.Sprintf("%v. ", n))
+			// right justify the item number in a cell which
+			// is the width of 3*em (normal font)
+			if r.cs.peek().firstParagraph {
+				r.Tracer("... is first paragraph", "Add number")
+				r.Pdf.CellFormat(3*r.em, r.Normal.Size+r.Normal.Spacing,
+					fmt.Sprintf("%v. ", n),
+					"", 0, "RB", false, 0, "")
+			}
 		}
 		r.write(currentStyle, s)
-		/*
-			if r.inHeading || r.inUnorderedItem || r.inOrderedItem || r.inDefinitionItem {
-				r.write(r.current, "\n") // output a newline with heading LH size
-			}
-		*/
+
 	case bf.Softbreak:
 		r.Tracer("Softbreak", "Not handled")
 	case bf.Hardbreak:
@@ -235,9 +245,24 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 	case bf.Paragraph:
 		if entering {
 			r.Tracer("Paragraph (entering)", "")
+			lm, tm, rm, bm := r.Pdf.GetMargins()
+			r.Tracer("... Margins (left, top, right, bottom:",
+				fmt.Sprintf("%v %v %v %v", lm, tm, rm, bm))
 			if r.cs.peek().containerType == bf.Item {
 				t := r.cs.peek().listkind
 				if t == unordered || t == ordered || t == definition {
+					if r.cs.peek().firstParagraph {
+						r.Tracer("First Para within a list", "breaking")
+					} else {
+						r.Tracer("Not First Para within a list", "indent etc.")
+						r.cr()
+						r.cr()
+						//curleftmargin, _, _, _ := r.Pdf.GetMargins()
+						r.cs.peek().leftMargin += r.IndentValue
+						r.Pdf.SetLeftMargin(r.cs.peek().leftMargin)
+						r.Tracer("... Left Margin Set:",
+							fmt.Sprintf("%v", r.cs.peek().leftMargin))
+					}
 					r.Tracer("Para within a list", "breaking")
 					break
 				}
@@ -245,9 +270,23 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 			r.cr()
 		} else {
 			r.Tracer("Paragraph (leaving)", "")
+			lm, tm, rm, bm := r.Pdf.GetMargins()
+			r.Tracer("... Margins (left, top, right, bottom:",
+				fmt.Sprintf("%v %v %v %v", lm, tm, rm, bm))
 			if r.cs.peek().containerType == bf.Item {
 				t := r.cs.peek().listkind
 				if t == unordered || t == ordered || t == definition {
+					if r.cs.peek().firstParagraph {
+						r.cs.peek().firstParagraph = false
+					} else {
+						r.Tracer("Not First Para within a list", "undent etc.")
+						r.cr()
+						//curleftmargin, _, _, _ := r.Pdf.GetMargins()
+						r.cs.peek().leftMargin -= r.IndentValue
+						r.Pdf.SetLeftMargin(r.cs.peek().leftMargin)
+						r.Tracer("... Left Margin Set:",
+							fmt.Sprintf("%v", r.cs.peek().leftMargin))
+					}
 					r.Tracer("Para within a list", "breaking")
 					break
 				}
@@ -333,12 +372,14 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		if entering {
 			r.Tracer(fmt.Sprintf("%v List (entering)", kind),
 				fmt.Sprintf("%v", node.ListData))
-			curleftmargin, _, _, _ := r.Pdf.GetMargins()
-			r.Pdf.SetLeftMargin(curleftmargin + r.IndentValue)
+			//curleftmargin, _, _, _ := r.Pdf.GetMargins()
+			r.Pdf.SetLeftMargin(r.cs.peek().leftMargin + r.IndentValue)
+			r.Tracer("... Left Margin",
+				fmt.Sprintf("set to %v", r.cs.peek().leftMargin+r.IndentValue))
 			x := &containerState{containerType: bf.List,
 				textStyle: r.Normal, itemNumber: 0,
 				listkind:   kind,
-				leftMargin: curleftmargin + r.IndentValue}
+				leftMargin: r.cs.peek().leftMargin + r.IndentValue}
 			// before pushing check to see if this is a sublist
 			// if so, then output a newline
 			if r.cs.peek().containerType == bf.Item {
@@ -348,26 +389,30 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		} else {
 			r.Tracer(fmt.Sprintf("%v List (leaving)", kind),
 				fmt.Sprintf("%v", node.ListData))
-			curleftmargin, _, _, _ := r.Pdf.GetMargins()
-			r.Pdf.SetLeftMargin(curleftmargin - r.IndentValue)
+			//curleftmargin, _, _, _ := r.Pdf.GetMargins()
+			r.Pdf.SetLeftMargin(r.cs.peek().leftMargin - r.IndentValue)
+			r.Tracer("... Left Margin",
+				fmt.Sprintf("re-set to %v", r.cs.peek().leftMargin-r.IndentValue))
 			r.cs.pop()
 			r.cr()
 		}
 	case bf.Item:
 		if entering {
-			r.Tracer(fmt.Sprintf("%v Item (entering)",
-				r.cs.peek().listkind),
+			r.Tracer(fmt.Sprintf("%v Item (entering) #%v",
+				r.cs.peek().listkind, r.cs.peek().itemNumber+1),
 				fmt.Sprintf("%v", node.ListData))
 			x := &containerState{containerType: bf.Item,
 				textStyle: r.Normal, itemNumber: r.cs.peek().itemNumber + 1,
-				listkind:   r.cs.peek().listkind,
-				leftMargin: r.cs.peek().leftMargin}
+				listkind:       r.cs.peek().listkind,
+				firstParagraph: true,
+				leftMargin:     r.cs.peek().leftMargin}
 			r.cs.push(x)
 		} else {
 			r.Tracer(fmt.Sprintf("%v Item (leaving)",
 				r.cs.peek().listkind),
 				fmt.Sprintf("%v", node.ListData))
 			r.cr()
+			r.cs.parent().itemNumber++
 			r.cs.pop()
 		}
 	case bf.CodeBlock:
