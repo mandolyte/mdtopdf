@@ -36,6 +36,9 @@ type containerState struct {
 	// populated if node type is a list
 	listkind   listType
 	itemNumber int // only if an ordered list
+
+	// populated if node type is a link
+	destination string
 }
 
 type states struct {
