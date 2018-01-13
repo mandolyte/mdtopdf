@@ -32,7 +32,7 @@ func (r *PdfRenderer) processList(node *bf.Node, entering bool) {
 		r.Tracer(fmt.Sprintf("%v List (entering)", kind),
 			fmt.Sprintf("%v", node.ListData))
 		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin + r.IndentValue)
-		r.Tracer("... Left Margin",
+		r.Tracer("... List Left Margin",
 			fmt.Sprintf("set to %v", r.cs.peek().leftMargin+r.IndentValue))
 		x := &containerState{containerType: bf.List,
 			textStyle: r.Normal, itemNumber: 0,
@@ -48,7 +48,7 @@ func (r *PdfRenderer) processList(node *bf.Node, entering bool) {
 		r.Tracer(fmt.Sprintf("%v List (leaving)", kind),
 			fmt.Sprintf("%v", node.ListData))
 		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin - r.IndentValue)
-		r.Tracer("... Left Margin",
+		r.Tracer("... Reset List Left Margin",
 			fmt.Sprintf("re-set to %v", r.cs.peek().leftMargin-r.IndentValue))
 		r.cs.pop()
 		r.cr()
@@ -65,22 +65,28 @@ func (r *PdfRenderer) processItem(node *bf.Node, entering bool) {
 			listkind:       r.cs.peek().listkind,
 			firstParagraph: true,
 			leftMargin:     r.cs.peek().leftMargin}
+		// add bullet or itemnumber; then set left margin for the
+		// text/paragraphs in the item
 		r.cs.push(x)
-		// add bullet or itemnumber
 		if r.cs.peek().listkind == unordered {
 			r.Pdf.CellFormat(3*r.em, r.Normal.Size+r.Normal.Spacing,
-				"- ",
+				"-",
 				"", 0, "RB", false, 0, "")
 		} else if r.cs.peek().listkind == ordered {
 			r.Pdf.CellFormat(3*r.em, r.Normal.Size+r.Normal.Spacing,
-				fmt.Sprintf("%v. ", r.cs.peek().itemNumber),
+				fmt.Sprintf("%v.", r.cs.peek().itemNumber),
 				"", 0, "RB", false, 0, "")
 		}
-
+		// with the bullet done, now set the left margin for the text
+		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin + (4 * r.em))
+		// set the cursor to this point
+		r.Pdf.SetX(r.cs.peek().leftMargin + (4 * r.em))
 	} else {
 		r.Tracer(fmt.Sprintf("%v Item (leaving)",
 			r.cs.peek().listkind),
 			fmt.Sprintf("%v", node.ListData))
+		// before we the new line, reset left margin
+		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin)
 		r.cr()
 		r.cs.parent().itemNumber++
 		r.cs.pop()
@@ -163,11 +169,6 @@ func (r *PdfRenderer) processParagraph(node *bf.Node, entering bool) {
 					r.Tracer("Not First Para within a list", "indent etc.")
 					r.cr()
 					r.cr()
-					//curleftmargin, _, _, _ := r.Pdf.GetMargins()
-					r.cs.peek().leftMargin += r.IndentValue
-					r.Pdf.SetLeftMargin(r.cs.peek().leftMargin)
-					r.Tracer("... Left Margin Set:",
-						fmt.Sprintf("%v", r.cs.peek().leftMargin))
 				}
 			}
 			return
@@ -184,15 +185,11 @@ func (r *PdfRenderer) processParagraph(node *bf.Node, entering bool) {
 				if r.cs.peek().firstParagraph {
 					r.cs.peek().firstParagraph = false
 				} else {
-					r.Tracer("Not First Para within a list", "undent etc.")
+					r.Tracer("Not First Para within a list", "")
 					r.cr()
-					//curleftmargin, _, _, _ := r.Pdf.GetMargins()
-					r.cs.peek().leftMargin -= r.IndentValue
-					r.Pdf.SetLeftMargin(r.cs.peek().leftMargin)
-					r.Tracer("... Left Margin Set:",
-						fmt.Sprintf("%v", r.cs.peek().leftMargin))
 				}
 			}
+			return
 		}
 		r.cr()
 		r.cr()
