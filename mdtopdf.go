@@ -150,6 +150,10 @@ func (r *PdfRenderer) write(s Styler, t string) {
 	r.Pdf.Write(s.Size+s.Spacing, t)
 }
 
+func (r *PdfRenderer) multiCell(s Styler, t string) {
+	r.Pdf.MultiCell(0, s.Size+s.Spacing, t, "", "", false)
+}
+
 func (r *PdfRenderer) writeLink(s Styler, display, url string) {
 	r.Pdf.WriteLinkString(s.Size+s.Spacing, display, url)
 }
@@ -177,6 +181,8 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 
 		if r.cs.peek().containerType == bf.Link {
 			r.writeLink(currentStyle, string(node.Literal), r.cs.peek().destination)
+			//} else if r.cs.peek().containerType == bf.Item {
+			//	r.multiCell(currentStyle, s)
 		} else {
 			r.write(currentStyle, s)
 		}
