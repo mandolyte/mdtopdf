@@ -45,53 +45,38 @@
 [Unordered List (entering)] {16 true 0 0 [] false}
 [... List Left Margin] set to 58.338
 [Unordered Item (entering) #1] {16 false 42 46 [] false}
-[... Bullet Left Margin] set to 58.338
-[... Item Text Left Margin] set to 68.334
 [Paragraph (entering)] 
-[... Margins (left, top, right, bottom:] 68.334 28.35 28.35 56.7
+[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 [First Para within a list] breaking
 [Text] An exclamation mark: 
 [Code] 
 [Text] ;
 [Paragraph (leaving)] 
-[... Margins (left, top, right, bottom:] 68.334 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
+[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 [Unordered Item (leaving)] {16 false 42 46 [] false}
 [cr()] LH=14
-[... Reset Item Text Left Margin] re-set to 58.338
 [Unordered Item (entering) #2] {0 false 42 46 [] false}
-[... Bullet Left Margin] set to 58.338
-[... Item Text Left Margin] set to 68.334
 [Paragraph (entering)] 
-[... Margins (left, top, right, bottom:] 68.334 28.35 28.35 56.7
+[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 [First Para within a list] breaking
 [Text] followed by a set of square brackets, containing the 
 [Code] 
 [Text]  attribute text for the image;
 [Paragraph (leaving)] 
-[... Margins (left, top, right, bottom:] 68.334 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
+[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 [Unordered Item (leaving)] {0 false 42 46 [] false}
 [cr()] LH=14
-[... Reset Item Text Left Margin] re-set to 58.338
 [Unordered Item (entering) #3] {32 false 42 46 [] false}
-[... Bullet Left Margin] set to 58.338
-[... Item Text Left Margin] set to 68.334
 [Paragraph (entering)] 
-[... Margins (left, top, right, bottom:] 68.334 28.35 28.35 56.7
+[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 [First Para within a list] breaking
 [Text] followed by a set of parentheses, containing the URL or path to the image, and an optional 
 [Code] 
 [Text]  attribute enclosed in double or single quotes.
 [Paragraph (leaving)] 
-[... Margins (left, top, right, bottom:] 68.334 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
+[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 [Unordered Item (leaving)] {32 false 42 46 [] false}
 [cr()] LH=14
-[... Reset Item Text Left Margin] re-set to 58.338
 [Unordered List (leaving)] {16 true 0 0 [] false}
 [... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14

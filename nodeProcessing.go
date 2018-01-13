@@ -85,7 +85,7 @@ func (r *PdfRenderer) processItem(node *bf.Node, entering bool) {
 		r.Tracer(fmt.Sprintf("%v Item (leaving)",
 			r.cs.peek().listkind),
 			fmt.Sprintf("%v", node.ListData))
-		// before we the new line, reset left margin
+		// before we output the new line, reset left margin
 		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin)
 		r.cr()
 		r.cs.parent().itemNumber++

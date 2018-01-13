@@ -1,47 +1,54 @@
 [RenderHeader] Not handled
 [Document] Not Handled
-[1 List (entering)] {16 false 0 0 [] false}
-[1 Item (entering)] {24 false 43 46 [] false}
+[Unordered List (entering)] {16 false 0 0 [] false}
+[... List Left Margin] set to 58.338
+[Unordered Item (entering) #1] {24 false 43 46 [] false}
 [Paragraph (entering)] 
-[Para within a list] breaking
+[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+[First Para within a list] breaking
 [Text] this is a list item indented with tabs
 [Paragraph (leaving)] 
-[Para within a list] breaking
-[1 Item (leaving)] {24 false 43 46 [] false}
+[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+[Unordered Item (leaving)] {24 false 43 46 [] false}
 [cr()] LH=14
-[1 Item (entering)] {40 false 43 46 [] false}
+[Unordered Item (entering) #2] {40 false 43 46 [] false}
 [Paragraph (entering)] 
-[Para within a list] breaking
+[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+[First Para within a list] breaking
 [Text] this is a list item indented with spaces
 [Paragraph (leaving)] 
-[Para within a list] breaking
-[1 Item (leaving)] {40 false 43 46 [] false}
+[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+[Unordered Item (leaving)] {40 false 43 46 [] false}
 [cr()] LH=14
-[1 List (leaving)] {16 false 0 0 [] false}
+[Unordered List (leaving)] {16 false 0 0 [] false}
+[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Code:
 [Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [cr()] LH=14
 [Codeblock] {false [] 0 0 0}
-[cr()] LH=14
 [Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] And:
 [Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [cr()] LH=14
 [Codeblock] {false [] 0 0 0}
-[cr()] LH=14
 [Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] And:
 [Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [cr()] LH=14
 [Codeblock] {false [] 0 0 0}
-[cr()] LH=14
 [Document] Not Handled
 [RenderFooter] Not handled
