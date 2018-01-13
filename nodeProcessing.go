@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/jung-kurt/gofpdf"
 	bf "gopkg.in/russross/blackfriday.v2"
 )
 
@@ -125,6 +126,22 @@ func (r *PdfRenderer) processLink(node *bf.Node, entering bool) {
 	}
 }
 
+func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
+	// while this has entering and leaving states, it doesn't appear
+	// to be useful except for other markup languages to close the tag
+	if entering {
+		r.Tracer("Image (entering)",
+			fmt.Sprintf("Destination[%v] Title[%v]",
+				string(node.LinkData.Destination),
+				string(node.LinkData.Title)))
+		r.Pdf.ImageOptions(string(node.LinkData.Destination),
+			-1, 0, 0, 0, true,
+			gofpdf.ImageOptions{ImageType: "PNG", ReadDpi: true}, 0, "")
+	} else {
+		r.Tracer("Image (leaving)", "")
+	}
+}
+
 func (r *PdfRenderer) processCode(node *bf.Node) {
 	r.Tracer("Code", "")
 	r.setFont(r.Backtick)
@@ -153,6 +170,7 @@ func (r *PdfRenderer) processParagraph(node *bf.Node, entering bool) {
 						fmt.Sprintf("%v", r.cs.peek().leftMargin))
 				}
 			}
+			return
 		}
 		r.cr()
 	} else {

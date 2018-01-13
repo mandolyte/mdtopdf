@@ -182,9 +182,11 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		}
 
 	case bf.Softbreak:
-		r.Tracer("Softbreak", "Not handled")
+		r.Tracer("Softbreak", "Output newline")
+		r.cr()
 	case bf.Hardbreak:
-		r.Tracer("Hardbreak", "Not handled")
+		r.Tracer("Hardbreak", "Output newline")
+		r.cr()
 	case bf.Emph:
 		r.processEmph(node, entering)
 	case bf.Strong:
@@ -200,11 +202,7 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 	case bf.Link:
 		r.processLink(node, entering)
 	case bf.Image:
-		if entering {
-			r.Tracer("Image (entering)", "Not handled")
-		} else {
-			r.Tracer("Image (leaving)", "Not handled")
-		}
+		r.processImage(node, entering)
 	case bf.Code:
 		r.processCode(node)
 	case bf.Document:

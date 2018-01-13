@@ -8,15 +8,38 @@ import (
 	"testing"
 )
 
+func TestImage(t *testing.T) {
+	inputd := "./testdata/"
+	inputf := "Image.text"
+	input := path.Join(inputd, inputf)
+
+	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
+	tracerfile += ".log"
+
+	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
+	pdffile += ".pdf"
+
+	content, err := ioutil.ReadFile(input)
+	if err != nil {
+		t.Errorf("%v:%v", input, err)
+	}
+
+	r := NewPdfRenderer(pdffile, tracerfile)
+	err = r.Process(content)
+	if err != nil {
+		t.Error(err)
+	}
+}
+
 func TestAutoLinks(t *testing.T) {
 	inputd := "./testdata/"
 	inputf := "Auto links.text"
 	input := path.Join(inputd, inputf)
 
-	tracerfile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	tracerfile += ".log"
 
-	pdffile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	pdffile += ".pdf"
 
 	content, err := ioutil.ReadFile(input)
@@ -36,10 +59,10 @@ func TestAmpersandEncoding(t *testing.T) {
 	inputf := "Amps and angle encoding.text"
 	input := path.Join(inputd, inputf)
 
-	tracerfile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	tracerfile += ".log"
 
-	pdffile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	pdffile += ".pdf"
 
 	content, err := ioutil.ReadFile(input)
@@ -59,10 +82,10 @@ func TestInlineLinks(t *testing.T) {
 	inputf := "Links, inline style.text"
 	input := path.Join(inputd, inputf)
 
-	tracerfile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	tracerfile += ".log"
 
-	pdffile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	pdffile += ".pdf"
 
 	content, err := ioutil.ReadFile(input)
@@ -82,10 +105,10 @@ func TestLists(t *testing.T) {
 	inputf := "Ordered and unordered lists.text"
 	input := path.Join(inputd, inputf)
 
-	tracerfile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	tracerfile += ".log"
 
-	pdffile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	pdffile += ".pdf"
 
 	content, err := ioutil.ReadFile(input)
@@ -105,10 +128,10 @@ func TestStringEmph(t *testing.T) {
 	inputf := "Strong and em together.text"
 	input := path.Join(inputd, inputf)
 
-	tracerfile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	tracerfile += ".log"
 
-	pdffile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	pdffile += ".pdf"
 
 	content, err := ioutil.ReadFile(input)
@@ -128,10 +151,10 @@ func TestTabs(t *testing.T) {
 	inputf := "Tabs.text"
 	input := path.Join(inputd, inputf)
 
-	tracerfile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	tracerfile += ".log"
 
-	pdffile := path.Join(inputd, strings.TrimRight(path.Base(input), ".text"))
+	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	pdffile += ".pdf"
 
 	content, err := ioutil.ReadFile(input)
