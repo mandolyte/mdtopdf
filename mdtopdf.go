@@ -218,11 +218,11 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 	case bf.BlockQuote:
 		r.processBlockQuote(node, entering)
 	case bf.HTMLBlock:
-		r.Tracer("HTMLBlock", "Not handled")
+		r.processHTMLBlock(node)
 	case bf.Heading:
 		r.processHeading(node, entering)
 	case bf.HorizontalRule:
-		r.Tracer("HorizontalRule", "Not handled")
+		r.processHorizontalRule(node)
 	case bf.List:
 		r.processList(node, entering)
 	case bf.Item:

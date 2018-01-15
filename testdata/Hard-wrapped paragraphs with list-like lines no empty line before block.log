@@ -1,0 +1,20 @@
+[RenderHeader] Not handled
+[Document] Not Handled
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] In Markdown 1.0.0 and earlier. Version 8. This line turns into a list item. Because a hard-wrapped line in the middle of a paragraph looked like a list item.
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Here's one with a bullet. * criminey.
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Document] Not Handled
+[RenderFooter] Not handled

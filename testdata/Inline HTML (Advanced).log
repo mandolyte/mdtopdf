@@ -1,0 +1,34 @@
+[RenderHeader] Not handled
+[Document] Not Handled
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Simple block on one line:
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[HTMLBlock] <div>foo</div>
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] And nested without indentation:
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[HTMLBlock] <div>
+<div>
+<div>
+foo
+</div>
+<div style=">"/>
+</div>
+<div>bar</div>
+</div>
+[cr()] LH=14
+[cr()] LH=14
+[Document] Not Handled
+[RenderFooter] Not handled

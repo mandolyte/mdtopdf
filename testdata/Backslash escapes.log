@@ -1,0 +1,409 @@
+[RenderHeader] Not handled
+[Document] Not Handled
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] These should all get escaped:
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Backslash: 
+[Text] \
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Backtick: 
+[Text] `
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Asterisk: 
+[Text] *
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Underscore: 
+[Text] _
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Left brace: 
+[Text] {
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Right brace: 
+[Text] }
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Left bracket: 
+[Text] [
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Right bracket: 
+[Text] ]
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Left paren: 
+[Text] (
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Right paren: 
+[Text] )
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Greater-than: 
+[Text] >
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Hash: 
+[Text] #
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Period: 
+[Text] .
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Bang: 
+[Text] !
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Plus: 
+[Text] +
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Minus: 
+[Text] -
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Tilde: 
+[Text] ~
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] These should not, because they occur within a code block:
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Codeblock] {false [] 0 0 0}
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Nor should these, which occur in code spans:
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Backslash: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Backtick: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Asterisk: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Underscore: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Left brace: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Right brace: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Left bracket: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Right bracket: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Left paren: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Right paren: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Greater-than: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Hash: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Period: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Bang: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Plus: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Minus: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Tilde: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] These should get escaped, even though they're matching pairs for other Markdown constructs:
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 
+[Text] *
+[Text] asterisks
+[Text] *
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 
+[Text] _
+[Text] underscores
+[Text] _
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 
+[Text] `
+[Text] backticks
+[Text] `
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] This is a code span with a literal backslash-backtick sequence: 
+[Code] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] This is a tag with unescaped backticks 
+[HTMLSpan] Not handled
+[Text] bar
+[HTMLSpan] Not handled
+[Text] .
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] This is a tag with backslashes 
+[HTMLSpan] Not handled
+[Text] bar
+[HTMLSpan] Not handled
+[Text] .
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Document] Not Handled
+[RenderFooter] Not handled

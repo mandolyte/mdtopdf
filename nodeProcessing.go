@@ -10,7 +10,7 @@ import (
 
 func (r *PdfRenderer) processCodeblock(node *bf.Node) {
 	r.Tracer("Codeblock", fmt.Sprintf("%v", node.CodeBlockData))
-	r.Pdf.SetFillColor(200, 220, 255)
+	r.Pdf.SetFillColor(200, 200, 200)
 	r.setFont(r.Backtick)
 	lines := strings.Split(strings.TrimSpace(string(node.Literal)), "\n")
 	for n := range lines {
@@ -261,4 +261,38 @@ func (r *PdfRenderer) processHeading(node *bf.Node, entering bool) {
 		r.cr()
 		r.cs.pop()
 	}
+}
+
+func (r *PdfRenderer) processHorizontalRule(node *bf.Node) {
+	r.Tracer("HorizontalRule", "")
+	// do a newline
+	r.cr()
+	// get the current x and y (assume left margin in ok)
+	x, y := r.Pdf.GetXY()
+	// get the page margins
+	lm, _, _, _ := r.Pdf.GetMargins()
+	// get the page size
+	w, _ := r.Pdf.GetPageSize()
+	// now compute the x value of the right side of page
+	newx := w - lm
+	r.Tracer("... From X,Y", fmt.Sprintf("%v,%v", x, y))
+	r.Pdf.MoveTo(x, y)
+	r.Tracer("...   To X,Y", fmt.Sprintf("%v,%v", newx, y))
+	r.Pdf.LineTo(newx, y)
+	r.Pdf.SetLineWidth(3)
+	r.Pdf.SetFillColor(200, 200, 200)
+	r.Pdf.DrawPath("F")
+	// another newline
+	r.cr()
+}
+
+func (r *PdfRenderer) processHTMLBlock(node *bf.Node) {
+	r.Tracer("HTMLBlock", string(node.Literal))
+	r.cr()
+	r.Pdf.SetFillColor(200, 200, 200)
+	r.setFont(r.Backtick)
+	//r.write(r.Backtick, string(node.Literal))
+	r.Pdf.CellFormat(0, r.Backtick.Size,
+		string(node.Literal), "", 1, "LT", true, 0, "")
+	r.cr()
 }

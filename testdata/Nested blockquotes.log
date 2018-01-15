@@ -1,0 +1,34 @@
+[RenderHeader] Not handled
+[Document] Not Handled
+[BlockQuote (entering)] 
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+[cr()] LH=14
+[Text] foo
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[BlockQuote (entering)] 
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 88.326 28.35 28.35 56.7
+[cr()] LH=14
+[Text] bar
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 88.326 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[BlockQuote (leaving)] 
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 58.337999999999994 28.35 28.35 56.7
+[cr()] LH=14
+[Text] foo
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 58.337999999999994 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[BlockQuote (leaving)] 
+[cr()] LH=14
+[Document] Not Handled
+[RenderFooter] Not handled
