@@ -291,7 +291,6 @@ func (r *PdfRenderer) processHTMLBlock(node *bf.Node) {
 	r.cr()
 	r.Pdf.SetFillColor(200, 200, 200)
 	r.setFont(r.Backtick)
-	//r.write(r.Backtick, string(node.Literal))
 	r.Pdf.CellFormat(0, r.Backtick.Size,
 		string(node.Literal), "", 1, "LT", true, 0, "")
 	r.cr()

@@ -46,9 +46,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Here's a 
-[Link (entering)] Destination[http://example.com/?foo=1&bar=2] Title[]
-[Text] link
-[Link (leaving)] 
+-[Link (entering)] Destination[http://example.com/?foo=1&bar=2] Title[]
+-[Text] link
+-[Link (leaving)] 
 [Text]  with an ampersand in the URL.
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -58,9 +58,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Here's a link with an amersand in the link text: 
-[Link (entering)] Destination[http://att.com/] Title[AT&T]
-[Text] AT&T
-[Link (leaving)] 
+-[Link (entering)] Destination[http://att.com/] Title[AT&T]
+-[Text] AT&T
+-[Link (leaving)] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -70,9 +70,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Here's an inline 
-[Link (entering)] Destination[/script?foo=1&bar=2] Title[]
-[Text] link
-[Link (leaving)] 
+-[Link (entering)] Destination[/script?foo=1&bar=2] Title[]
+-[Text] link
+-[Link (leaving)] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -82,9 +82,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Here's an inline 
-[Link (entering)] Destination[/script?foo=1&bar=2] Title[]
-[Text] link
-[Link (leaving)] 
+-[Link (entering)] Destination[/script?foo=1&bar=2] Title[]
+-[Text] link
+-[Link (leaving)] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7

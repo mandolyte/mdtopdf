@@ -4,9 +4,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Just a 
-[Link (entering)] Destination[/url/] Title[]
-[Text] URL
-[Link (leaving)] 
+-[Link (entering)] Destination[/url/] Title[]
+-[Text] URL
+-[Link (leaving)] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -16,9 +16,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] 
-[Link (entering)] Destination[/url/] Title[title]
-[Text] URL and title
-[Link (leaving)] 
+-[Link (entering)] Destination[/url/] Title[title]
+-[Text] URL and title
+-[Link (leaving)] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -28,9 +28,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] 
-[Link (entering)] Destination[/url/] Title[title preceded by two spaces]
-[Text] URL and title
-[Link (leaving)] 
+-[Link (entering)] Destination[/url/] Title[title preceded by two spaces]
+-[Text] URL and title
+-[Link (leaving)] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -40,9 +40,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] 
-[Link (entering)] Destination[/url/] Title[title preceded by a tab]
-[Text] URL and title
-[Link (leaving)] 
+-[Link (entering)] Destination[/url/] Title[title preceded by a tab]
+-[Text] URL and title
+-[Link (leaving)] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -52,9 +52,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] 
-[Link (entering)] Destination[/url/] Title[title has spaces afterward]
-[Text] URL and title
-[Link (leaving)] 
+-[Link (entering)] Destination[/url/] Title[title has spaces afterward]
+-[Text] URL and title
+-[Link (leaving)] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7

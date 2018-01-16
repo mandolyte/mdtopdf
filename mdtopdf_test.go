@@ -8,9 +8,8 @@ import (
 	"testing"
 )
 
-func TestImage(t *testing.T) {
+func testit(inputf string, t *testing.T) {
 	inputd := "./testdata/"
-	inputf := "Image.text"
 	input := path.Join(inputd, inputf)
 
 	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
@@ -29,418 +28,100 @@ func TestImage(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+}
+
+func TestMarkdownDocumenationBasic(t *testing.T) {
+	testit("Markdown Documentation - Basics.text", t)
+}
+
+func TestMarkdownDocumenationSyntax(t *testing.T) {
+	testit("Markdown Documentation - Syntax.text", t)
+}
+
+func TestImage(t *testing.T) {
+	testit("Image.text", t)
 }
 
 func TestAutoLinks(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Auto links.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Auto links.text", t)
 }
 
 func TestAmpersandEncoding(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Amps and angle encoding.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Amps and angle encoding.text", t)
 }
 
 func TestInlineLinks(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Links, inline style.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Links, inline style.text", t)
 }
 
 func TestLists(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Ordered and unordered lists.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Ordered and unordered lists.text", t)
 }
 
 func TestStringEmph(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Strong and em together.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Strong and em together.text", t)
 }
 
 func TestTabs(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Tabs.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Tabs.text", t)
 }
 
 func TestBackslashEscapes(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Backslash escapes.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Backslash escapes.text", t)
 }
 
 func TestBackquotes(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Blockquotes with code blocks.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Blockquotes with code blocks.text", t)
 }
 
 func TestCodeBlocks(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Code Blocks.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Code Blocks.text", t)
 }
 
 func TestCodeSpans(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Code Spans.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Code Spans.text", t)
 }
 
 func TestHardWrappedPara(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Hard-wrapped paragraphs with list-like lines no empty line before block.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Hard-wrapped paragraphs with list-like lines no empty line before block.text", t)
 }
 
 func TestHardWrappedPara2(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Hard-wrapped paragraphs with list-like lines.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Hard-wrapped paragraphs with list-like lines.text", t)
 }
 
 func TestHorizontalRules(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Horizontal rules.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Horizontal rules.text", t)
 }
 
 func TestInlineHtmlSimple(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Inline HTML (Simple).text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Inline HTML (Simple).text", t)
 }
 
 func TestInlineHtmlAdvanced(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Inline HTML (Advanced).text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Inline HTML (Advanced).text", t)
 }
 
 func TestInlineHtmlComments(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Inline HTML comments.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Inline HTML comments.text", t)
 }
 
 func TestTitleWithQuotes(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Literal quotes in titles.text"
-	input := path.Join(inputd, inputf)
-
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
-
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
-
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+	testit("Literal quotes in titles.text", t)
 }
 
 func TestNestedBlockquotes(t *testing.T) {
-	inputd := "./testdata/"
-	inputf := "Nested blockquotes.text"
-	input := path.Join(inputd, inputf)
+	testit("Nested blockquotes.text", t)
+}
 
-	tracerfile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	tracerfile += ".log"
+func TestLinksReference(t *testing.T) {
+	testit("Links, reference style.text", t)
+}
 
-	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
-	pdffile += ".pdf"
+func TestLinksShortcut(t *testing.T) {
+	testit("Links, shortcut references.text", t)
+}
 
-	content, err := ioutil.ReadFile(input)
-	if err != nil {
-		t.Errorf("%v:%v", input, err)
-	}
-
-	r := NewPdfRenderer(pdffile, tracerfile)
-	err = r.Process(content)
-	if err != nil {
-		t.Error(err)
-	}
+func TestTidyness(t *testing.T) {
+	testit("Tidyness.text", t)
 }

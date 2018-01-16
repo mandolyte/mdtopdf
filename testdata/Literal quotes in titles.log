@@ -4,9 +4,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Foo 
-[Link (entering)] Destination[/url/] Title[Title with "quotes" inside]
-[Text] bar
-[Link (leaving)] 
+-[Link (entering)] Destination[/url/] Title[Title with "quotes" inside]
+-[Text] bar
+-[Link (leaving)] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -16,9 +16,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Foo 
-[Link (entering)] Destination[/url/] Title[Title with "quotes" inside]
-[Text] bar
-[Link (leaving)] 
+-[Link (entering)] Destination[/url/] Title[Title with "quotes" inside]
+-[Text] bar
+-[Link (leaving)] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7

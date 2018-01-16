@@ -180,9 +180,8 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		r.Tracer("Text", s)
 
 		if r.cs.peek().containerType == bf.Link {
-			r.writeLink(currentStyle, string(node.Literal), r.cs.peek().destination)
-			//} else if r.cs.peek().containerType == bf.Item {
-			//	r.multiCell(currentStyle, s)
+			//r.writeLink(currentStyle, string(node.Literal), r.cs.peek().destination)
+			r.writeLink(currentStyle, s, r.cs.peek().destination)
 		} else {
 			r.write(currentStyle, s)
 		}
@@ -295,6 +294,7 @@ func (r *PdfRenderer) cr() {
 // Output goes to Stdout when DebugMode value is set to true
 func (r *PdfRenderer) Tracer(source, msg string) {
 	if r.tracerFile != "" {
-		r.w.WriteString(fmt.Sprintf("[%v] %v\n", source, msg))
+		indent := strings.Repeat("-", len(r.cs.stack)-1)
+		r.w.WriteString(fmt.Sprintf("%v[%v] %v\n", indent, source, msg))
 	}
 }
