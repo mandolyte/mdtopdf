@@ -24,3 +24,21 @@ and data provided in each while the AST is presented.
 2. Github-flavored Markdown permits strikethough using tildes. This is not supported at present by `gofpdf` as a font style.
 
 3. The markdown link title, which would show when converted to HTML as hover-over text, is not supported. The generated PDF will show the actual URL that will be used if clicked, but this is a function of the PDF viewer.
+
+4. Currently all levels of unordered lists use a dash for the bullet. 
+This is a planned fix; [see here](https://github.com/mandolyte/mdtopdf/issues/1).
+
+## Installation 
+
+To install the package, run the usual `go get`:
+```
+go get github.com/mandolyte/mdtopdf
+```
+
+## Quick start
+
+In the `cmd` folder is an example using the package. It demonstrates
+a number of features. The test PDF was created with this command:
+```
+go run convert.go -i test.md -o test.pdf
+```
