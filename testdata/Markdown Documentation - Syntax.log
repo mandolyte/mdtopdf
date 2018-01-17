@@ -309,7 +309,7 @@
 [HorizontalRule] 
 [cr()] LH=14
 [... From X,Y] 28.35,573.35
-[...   To X,Y] 566.93,573.35
+[...   To X,Y] 583.65,573.35
 [cr()] LH=14
 [HTMLBlock] <h2 id="overview">Overview</h2>
 [cr()] LH=14
@@ -605,8 +605,8 @@
 [cr()] LH=14
 [HorizontalRule] 
 [cr()] LH=14
-[... From X,Y] 28.35,56.35
-[...   To X,Y] 566.93,56.35
+[... From X,Y] 28.35,192.35
+[...   To X,Y] 583.65,192.35
 [cr()] LH=14
 [HTMLBlock] <h2 id="block">Block Elements</h2>
 [cr()] LH=14
@@ -1104,8 +1104,8 @@
 [Codeblock] {false [] 0 0 0}
 [HorizontalRule] 
 [cr()] LH=14
-[... From X,Y] 28.35,114.35
-[...   To X,Y] 566.93,114.35
+[... From X,Y] 28.35,522.35
+[...   To X,Y] 583.65,522.35
 [cr()] LH=14
 [HTMLBlock] <h2 id="span">Span Elements</h2>
 [cr()] LH=14
@@ -1682,8 +1682,8 @@
 [cr()] LH=14
 [HorizontalRule] 
 [cr()] LH=14
-[... From X,Y] 28.35,98.35
-[...   To X,Y] 566.93,98.35
+[... From X,Y] 28.35,42.35
+[...   To X,Y] 583.65,42.35
 [cr()] LH=14
 [HTMLBlock] <h2 id="misc">Miscellaneous</h2>
 [cr()] LH=14

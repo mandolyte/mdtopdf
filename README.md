@@ -17,7 +17,7 @@ The tests create log files that trace the BlackFriday parser
 callbacks. This is a valuable debug tool showing each callback 
 and data provided in each while the AST is presented.
 
-## Limitations
+## Limitations and Known Issues
 
 1. It is common for Markdown to include HTML. HTML is treated as a "code block". *There is no attempt to convert raw HTML to PDF.*
 
@@ -27,6 +27,12 @@ and data provided in each while the AST is presented.
 
 4. Currently all levels of unordered lists use a dash for the bullet. 
 This is a planned fix; [see here](https://github.com/mandolyte/mdtopdf/issues/1).
+
+5. Extra newlines are erroneously added after lists 
+
+6. Definition lists are not supported (not sure that markdown supports them -- I need to research this)
+
+7. The fonts, styling, etc. are fixed. Hopefully the choices made are reasonable ones.
 
 ## Installation 
 

@@ -30,10 +30,10 @@ import (
 func (r *PdfRenderer) processCodeblock(node *bf.Node) {
 	r.Tracer("Codeblock", fmt.Sprintf("%v", node.CodeBlockData))
 	r.Pdf.SetFillColor(200, 200, 200)
-	r.setFont(r.Backtick)
+	r.setFont(r.backtick)
 	lines := strings.Split(strings.TrimSpace(string(node.Literal)), "\n")
 	for n := range lines {
-		r.Pdf.CellFormat(0, r.Backtick.Size,
+		r.Pdf.CellFormat(0, r.backtick.Size,
 			lines[n], "", 1, "LT", true, 0, "")
 	}
 }
@@ -46,17 +46,17 @@ func (r *PdfRenderer) processList(node *bf.Node, entering bool) {
 	if node.ListFlags&bf.ListTypeDefinition != 0 {
 		kind = definition
 	}
-	r.setFont(r.Normal)
+	r.setFont(r.normal)
 	if entering {
 		r.Tracer(fmt.Sprintf("%v List (entering)", kind),
 			fmt.Sprintf("%v", node.ListData))
-		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin + r.IndentValue)
+		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin + r.indentValue)
 		r.Tracer("... List Left Margin",
-			fmt.Sprintf("set to %v", r.cs.peek().leftMargin+r.IndentValue))
+			fmt.Sprintf("set to %v", r.cs.peek().leftMargin+r.indentValue))
 		x := &containerState{containerType: bf.List,
-			textStyle: r.Normal, itemNumber: 0,
+			textStyle: r.normal, itemNumber: 0,
 			listkind:   kind,
-			leftMargin: r.cs.peek().leftMargin + r.IndentValue}
+			leftMargin: r.cs.peek().leftMargin + r.indentValue}
 		// before pushing check to see if this is a sublist
 		// if so, then output a newline
 		if r.cs.peek().containerType == bf.Item {
@@ -66,9 +66,9 @@ func (r *PdfRenderer) processList(node *bf.Node, entering bool) {
 	} else {
 		r.Tracer(fmt.Sprintf("%v List (leaving)", kind),
 			fmt.Sprintf("%v", node.ListData))
-		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin - r.IndentValue)
+		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin - r.indentValue)
 		r.Tracer("... Reset List Left Margin",
-			fmt.Sprintf("re-set to %v", r.cs.peek().leftMargin-r.IndentValue))
+			fmt.Sprintf("re-set to %v", r.cs.peek().leftMargin-r.indentValue))
 		r.cs.pop()
 		r.cr()
 	}
@@ -80,7 +80,7 @@ func (r *PdfRenderer) processItem(node *bf.Node, entering bool) {
 			r.cs.peek().listkind, r.cs.peek().itemNumber+1),
 			fmt.Sprintf("%v", node.ListData))
 		x := &containerState{containerType: bf.Item,
-			textStyle: r.Normal, itemNumber: r.cs.peek().itemNumber + 1,
+			textStyle: r.normal, itemNumber: r.cs.peek().itemNumber + 1,
 			listkind:       r.cs.peek().listkind,
 			firstParagraph: true,
 			leftMargin:     r.cs.peek().leftMargin}
@@ -88,11 +88,11 @@ func (r *PdfRenderer) processItem(node *bf.Node, entering bool) {
 		// text/paragraphs in the item
 		r.cs.push(x)
 		if r.cs.peek().listkind == unordered {
-			r.Pdf.CellFormat(3*r.em, r.Normal.Size+r.Normal.Spacing,
+			r.Pdf.CellFormat(3*r.em, r.normal.Size+r.normal.Spacing,
 				"-",
 				"", 0, "RB", false, 0, "")
 		} else if r.cs.peek().listkind == ordered {
-			r.Pdf.CellFormat(3*r.em, r.Normal.Size+r.Normal.Spacing,
+			r.Pdf.CellFormat(3*r.em, r.normal.Size+r.normal.Spacing,
 				fmt.Sprintf("%v.", r.cs.peek().itemNumber),
 				"", 0, "RB", false, 0, "")
 		}
@@ -137,7 +137,7 @@ func (r *PdfRenderer) processStrong(node *bf.Node, entering bool) {
 func (r *PdfRenderer) processLink(node *bf.Node, entering bool) {
 	if entering {
 		x := &containerState{containerType: bf.Link,
-			textStyle: r.Link, listkind: notlist,
+			textStyle: r.link, listkind: notlist,
 			leftMargin:  r.cs.peek().leftMargin,
 			destination: string(node.LinkData.Destination)}
 		r.cs.push(x)
@@ -169,8 +169,8 @@ func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
 
 func (r *PdfRenderer) processCode(node *bf.Node) {
 	r.Tracer("Code", "")
-	r.setFont(r.Backtick)
-	r.write(r.Backtick, string(node.Literal))
+	r.setFont(r.backtick)
+	r.write(r.backtick, string(node.Literal))
 }
 
 func (r *PdfRenderer) processParagraph(node *bf.Node, entering bool) {
@@ -220,14 +220,14 @@ func (r *PdfRenderer) processBlockQuote(node *bf.Node, entering bool) {
 		r.Tracer("BlockQuote (entering)", "")
 		curleftmargin, _, _, _ := r.Pdf.GetMargins()
 		x := &containerState{containerType: bf.BlockQuote,
-			textStyle: r.Blockquote, listkind: notlist,
-			leftMargin: curleftmargin + r.IndentValue}
+			textStyle: r.blockquote, listkind: notlist,
+			leftMargin: curleftmargin + r.indentValue}
 		r.cs.push(x)
-		r.Pdf.SetLeftMargin(curleftmargin + r.IndentValue)
+		r.Pdf.SetLeftMargin(curleftmargin + r.indentValue)
 	} else {
 		r.Tracer("BlockQuote (leaving)", "")
 		curleftmargin, _, _, _ := r.Pdf.GetMargins()
-		r.Pdf.SetLeftMargin(curleftmargin - r.IndentValue)
+		r.Pdf.SetLeftMargin(curleftmargin - r.indentValue)
 		r.cs.pop()
 		r.cr()
 	}
@@ -241,37 +241,37 @@ func (r *PdfRenderer) processHeading(node *bf.Node, entering bool) {
 		case 1:
 			r.Tracer("Heading (1, entering)", fmt.Sprintf("%v", node.HeadingData))
 			x := &containerState{containerType: bf.Heading,
-				textStyle: r.H1, listkind: notlist,
+				textStyle: r.h1, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
 			r.cs.push(x)
 		case 2:
 			r.Tracer("Heading (2, entering)", fmt.Sprintf("%v", node.HeadingData))
 			x := &containerState{containerType: bf.Heading,
-				textStyle: r.H2, listkind: notlist,
+				textStyle: r.h2, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
 			r.cs.push(x)
 		case 3:
 			r.Tracer("Heading (3, entering)", fmt.Sprintf("%v", node.HeadingData))
 			x := &containerState{containerType: bf.Heading,
-				textStyle: r.H3, listkind: notlist,
+				textStyle: r.h3, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
 			r.cs.push(x)
 		case 4:
 			r.Tracer("Heading (4, entering)", fmt.Sprintf("%v", node.HeadingData))
 			x := &containerState{containerType: bf.Heading,
-				textStyle: r.H4, listkind: notlist,
+				textStyle: r.h4, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
 			r.cs.push(x)
 		case 5:
 			r.Tracer("Heading (5, entering)", fmt.Sprintf("%v", node.HeadingData))
 			x := &containerState{containerType: bf.Heading,
-				textStyle: r.H5, listkind: notlist,
+				textStyle: r.h5, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
 			r.cs.push(x)
 		case 6:
 			r.Tracer("Heading (6, entering)", fmt.Sprintf("%v", node.HeadingData))
 			x := &containerState{containerType: bf.Heading,
-				textStyle: r.H6, listkind: notlist,
+				textStyle: r.h6, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
 			r.cs.push(x)
 		}
@@ -309,8 +309,8 @@ func (r *PdfRenderer) processHTMLBlock(node *bf.Node) {
 	r.Tracer("HTMLBlock", string(node.Literal))
 	r.cr()
 	r.Pdf.SetFillColor(200, 200, 200)
-	r.setFont(r.Backtick)
-	r.Pdf.CellFormat(0, r.Backtick.Size,
+	r.setFont(r.backtick)
+	r.Pdf.CellFormat(0, r.backtick.Size,
 		string(node.Literal), "", 1, "LT", true, 0, "")
 	r.cr()
 }

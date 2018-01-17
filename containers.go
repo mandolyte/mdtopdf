@@ -48,7 +48,7 @@ func (n listType) String() string {
 
 type containerState struct {
 	containerType  bf.NodeType
-	textStyle      Styler
+	textStyle      styler
 	leftMargin     float64
 	firstParagraph bool
 

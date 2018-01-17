@@ -41,7 +41,7 @@ func testit(inputf string, t *testing.T) {
 		t.Errorf("%v:%v", input, err)
 	}
 
-	r := NewPdfRenderer(pdffile, tracerfile)
+	r := NewPdfRenderer("", "", pdffile, tracerfile)
 	err = r.Process(content)
 	if err != nil {
 		t.Error(err)

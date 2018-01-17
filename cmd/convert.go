@@ -41,7 +41,7 @@ func main() {
 		}
 	}
 
-	pf := mdtopdf.NewPdfRenderer(*output, "trace.log")
+	pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log")
 	pf.Pdf.SetSubject("How to convert markdown to PDF", true)
 	pf.Pdf.SetTitle("Example PDF converted from Markdown", true)
 
