@@ -1,2 +1,2 @@
 #!/bin/sh
-go run mdToPdf.go -i test.md -o test.pdf -debug=true > debug.txt
+go run convert.go -i test.md -o test.pdf 
