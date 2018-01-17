@@ -208,7 +208,7 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		r.setFont(currentStyle)
 		s := string(node.Literal)
 		s = strings.Replace(s, "\n", " ", -1)
-		r.Tracer("Text", s)
+		r.tracer("Text", s)
 
 		if r.cs.peek().containerType == bf.Link {
 			//r.writeLink(currentStyle, string(node.Literal), r.cs.peek().destination)
@@ -218,10 +218,10 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		}
 
 	case bf.Softbreak:
-		r.Tracer("Softbreak", "Output newline")
+		r.tracer("Softbreak", "Output newline")
 		r.cr()
 	case bf.Hardbreak:
-		r.Tracer("Hardbreak", "Output newline")
+		r.tracer("Hardbreak", "Output newline")
 		r.cr()
 	case bf.Emph:
 		r.processEmph(node, entering)
@@ -229,12 +229,12 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		r.processStrong(node, entering)
 	case bf.Del:
 		if entering {
-			r.Tracer("DEL (entering)", "Not handled")
+			r.tracer("DEL (entering)", "Not handled")
 		} else {
-			r.Tracer("DEL (leaving)", "Not handled")
+			r.tracer("DEL (leaving)", "Not handled")
 		}
 	case bf.HTMLSpan:
-		r.Tracer("HTMLSpan", "Not handled")
+		r.tracer("HTMLSpan", "Not handled")
 	case bf.Link:
 		r.processLink(node, entering)
 	case bf.Image:
@@ -242,7 +242,7 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 	case bf.Code:
 		r.processCode(node)
 	case bf.Document:
-		r.Tracer("Document", "Not Handled")
+		r.tracer("Document", "Not Handled")
 	case bf.Paragraph:
 		r.processParagraph(node, entering)
 	case bf.BlockQuote:
@@ -261,9 +261,9 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		r.processCodeblock(node)
 	case bf.Table:
 		if entering {
-			r.Tracer("Table (entering)", "Not handled")
+			r.tracer("Table (entering)", "Not handled")
 		} else {
-			r.Tracer("Table (leaving)", "Not handled")
+			r.tracer("Table (leaving)", "Not handled")
 		}
 	case bf.TableCell:
 		/*
@@ -275,27 +275,27 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 			}
 		*/
 		if entering {
-			r.Tracer("TableCell (entering)", "Not handled")
+			r.tracer("TableCell (entering)", "Not handled")
 		} else {
-			r.Tracer("TableCell (leaving)", "Not handled")
+			r.tracer("TableCell (leaving)", "Not handled")
 		}
 	case bf.TableHead:
 		if entering {
-			r.Tracer("TableHead (entering)", "Not handled")
+			r.tracer("TableHead (entering)", "Not handled")
 		} else {
-			r.Tracer("TableHead (leaving)", "Not handled")
+			r.tracer("TableHead (leaving)", "Not handled")
 		}
 	case bf.TableBody:
 		if entering {
-			r.Tracer("TableBody (entering)", "Not handled")
+			r.tracer("TableBody (entering)", "Not handled")
 		} else {
-			r.Tracer("TableBody (leaving)", "Not handled")
+			r.tracer("TableBody (leaving)", "Not handled")
 		}
 	case bf.TableRow:
 		if entering {
-			r.Tracer("TableRow (entering)", "Not handled")
+			r.tracer("TableRow (entering)", "Not handled")
 		} else {
-			r.Tracer("TableRow (leaving)", "Not handled")
+			r.tracer("TableRow (leaving)", "Not handled")
 		}
 	default:
 		panic("Unknown node type " + node.Type.String())
@@ -305,25 +305,25 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 
 // RenderHeader writes HTML document preamble and TOC if requested.
 func (r *PdfRenderer) RenderHeader(w io.Writer, ast *bf.Node) {
-	r.Tracer("RenderHeader", "Not handled")
+	r.tracer("RenderHeader", "Not handled")
 }
 
 // RenderFooter writes HTML document footer.
 func (r *PdfRenderer) RenderFooter(w io.Writer, ast *bf.Node) {
-	r.Tracer("RenderFooter", "Not handled")
+	r.tracer("RenderFooter", "Not handled")
 }
 
 func (r *PdfRenderer) cr() {
-	//r.Tracer("fpdf.Ln()", fmt.Sprintf("LH=%v", r.current.Size+r.current.Spacing))
+	//r.tracer("fpdf.Ln()", fmt.Sprintf("LH=%v", r.current.Size+r.current.Spacing))
 	//r.Pdf.Ln(r.current.Size + r.current.Spacing)
 	LH := r.cs.peek().textStyle.Size + r.cs.peek().textStyle.Spacing
-	r.Tracer("cr()", fmt.Sprintf("LH=%v", LH))
+	r.tracer("cr()", fmt.Sprintf("LH=%v", LH))
 	r.write(r.cs.peek().textStyle, "\n")
 }
 
 // Tracer traces parse and pdf generation activity.
 // Output goes to Stdout when DebugMode value is set to true
-func (r *PdfRenderer) Tracer(source, msg string) {
+func (r *PdfRenderer) tracer(source, msg string) {
 	if r.tracerFile != "" {
 		indent := strings.Repeat("-", len(r.cs.stack)-1)
 		r.w.WriteString(fmt.Sprintf("%v[%v] %v\n", indent, source, msg))
