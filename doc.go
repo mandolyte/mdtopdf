@@ -16,7 +16,6 @@
  *   text, drawing and images.
  *   Available at https://github.com/jung-kurt/gofpdf
  */
-
 /*
 Package mdtopdf implements a PDF document generator for markdown documents.
 
@@ -52,5 +51,7 @@ a number of features. The test PDF was created with this command:
 
 	go run convert.go -i test.md -o test.pdf
 
+See README for limitations and known issues
 */
+
 package mdtopdf
