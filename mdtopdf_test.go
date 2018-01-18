@@ -48,6 +48,10 @@ func testit(inputf string, t *testing.T) {
 	}
 }
 
+func TestTables(t *testing.T) {
+	testit("Tables.text", t)
+}
+
 func TestMarkdownDocumenationBasic(t *testing.T) {
 	testit("Markdown Documentation - Basics.text", t)
 }

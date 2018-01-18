@@ -319,3 +319,99 @@ func (r *PdfRenderer) processHTMLBlock(node *bf.Node) {
 		string(node.Literal), "", 1, "LT", true, 0, "")
 	r.cr()
 }
+
+func (r *PdfRenderer) processTable(node *bf.Node, entering bool) {
+	if entering {
+		r.tracer("Table (entering)", "")
+		x := &containerState{containerType: bf.Table,
+			textStyle: r.normal, listkind: notlist,
+			leftMargin: r.cs.peek().leftMargin}
+		r.cr()
+		r.cs.push(x)
+		fill = false
+	} else {
+		wSum := 0.0
+		for _, w := range cellwidths {
+			wSum += w
+		}
+		r.Pdf.CellFormat(wSum, 0, "", "T", 0, "", false, 0, "")
+
+		r.cs.pop()
+		r.tracer("Table (leaving)", "")
+		r.cr()
+	}
+}
+
+func (r *PdfRenderer) processTableHead(node *bf.Node, entering bool) {
+	if entering {
+		r.tracer("TableHead (entering)", "")
+		x := &containerState{containerType: bf.TableHead,
+			textStyle: r.normal, listkind: notlist,
+			leftMargin: r.cs.peek().leftMargin}
+		r.cr()
+		r.cs.push(x)
+		cellwidths = make([]float64, 0)
+	} else {
+		r.cs.pop()
+		r.tracer("TableHead (leaving)", "")
+	}
+}
+
+func (r *PdfRenderer) processTableBody(node *bf.Node, entering bool) {
+	if entering {
+		r.tracer("TableBody (entering)", "")
+		x := &containerState{containerType: bf.TableBody,
+			textStyle: r.normal, listkind: notlist,
+			leftMargin: r.cs.peek().leftMargin}
+		r.cs.push(x)
+	} else {
+		r.cs.pop()
+		r.tracer("TableBody (leaving)", "")
+		r.cr()
+	}
+}
+
+func (r *PdfRenderer) processTableRow(node *bf.Node, entering bool) {
+	if entering {
+		r.tracer("TableRow (entering)", "")
+		x := &containerState{containerType: bf.TableRow,
+			textStyle: r.normal, listkind: notlist,
+			leftMargin: r.cs.peek().leftMargin}
+		r.cr()
+
+		// initialize cell widths slice; only one table at a time!
+		curdatacell = 0
+		r.cs.push(x)
+	} else {
+		r.cs.pop()
+		r.tracer("TableRow (leaving)", "")
+		fill = !fill
+	}
+}
+
+func (r *PdfRenderer) processTableCell(node *bf.Node, entering bool) {
+	if entering {
+		r.tracer("TableCell (entering)", "")
+		x := &containerState{containerType: bf.TableCell,
+			textStyle: r.normal, listkind: notlist,
+			leftMargin: r.cs.peek().leftMargin}
+		if node.TableCellData.IsHeader {
+			r.Pdf.SetFillColor(255, 0, 0)
+			r.Pdf.SetTextColor(255, 255, 255)
+			r.Pdf.SetDrawColor(128, 0, 0)
+			r.Pdf.SetLineWidth(.3)
+			r.Pdf.SetFont("", "B", 0)
+			x.isHeader = true
+		} else {
+			r.Pdf.SetFillColor(224, 235, 255)
+			r.Pdf.SetTextColor(0, 0, 0)
+			r.Pdf.SetFont("", "", 0)
+			x.isHeader = false
+		}
+		r.cs.push(x)
+	} else {
+		r.cs.pop()
+		r.tracer("TableCell (leaving)", "")
+		curdatacell++
+	}
+}

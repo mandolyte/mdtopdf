@@ -215,6 +215,22 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		} else if r.cs.peek().containerType == bf.Heading {
 			r.cr() // add space before heading
 			r.write(currentStyle, s)
+		} else if r.cs.peek().containerType == bf.TableCell {
+			if r.cs.peek().isHeader {
+				// get the string width of header value
+				hw := r.Pdf.GetStringWidth(s) + (2 * r.em)
+				// now append it
+				cellwidths = append(cellwidths, hw)
+				// now write it...
+				h := currentStyle.Size + currentStyle.Spacing
+				r.tracer("... table header cell",
+					fmt.Sprintf("Width=%v", hw))
+				r.Pdf.CellFormat(hw, h, s, "1", 0, "C", true, 0, "")
+			} else {
+				hw := cellwidths[curdatacell]
+				h := currentStyle.Size + currentStyle.Spacing
+				r.Pdf.CellFormat(hw, h, s, "LR", 0, "", fill, 0, "")
+			}
 		} else {
 			r.write(currentStyle, s)
 		}
@@ -262,43 +278,15 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 	case bf.CodeBlock:
 		r.processCodeblock(node)
 	case bf.Table:
-		if entering {
-			r.tracer("Table (entering)", "Not handled")
-		} else {
-			r.tracer("Table (leaving)", "Not handled")
-		}
-	case bf.TableCell:
-		/*
-			openTag := tdTag
-			closeTag := tdCloseTag
-			if node.IsHeader {
-				openTag = thTag
-				closeTag = thCloseTag
-			}
-		*/
-		if entering {
-			r.tracer("TableCell (entering)", "Not handled")
-		} else {
-			r.tracer("TableCell (leaving)", "Not handled")
-		}
+		r.processTable(node, entering)
 	case bf.TableHead:
-		if entering {
-			r.tracer("TableHead (entering)", "Not handled")
-		} else {
-			r.tracer("TableHead (leaving)", "Not handled")
-		}
+		r.processTableHead(node, entering)
 	case bf.TableBody:
-		if entering {
-			r.tracer("TableBody (entering)", "Not handled")
-		} else {
-			r.tracer("TableBody (leaving)", "Not handled")
-		}
+		r.processTableBody(node, entering)
 	case bf.TableRow:
-		if entering {
-			r.tracer("TableRow (entering)", "Not handled")
-		} else {
-			r.tracer("TableRow (leaving)", "Not handled")
-		}
+		r.processTableRow(node, entering)
+	case bf.TableCell:
+		r.processTableCell(node, entering)
 	default:
 		panic("Unknown node type " + node.Type.String())
 	}

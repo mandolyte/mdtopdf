@@ -32,6 +32,13 @@ const (
 	definition
 )
 
+// This slice of float64 contains the width of each cell
+// in the header of a table. These will be the widths used
+// in the table body as well.
+var cellwidths []float64
+var curdatacell int
+var fill = false
+
 func (n listType) String() string {
 	switch n {
 	case notlist:
@@ -58,6 +65,9 @@ type containerState struct {
 
 	// populated if node type is a link
 	destination string
+
+	// populated if table cell
+	isHeader bool
 }
 
 type states struct {
