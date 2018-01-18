@@ -34,6 +34,8 @@ This is a planned fix; [see here](https://github.com/mandolyte/mdtopdf/issues/1)
 
 7. The fonts, styling, etc. are fixed. Hopefully the choices made are reasonable ones.
 
+8. Tables are not supported (yet).
+
 ## Installation 
 
 To install the package, run the usual `go get`:
