@@ -3,10 +3,12 @@
 [cr()] LH=14
 [Heading (1, entering)] {1  false}
 -[Text] Heading One
+-[cr()] LH=29
 -[Heading (leaving)] 
 -[cr()] LH=29
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] This is a paragraph with some 
 [Emph (entering)] 
@@ -15,19 +17,17 @@
 [Text]  - OK?
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] Here is an unordered list:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Unordered List (entering)] {16 true 0 0 [] false}
 [... List Left Margin] set to 58.338
 -[Unordered Item (entering) #1] {16 false 45 46 [] false}
+-[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[First Para within a list] breaking
@@ -36,8 +36,8 @@
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[Unordered List (entering)] {16 true 0 0 [] false}
 --[... List Left Margin] set to 88.326
---[cr()] LH=14
 ---[Unordered Item (entering) #1] {16 false 45 46 [] false}
+---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[First Para within a list] breaking
@@ -45,8 +45,8 @@
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[Unordered Item (leaving)] {16 false 45 46 [] false}
-----[cr()] LH=14
 ---[Unordered Item (entering) #2] {0 false 45 46 [] false}
+---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[First Para within a list] breaking
@@ -54,13 +54,11 @@
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[Unordered Item (leaving)] {0 false 45 46 [] false}
-----[cr()] LH=14
 ---[Unordered List (leaving)] {16 true 0 0 [] false}
 ---[... Reset List Left Margin] re-set to 58.337999999999994
---[cr()] LH=14
 --[Unordered Item (leaving)] {16 false 45 46 [] false}
---[cr()] LH=14
 -[Unordered Item (entering) #2] {32 false 45 46 [] false}
+-[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[First Para within a list] breaking
@@ -69,8 +67,8 @@
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[Unordered List (entering)] {16 true 0 0 [] false}
 --[... List Left Margin] set to 88.326
---[cr()] LH=14
 ---[Unordered Item (entering) #1] {16 false 45 46 [] false}
+---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[First Para within a list] breaking
@@ -79,8 +77,8 @@
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[Unordered List (entering)] {16 true 0 0 [] false}
 ----[... List Left Margin] set to 118.314
-----[cr()] LH=14
 -----[Unordered Item (entering) #1] {16 false 45 46 [] false}
+-----[cr()] LH=14
 ------[Paragraph (entering)] 
 ------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
 ------[First Para within a list] breaking
@@ -88,8 +86,8 @@
 ------[Paragraph (leaving)] 
 ------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
 ------[Unordered Item (leaving)] {16 false 45 46 [] false}
-------[cr()] LH=14
 -----[Unordered Item (entering) #2] {0 false 45 46 [] false}
+-----[cr()] LH=14
 ------[Paragraph (entering)] 
 ------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
 ------[First Para within a list] breaking
@@ -97,13 +95,11 @@
 ------[Paragraph (leaving)] 
 ------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
 ------[Unordered Item (leaving)] {0 false 45 46 [] false}
-------[cr()] LH=14
 -----[Unordered List (leaving)] {16 true 0 0 [] false}
 -----[... Reset List Left Margin] re-set to 88.326
-----[cr()] LH=14
 ----[Unordered Item (leaving)] {16 false 45 46 [] false}
-----[cr()] LH=14
 ---[Unordered Item (entering) #2] {0 false 45 46 [] false}
+---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[First Para within a list] breaking
@@ -111,26 +107,22 @@
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[Unordered Item (leaving)] {0 false 45 46 [] false}
-----[cr()] LH=14
 ---[Unordered List (leaving)] {16 true 0 0 [] false}
 ---[... Reset List Left Margin] re-set to 58.337999999999994
---[cr()] LH=14
 --[Unordered Item (leaving)] {32 false 45 46 [] false}
---[cr()] LH=14
 -[Unordered List (leaving)] {16 true 0 0 [] false}
 -[... Reset List Left Margin] re-set to 28.35
-[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] Here is an ordered/numbered list:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Ordered List (entering)] {17 true 0 0 [] false}
 [... List Left Margin] set to 58.338
 -[Ordered Item (entering) #1] {17 false 42 46 [] false}
+-[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[First Para within a list] breaking
@@ -139,8 +131,8 @@
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[Ordered List (entering)] {17 true 0 0 [] false}
 --[... List Left Margin] set to 88.326
---[cr()] LH=14
 ---[Ordered Item (entering) #1] {17 false 42 46 [] false}
+---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[First Para within a list] breaking
@@ -148,8 +140,8 @@
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[Ordered Item (leaving)] {17 false 42 46 [] false}
-----[cr()] LH=14
 ---[Ordered Item (entering) #2] {1 false 42 46 [] false}
+---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[First Para within a list] breaking
@@ -157,13 +149,11 @@
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[Ordered Item (leaving)] {1 false 42 46 [] false}
-----[cr()] LH=14
 ---[Ordered List (leaving)] {17 true 0 0 [] false}
 ---[... Reset List Left Margin] re-set to 58.337999999999994
---[cr()] LH=14
 --[Ordered Item (leaving)] {17 false 42 46 [] false}
---[cr()] LH=14
 -[Ordered Item (entering) #2] {1 false 42 46 [] false}
+-[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[First Para within a list] breaking
@@ -172,8 +162,8 @@
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[Ordered List (entering)] {17 true 0 0 [] false}
 --[... List Left Margin] set to 88.326
---[cr()] LH=14
 ---[Ordered Item (entering) #1] {17 false 42 46 [] false}
+---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[First Para within a list] breaking
@@ -181,8 +171,8 @@
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[Ordered Item (leaving)] {17 false 42 46 [] false}
-----[cr()] LH=14
 ---[Ordered Item (entering) #2] {1 false 42 46 [] false}
+---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[First Para within a list] breaking
@@ -191,8 +181,8 @@
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
 ----[Ordered List (entering)] {17 true 0 0 [] false}
 ----[... List Left Margin] set to 118.314
-----[cr()] LH=14
 -----[Ordered Item (entering) #1] {17 false 42 46 [] false}
+-----[cr()] LH=14
 ------[Paragraph (entering)] 
 ------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
 ------[First Para within a list] breaking
@@ -200,8 +190,8 @@
 ------[Paragraph (leaving)] 
 ------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
 ------[Ordered Item (leaving)] {17 false 42 46 [] false}
-------[cr()] LH=14
 -----[Ordered Item (entering) #2] {1 false 42 46 [] false}
+-----[cr()] LH=14
 ------[Paragraph (entering)] 
 ------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
 ------[First Para within a list] breaking
@@ -210,8 +200,8 @@
 ------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
 ------[Ordered List (entering)] {17 true 0 0 [] false}
 ------[... List Left Margin] set to 148.302
-------[cr()] LH=14
 -------[Ordered Item (entering) #1] {17 false 42 46 [] false}
+-------[cr()] LH=14
 --------[Paragraph (entering)] 
 --------[... Margins (left, top, right, bottom:] 188.286 28.35 28.35 56.7
 --------[First Para within a list] breaking
@@ -219,8 +209,8 @@
 --------[Paragraph (leaving)] 
 --------[... Margins (left, top, right, bottom:] 188.286 28.35 28.35 56.7
 --------[Ordered Item (leaving)] {17 false 42 46 [] false}
---------[cr()] LH=14
 -------[Ordered Item (entering) #2] {1 false 42 46 [] false}
+-------[cr()] LH=14
 --------[Paragraph (entering)] 
 --------[... Margins (left, top, right, bottom:] 188.286 28.35 28.35 56.7
 --------[First Para within a list] breaking
@@ -228,8 +218,8 @@
 --------[Paragraph (leaving)] 
 --------[... Margins (left, top, right, bottom:] 188.286 28.35 28.35 56.7
 --------[Ordered Item (leaving)] {1 false 42 46 [] false}
---------[cr()] LH=14
 -------[Ordered Item (entering) #3] {1 false 42 46 [] false}
+-------[cr()] LH=14
 --------[Paragraph (entering)] 
 --------[... Margins (left, top, right, bottom:] 188.286 28.35 28.35 56.7
 --------[First Para within a list] breaking
@@ -237,23 +227,17 @@
 --------[Paragraph (leaving)] 
 --------[... Margins (left, top, right, bottom:] 188.286 28.35 28.35 56.7
 --------[Ordered Item (leaving)] {1 false 42 46 [] false}
---------[cr()] LH=14
 -------[Ordered List (leaving)] {17 true 0 0 [] false}
 -------[... Reset List Left Margin] re-set to 118.314
-------[cr()] LH=14
 ------[Ordered Item (leaving)] {1 false 42 46 [] false}
-------[cr()] LH=14
 -----[Ordered List (leaving)] {17 true 0 0 [] false}
 -----[... Reset List Left Margin] re-set to 88.326
-----[cr()] LH=14
 ----[Ordered Item (leaving)] {1 false 42 46 [] false}
-----[cr()] LH=14
 ---[Ordered List (leaving)] {17 true 0 0 [] false}
 ---[... Reset List Left Margin] re-set to 58.337999999999994
---[cr()] LH=14
 --[Ordered Item (leaving)] {1 false 42 46 [] false}
---[cr()] LH=14
 -[Ordered Item (entering) #3] {33 false 42 46 [] false}
+-[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[First Para within a list] breaking
@@ -261,17 +245,17 @@
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[Ordered Item (leaving)] {33 false 42 46 [] false}
---[cr()] LH=14
 -[Ordered List (leaving)] {17 true 0 0 [] false}
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
-[cr()] LH=14
 [Heading (2, entering)] {2  false}
 -[Text] Heading Two
+-[cr()] LH=27
 -[Heading (leaving)] 
 -[cr()] LH=27
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] This is a paragraph with some 
 [Strong (entering)] 
@@ -281,14 +265,14 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
-[cr()] LH=14
 [Heading (3, entering)] {3  false}
 -[Text] Heading Three
+-[cr()] LH=25
 -[Heading (leaving)] 
 -[cr()] LH=25
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] This is a paragraph with some 
 [Strong (entering)] 
@@ -300,14 +284,14 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
-[cr()] LH=14
 [Heading (4, entering)] {4  false}
 -[Text] Heading Four
+-[cr()] LH=23
 -[Heading (leaving)] 
 -[cr()] LH=23
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] 
 [Emph (entering)] 
@@ -316,92 +300,88 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
-[cr()] LH=14
 [Heading (4, entering)] {4  false}
 -[Text] Heading Five
+-[cr()] LH=23
 -[Heading (leaving)] 
 -[cr()] LH=23
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
+[cr()] LH=14
 [Text] Just some normal text... nothing fancy
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
-[cr()] LH=14
 [Heading (6, entering)] {6  false}
 -[Text] Heading Six
+-[cr()] LH=19
 -[Heading (leaving)] 
 -[cr()] LH=19
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
+[cr()] LH=14
 [Text] This is really deeply nested.
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] Here is some code:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Codeblock] {true [] 0 0 0}
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] The file name is 
 [Code] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] These three lines should only be one paragaph, but with BF retaining
 [Text]  the newlines, the newlines must be replaced with spaces.
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] The below is a blockquote with inner codeblocks.
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [BlockQuote (entering)] 
 -[Paragraph (entering)] 
 -[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
 -[cr()] LH=14
+-[cr()] LH=14
 -[Text] Example:
 -[Paragraph (leaving)] 
 -[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
--[cr()] LH=14
--[cr()] LH=14
 -[Codeblock] {false [] 0 0 0}
+-[cr()] LH=14
 -[Paragraph (entering)] 
 -[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+-[cr()] LH=14
 -[cr()] LH=14
 -[Text] Or:
 -[Paragraph (leaving)] 
 -[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
--[cr()] LH=14
--[cr()] LH=14
 -[Codeblock] {false [] 0 0 0}
+-[cr()] LH=14
 -[BlockQuote (leaving)] 
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] Here is the gofpdf logo (inline): 
 [Image (entering)] Destination[../image/fpdf.png] Title[]
@@ -409,18 +389,16 @@
 [Image (leaving)] 
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] Here is a Gopher:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] 
 [Image (entering)] Destination[../image/hiking.png] Title[Optional title]
@@ -428,10 +406,9 @@
 [Image (leaving)] 
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] 
 [Emph (entering)] 
@@ -443,10 +420,9 @@
 [Emph (leaving)] 
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [cr()] LH=14
 [Text] 
 [Strong (entering)] 
@@ -454,7 +430,5 @@
 [Strong (leaving)] 
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[cr()] LH=14
 [Document] Not Handled
 [RenderFooter] Not handled

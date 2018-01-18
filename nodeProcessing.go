@@ -31,6 +31,7 @@ func (r *PdfRenderer) processCodeblock(node *bf.Node) {
 	r.tracer("Codeblock", fmt.Sprintf("%v", node.CodeBlockData))
 	r.Pdf.SetFillColor(200, 200, 200)
 	r.setFont(r.backtick)
+	r.cr() // start on next line!
 	lines := strings.Split(strings.TrimSpace(string(node.Literal)), "\n")
 	for n := range lines {
 		r.Pdf.CellFormat(0, r.backtick.Size,
@@ -59,9 +60,11 @@ func (r *PdfRenderer) processList(node *bf.Node, entering bool) {
 			leftMargin: r.cs.peek().leftMargin + r.indentValue}
 		// before pushing check to see if this is a sublist
 		// if so, then output a newline
-		if r.cs.peek().containerType == bf.Item {
-			r.cr()
-		}
+		/*
+			if r.cs.peek().containerType == bf.Item {
+				r.cr()
+			}
+		*/
 		r.cs.push(x)
 	} else {
 		r.tracer(fmt.Sprintf("%v List (leaving)", kind),
@@ -70,7 +73,7 @@ func (r *PdfRenderer) processList(node *bf.Node, entering bool) {
 		r.tracer("... Reset List Left Margin",
 			fmt.Sprintf("re-set to %v", r.cs.peek().leftMargin-r.indentValue))
 		r.cs.pop()
-		r.cr()
+		//r.cr()
 	}
 }
 
@@ -79,6 +82,7 @@ func (r *PdfRenderer) processItem(node *bf.Node, entering bool) {
 		r.tracer(fmt.Sprintf("%v Item (entering) #%v",
 			r.cs.peek().listkind, r.cs.peek().itemNumber+1),
 			fmt.Sprintf("%v", node.ListData))
+		r.cr() // newline before getting started
 		x := &containerState{containerType: bf.Item,
 			textStyle: r.normal, itemNumber: r.cs.peek().itemNumber + 1,
 			listkind:       r.cs.peek().listkind,
@@ -106,7 +110,7 @@ func (r *PdfRenderer) processItem(node *bf.Node, entering bool) {
 			fmt.Sprintf("%v", node.ListData))
 		// before we output the new line, reset left margin
 		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin)
-		r.cr()
+		//r.cr()
 		r.cs.parent().itemNumber++
 		r.cs.pop()
 	}
@@ -193,6 +197,7 @@ func (r *PdfRenderer) processParagraph(node *bf.Node, entering bool) {
 			return
 		}
 		r.cr()
+		r.cr()
 	} else {
 		r.tracer("Paragraph (leaving)", "")
 		lm, tm, rm, bm := r.Pdf.GetMargins()
@@ -210,8 +215,8 @@ func (r *PdfRenderer) processParagraph(node *bf.Node, entering bool) {
 			}
 			return
 		}
-		r.cr()
-		r.cr()
+		//r.cr()
+		//r.cr()
 	}
 }
 

@@ -17,6 +17,7 @@
  *   Available at https://github.com/jung-kurt/gofpdf
  */
 
+// Package mdtopdf converts markdown to PDF.
 package mdtopdf
 
 import (
@@ -203,7 +204,6 @@ func (r *PdfRenderer) writeLink(s styler, display, url string) {
 func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.WalkStatus {
 	switch node.Type {
 	case bf.Text:
-		//r.setFont(r.current)
 		currentStyle := r.cs.peek().textStyle
 		r.setFont(currentStyle)
 		s := string(node.Literal)
@@ -211,8 +211,10 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.W
 		r.tracer("Text", s)
 
 		if r.cs.peek().containerType == bf.Link {
-			//r.writeLink(currentStyle, string(node.Literal), r.cs.peek().destination)
 			r.writeLink(currentStyle, s, r.cs.peek().destination)
+		} else if r.cs.peek().containerType == bf.Heading {
+			r.cr() // add space before heading
+			r.write(currentStyle, s)
 		} else {
 			r.write(currentStyle, s)
 		}
