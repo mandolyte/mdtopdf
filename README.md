@@ -28,13 +28,11 @@ and data provided in each while the AST is presented.
 4. Currently all levels of unordered lists use a dash for the bullet. 
 This is a planned fix; [see here](https://github.com/mandolyte/mdtopdf/issues/1).
 
-5. Extra newlines are erroneously added after lists 
+5. Definition lists are not supported (not sure that markdown supports them -- I need to research this)
 
-6. Definition lists are not supported (not sure that markdown supports them -- I need to research this)
+6. The fonts, styling, etc. are fixed. Hopefully the choices made are reasonable ones.
 
-7. The fonts, styling, etc. are fixed. Hopefully the choices made are reasonable ones.
-
-8. Tables are not supported (yet).
+7. Tables are supported, but no attempt is made to ensure fit.
 
 ## Installation 
 
