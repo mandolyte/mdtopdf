@@ -396,14 +396,14 @@ func (r *PdfRenderer) processTableCell(node *bf.Node, entering bool) {
 			textStyle: r.normal, listkind: notlist,
 			leftMargin: r.cs.peek().leftMargin}
 		if node.TableCellData.IsHeader {
-			r.Pdf.SetFillColor(255, 0, 0)
-			r.Pdf.SetTextColor(255, 255, 255)
+			r.Pdf.SetFillColor(180, 180, 180)
+			r.Pdf.SetTextColor(0, 0, 0)
 			r.Pdf.SetDrawColor(128, 0, 0)
 			r.Pdf.SetLineWidth(.3)
 			r.Pdf.SetFont("", "B", 0)
 			x.isHeader = true
 		} else {
-			r.Pdf.SetFillColor(224, 235, 255)
+			r.Pdf.SetFillColor(240, 240, 240)
 			r.Pdf.SetTextColor(0, 0, 0)
 			r.Pdf.SetFont("", "", 0)
 			x.isHeader = false
