@@ -31,15 +31,23 @@ import (
 	bf "gopkg.in/russross/blackfriday.v2"
 )
 
-// styler is the struct to capture the styling features for text
+// Color is a RGB set of ints; for a nice picker
+// see https://www.w3schools.com/colors/colors_picker.asp
+type Color struct {
+	Red, Green, Blue int
+}
+
+// Styler is the struct to capture the styling features for text
 // Size and Spacing are specified in points.
 // The sum of Size and Spacing is used as line height value
 // in the gofpdf API
-type styler struct {
-	Font    string
-	Style   string
-	Size    float64
-	Spacing float64
+type Styler struct {
+	Font      string
+	Style     string
+	Size      float64
+	Spacing   float64
+	TextColor Color
+	FillColor Color
 }
 
 // PdfRenderer is the struct to manage conversion of a markdown object
@@ -59,26 +67,30 @@ type PdfRenderer struct {
 	mleft, mtop, mright, mbottom float64
 
 	// normal text
-	normal styler
+	Normal Styler
 	em     float64
 
 	// link text
-	link styler
+	Link Styler
 
 	// backticked text
-	backtick styler
+	Backtick Styler
 
 	// blockquote text
-	blockquote  styler
-	indentValue float64
+	Blockquote  Styler
+	IndentValue float64
 
-	// headings
-	h1 styler
-	h2 styler
-	h3 styler
-	h4 styler
-	h5 styler
-	h6 styler
+	// Headings
+	H1 Styler
+	H2 Styler
+	H3 Styler
+	H4 Styler
+	H5 Styler
+	H6 Styler
+
+	// Table styling
+	THeader Styler
+	TBody   Styler
 
 	cs states
 }
@@ -107,39 +119,57 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string) *PdfRenderer {
 	r.fontdir = "."
 
 	// Normal Text
-	r.normal = styler{Font: "Arial", Style: "", Size: 12, Spacing: 2}
+	r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
+		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
 
 	// Link text
-	r.link = styler{Font: "Arial", Style: "iu", Size: 12, Spacing: 2}
+	r.Link = Styler{Font: "Arial", Style: "iu", Size: 12, Spacing: 2,
+		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
 
 	// Backticked text
-	r.backtick = styler{Font: "Courier", Style: "", Size: 12, Spacing: 2}
+	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+		TextColor: Color{37, 27, 14}, FillColor: Color{234, 219, 200}}
 
 	// Headings
-	r.h1 = styler{Font: "Arial", Style: "b", Size: 24, Spacing: 5}
-	r.h2 = styler{Font: "Arial", Style: "b", Size: 22, Spacing: 5}
-	r.h3 = styler{Font: "Arial", Style: "b", Size: 20, Spacing: 5}
-	r.h4 = styler{Font: "Arial", Style: "b", Size: 18, Spacing: 5}
-	r.h5 = styler{Font: "Arial", Style: "b", Size: 16, Spacing: 5}
-	r.h6 = styler{Font: "Arial", Style: "b", Size: 14, Spacing: 5}
+	r.H1 = Styler{Font: "Arial", Style: "b", Size: 24, Spacing: 5,
+		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
+	r.H2 = Styler{Font: "Arial", Style: "b", Size: 22, Spacing: 5,
+		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
+	r.H3 = Styler{Font: "Arial", Style: "b", Size: 20, Spacing: 5,
+		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
+	r.H4 = Styler{Font: "Arial", Style: "b", Size: 18, Spacing: 5,
+		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
+	r.H5 = Styler{Font: "Arial", Style: "b", Size: 16, Spacing: 5,
+		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
+	r.H6 = Styler{Font: "Arial", Style: "b", Size: 14, Spacing: 5,
+		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
 
 	//r.inBlockquote = false
 	//r.inHeading = false
-	r.blockquote = styler{Font: "Arial", Style: "i", Size: 12, Spacing: 2}
+	r.Blockquote = Styler{Font: "Arial", Style: "i", Size: 12, Spacing: 2,
+		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
+
+	// Table Header Text
+	r.THeader = Styler{Font: "Arial", Style: "B", Size: 12, Spacing: 2,
+		TextColor: Color{0, 0, 0}, FillColor: Color{180, 180, 180}}
+
+	// Table Body Text
+	r.TBody = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
+		TextColor: Color{0, 0, 0}, FillColor: Color{240, 240, 240}}
 
 	r.Pdf = gofpdf.New(r.orientation, r.units, r.papersize, r.fontdir)
 	r.Pdf.AddPage()
 	// set default font
-	r.setFont(r.normal)
+	r.setStyler(r.Normal)
 	r.mleft, r.mtop, r.mright, r.mbottom = r.Pdf.GetMargins()
 	r.em = r.Pdf.GetStringWidth("m")
-	r.indentValue = 3 * r.em
+	r.IndentValue = 3 * r.em
 
 	//r.current = r.normal // set default
 	r.cs = states{stack: make([]*containerState, 0)}
 	initcurrent := &containerState{containerType: bf.Paragraph,
 		listkind:  notlist,
-		textStyle: r.normal, leftMargin: r.mleft}
+		textStyle: r.Normal, leftMargin: r.mleft}
 	r.cs.push(initcurrent)
 	return r
 }
@@ -174,19 +204,21 @@ func (r *PdfRenderer) Process(content []byte) error {
 	return nil
 }
 
-func (r *PdfRenderer) setFont(s styler) {
+func (r *PdfRenderer) setStyler(s Styler) {
 	r.Pdf.SetFont(s.Font, s.Style, s.Size)
+	r.Pdf.SetTextColor(s.TextColor.Red, s.TextColor.Green, s.TextColor.Blue)
+	r.Pdf.SetFillColor(s.FillColor.Red, s.FillColor.Green, s.FillColor.Blue)
 }
 
-func (r *PdfRenderer) write(s styler, t string) {
+func (r *PdfRenderer) write(s Styler, t string) {
 	r.Pdf.Write(s.Size+s.Spacing, t)
 }
 
-func (r *PdfRenderer) multiCell(s styler, t string) {
+func (r *PdfRenderer) multiCell(s Styler, t string) {
 	r.Pdf.MultiCell(0, s.Size+s.Spacing, t, "", "", false)
 }
 
-func (r *PdfRenderer) writeLink(s styler, display, url string) {
+func (r *PdfRenderer) writeLink(s Styler, display, url string) {
 	r.Pdf.WriteLinkString(s.Size+s.Spacing, display, url)
 }
 
@@ -204,37 +236,7 @@ func (r *PdfRenderer) writeLink(s styler, display, url string) {
 func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.WalkStatus {
 	switch node.Type {
 	case bf.Text:
-		currentStyle := r.cs.peek().textStyle
-		r.setFont(currentStyle)
-		s := string(node.Literal)
-		s = strings.Replace(s, "\n", " ", -1)
-		r.tracer("Text", s)
-
-		if r.cs.peek().containerType == bf.Link {
-			r.writeLink(currentStyle, s, r.cs.peek().destination)
-		} else if r.cs.peek().containerType == bf.Heading {
-			r.cr() // add space before heading
-			r.write(currentStyle, s)
-		} else if r.cs.peek().containerType == bf.TableCell {
-			if r.cs.peek().isHeader {
-				// get the string width of header value
-				hw := r.Pdf.GetStringWidth(s) + (2 * r.em)
-				// now append it
-				cellwidths = append(cellwidths, hw)
-				// now write it...
-				h := currentStyle.Size + currentStyle.Spacing
-				r.tracer("... table header cell",
-					fmt.Sprintf("Width=%v", hw))
-				r.Pdf.CellFormat(hw, h, s, "1", 0, "C", true, 0, "")
-			} else {
-				hw := cellwidths[curdatacell]
-				h := currentStyle.Size + currentStyle.Spacing
-				r.Pdf.CellFormat(hw, h, s, "LR", 0, "", fill, 0, "")
-			}
-		} else {
-			r.write(currentStyle, s)
-		}
-
+		r.processText(node)
 	case bf.Softbreak:
 		r.tracer("Softbreak", "Output newline")
 		r.cr()
@@ -304,15 +306,13 @@ func (r *PdfRenderer) RenderFooter(w io.Writer, ast *bf.Node) {
 }
 
 func (r *PdfRenderer) cr() {
-	//r.tracer("fpdf.Ln()", fmt.Sprintf("LH=%v", r.current.Size+r.current.Spacing))
-	//r.Pdf.Ln(r.current.Size + r.current.Spacing)
 	LH := r.cs.peek().textStyle.Size + r.cs.peek().textStyle.Spacing
 	r.tracer("cr()", fmt.Sprintf("LH=%v", LH))
 	r.write(r.cs.peek().textStyle, "\n")
+	//r.Pdf.Ln(-1)
 }
 
 // Tracer traces parse and pdf generation activity.
-// Output goes to Stdout when DebugMode value is set to true
 func (r *PdfRenderer) tracer(source, msg string) {
 	if r.tracerFile != "" {
 		indent := strings.Repeat("-", len(r.cs.stack)-1)

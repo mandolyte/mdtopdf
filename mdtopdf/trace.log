@@ -3,12 +3,10 @@
 [cr()] LH=14
 [Heading (1, entering)] {1  false}
 -[Text] Heading One
--[cr()] LH=29
 -[Heading (leaving)] 
 -[cr()] LH=29
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] This is a paragraph with some 
 [Emph (entering)] 
@@ -17,13 +15,14 @@
 [Text]  - OK?
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] Here is an unordered list:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Unordered List (entering)] {16 true 0 0 [] false}
 [... List Left Margin] set to 58.338
 -[Unordered Item (entering) #1] {16 false 45 46 [] false}
@@ -112,13 +111,14 @@
 --[Unordered Item (leaving)] {32 false 45 46 [] false}
 -[Unordered List (leaving)] {16 true 0 0 [] false}
 -[... Reset List Left Margin] re-set to 28.35
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] Here is an ordered/numbered list:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Ordered List (entering)] {17 true 0 0 [] false}
 [... List Left Margin] set to 58.338
 -[Ordered Item (entering) #1] {17 false 42 46 [] false}
@@ -248,14 +248,13 @@
 -[Ordered List (leaving)] {17 true 0 0 [] false}
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
+[cr()] LH=14
 [Heading (2, entering)] {2  false}
 -[Text] Heading Two
--[cr()] LH=27
 -[Heading (leaving)] 
 -[cr()] LH=27
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] This is a paragraph with some 
 [Strong (entering)] 
@@ -265,14 +264,13 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
+[cr()] LH=14
 [Heading (3, entering)] {3  false}
 -[Text] Heading Three
--[cr()] LH=25
 -[Heading (leaving)] 
 -[cr()] LH=25
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] This is a paragraph with some 
 [Strong (entering)] 
@@ -284,14 +282,13 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
+[cr()] LH=14
 [Heading (4, entering)] {4  false}
 -[Text] Heading Four
--[cr()] LH=23
 -[Heading (leaving)] 
 -[cr()] LH=23
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] 
 [Emph (entering)] 
@@ -300,81 +297,165 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
+[cr()] LH=14
 [Heading (4, entering)] {4  false}
 -[Text] Heading Five
--[cr()] LH=23
 -[Heading (leaving)] 
 -[cr()] LH=23
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] Just some normal text... nothing fancy
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] This is a simple table:
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Table (entering)] 
+[cr()] LH=14
+-[TableHead (entering)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] Header
+----[... table header cell] Width=81.092, height=22
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] Another header
+----[... table header cell] Width=149.452, height=22
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+-[TableHead (leaving)] 
+-[TableBody (entering)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] field 1
+----[... table body cell] Width=81.092, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] something
+----[... table body cell] Width=149.452, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] field 2
+----[... table body cell] Width=81.092, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] something else
+----[... table body cell] Width=149.452, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] field 3
+----[... table body cell] Width=81.092, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] something
+----[... table body cell] Width=149.452, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] field 4
+----[... table body cell] Width=81.092, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] something else
+----[... table body cell] Width=149.452, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] field 5
+----[... table body cell] Width=81.092, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] something
+----[... table body cell] Width=149.452, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] field 6
+----[... table body cell] Width=81.092, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] something else
+----[... table body cell] Width=149.452, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+-[TableBody (leaving)] 
+[Table (leaving)] 
+[cr()] LH=14
+[cr()] LH=14
 [Heading (6, entering)] {6  false}
 -[Text] Heading Six
--[cr()] LH=19
 -[Heading (leaving)] 
 -[cr()] LH=19
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
 [Text] This is really deeply nested.
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] Here is some code:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Codeblock] {true [] 0 0 0}
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] The file name is 
 [Code] 
 [Text] .
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] These three lines should only be one paragaph, but with BF retaining
 [Text]  the newlines, the newlines must be replaced with spaces.
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] The below is a blockquote with inner codeblocks.
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [BlockQuote (entering)] 
 -[Paragraph (entering)] 
 -[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
 -[cr()] LH=14
--[cr()] LH=14
 -[Text] Example:
 -[Paragraph (leaving)] 
 -[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+-[cr()] LH=14
 -[Codeblock] {false [] 0 0 0}
 -[cr()] LH=14
 -[Paragraph (entering)] 
 -[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
 -[cr()] LH=14
--[cr()] LH=14
 -[Text] Or:
 -[Paragraph (leaving)] 
 -[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+-[cr()] LH=14
 -[Codeblock] {false [] 0 0 0}
 -[cr()] LH=14
 -[BlockQuote (leaving)] 
@@ -382,23 +463,22 @@
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
 [Text] Here is the gofpdf logo (inline): 
 [Image (entering)] Destination[../image/fpdf.png] Title[]
 [Text] from https://github.com/jung-kurt/gofpdf/tree/master/image
 [Image (leaving)] 
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] Here is a Gopher:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] 
 [Image (entering)] Destination[../image/hiking.png] Title[Optional title]
@@ -406,9 +486,9 @@
 [Image (leaving)] 
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] 
 [Emph (entering)] 
@@ -420,9 +500,9 @@
 [Emph (leaving)] 
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Text] 
 [Strong (entering)] 
@@ -430,5 +510,6 @@
 [Strong (leaving)] 
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Document] Not Handled
 [RenderFooter] Not handled

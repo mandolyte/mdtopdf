@@ -39,6 +39,17 @@ This is a paragraph with some ___emphasized text___ - OK?
 #### Heading Five
 Just some normal text... nothing fancy
 
+This is a simple table:
+
+| Header  | Another header |
+|---------|----------------|
+| field 1 | something      |
+| field 2 | something else |
+| field 3 | something      |
+| field 4 | something else |
+| field 5 | something      |
+| field 6 | something else |
+
 ###### Heading Six
 This is really deeply nested.
 
