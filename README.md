@@ -17,6 +17,17 @@ The tests create log files that trace the BlackFriday parser
 callbacks. This is a valuable debug tool showing each callback 
 and data provided in each while the AST is presented.
 
+## Supported Markdown
+The supported elements of markdown are:
+- Emphasized and strong text 
+- Headings 1-6
+- Ordered and unordered lists
+- Nested lists
+- Images
+- Tables (but see limitations below)
+- Links
+- Code blocks and backticked text
+
 ## Limitations and Known Issues
 
 1. It is common for Markdown to include HTML. HTML is treated as a "code block". *There is no attempt to convert raw HTML to PDF.*
