@@ -41,7 +41,7 @@ This is a planned fix; [see here](https://github.com/mandolyte/mdtopdf/issues/1)
 
 5. Definition lists are not supported (not sure that markdown supports them -- I need to research this)
 
-6. The following text features may be tweaked: font, size, spacing, styile, fill color, and text color. These are exported and available via the `Styler` struct.
+6. The following text features may be tweaked: font, size, spacing, styile, fill color, and text color. These are exported and available via the `Styler` struct. Note that fill color only works if the text is ouput using CellFormat(). This is the case for: tables, codeblocks, and backticked text.
 
 7. Tables are supported, but no attempt is made to ensure fit. You can, however, change the font size and spacing to make it smaller. See example
 
