@@ -1,4 +1,7 @@
 # mdtopdf
+
+[![GoDoc](https://godoc.org/github.com/mandolyte/mdtopdf?status.svg)](https://godoc.org/github.com/mandolyte/mdtopdf)
+
 ## Introduction: Markdown to PDF
 
 This package depends on two other packages:
