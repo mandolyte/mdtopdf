@@ -128,7 +128,7 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string) *PdfRenderer {
 
 	// Backticked text
 	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
-		TextColor: Color{37, 27, 14}, FillColor: Color{234, 219, 200}}
+		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
 
 	// Headings
 	r.H1 = Styler{Font: "Arial", Style: "b", Size: 24, Spacing: 5,

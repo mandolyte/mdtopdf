@@ -68,7 +68,6 @@ func (r *PdfRenderer) processText(node *bf.Node) {
 
 func (r *PdfRenderer) processCodeblock(node *bf.Node) {
 	r.tracer("Codeblock", fmt.Sprintf("%v", node.CodeBlockData))
-	r.Pdf.SetFillColor(200, 200, 200)
 	r.setStyler(r.Backtick)
 	r.cr() // start on next line!
 	lines := strings.Split(strings.TrimSpace(string(node.Literal)), "\n")
@@ -354,7 +353,6 @@ func (r *PdfRenderer) processHorizontalRule(node *bf.Node) {
 func (r *PdfRenderer) processHTMLBlock(node *bf.Node) {
 	r.tracer("HTMLBlock", string(node.Literal))
 	r.cr()
-	r.Pdf.SetFillColor(200, 200, 200)
 	r.setStyler(r.Backtick)
 	r.Pdf.CellFormat(0, r.Backtick.Size,
 		string(node.Literal), "", 1, "LT", true, 0, "")
@@ -445,9 +443,6 @@ func (r *PdfRenderer) processTableCell(node *bf.Node, entering bool) {
 			x.textStyle = r.THeader
 			r.setStyler(r.THeader)
 		} else {
-			//r.Pdf.SetFillColor(240, 240, 240)
-			//r.Pdf.SetTextColor(0, 0, 0)
-			//r.Pdf.SetFont("", "", 0)
 			x.textStyle = r.TBody
 			r.setStyler(r.TBody)
 			x.isHeader = false
