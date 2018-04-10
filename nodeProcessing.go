@@ -71,11 +71,14 @@ func (r *PdfRenderer) processCodeblock(node *bf.Node) {
 	r.tracer("Codeblock", fmt.Sprintf("%v", node.CodeBlockData))
 	r.setStyler(r.Backtick)
 	r.cr() // start on next line!
-	lines := strings.Split(strings.TrimSpace(string(node.Literal)), "\n")
-	for n := range lines {
-		r.Pdf.CellFormat(0, r.Backtick.Size,
-			lines[n], "", 1, "LT", true, 0, "")
-	}
+	r.multiCell(r.Backtick, string(node.Literal))
+	/*
+		lines := strings.Split(strings.TrimSpace(string(node.Literal)), "\n")
+		for n := range lines {
+			r.Pdf.CellFormat(0, r.Backtick.Size,
+				lines[n], "", 1, "LT", true, 0, "")
+		}
+	*/
 }
 
 func (r *PdfRenderer) processList(node *bf.Node, entering bool) {

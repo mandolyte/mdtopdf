@@ -215,7 +215,7 @@ func (r *PdfRenderer) write(s Styler, t string) {
 }
 
 func (r *PdfRenderer) multiCell(s Styler, t string) {
-	r.Pdf.MultiCell(0, s.Size+s.Spacing, t, "", "", false)
+	r.Pdf.MultiCell(0, s.Size+s.Spacing, t, "", "", true)
 }
 
 func (r *PdfRenderer) writeLink(s Styler, display, url string) {
