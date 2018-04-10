@@ -204,6 +204,7 @@ func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
 			fmt.Sprintf("Destination[%v] Title[%v]",
 				string(node.LinkData.Destination),
 				string(node.LinkData.Title)))
+		// following changes suggested by @sirnewton01, issue #6
 		// does file exist?
 		var imgPath = string(node.LinkData.Destination)
 		_, err := os.Stat(imgPath)
