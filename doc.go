@@ -33,6 +33,5 @@ a number of features. The test PDF was created with this command:
 
 	go run convert.go -i test.md -o test.pdf
 
-See README for limitations and known issues
-*/
+See README for limitations and known issues */
 package mdtopdf

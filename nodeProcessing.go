@@ -21,6 +21,7 @@ package mdtopdf
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/jung-kurt/gofpdf"
@@ -203,9 +204,16 @@ func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
 			fmt.Sprintf("Destination[%v] Title[%v]",
 				string(node.LinkData.Destination),
 				string(node.LinkData.Title)))
-		r.Pdf.ImageOptions(string(node.LinkData.Destination),
-			-1, 0, 0, 0, true,
-			gofpdf.ImageOptions{ImageType: "PNG", ReadDpi: true}, 0, "")
+		// does file exist?
+		var imgPath = string(node.LinkData.Destination)
+		_, err := os.Stat(imgPath)
+		if err == nil {
+			r.Pdf.ImageOptions(string(node.LinkData.Destination),
+				-1, 0, 0, 0, true,
+				gofpdf.ImageOptions{ImageType: "", ReadDpi: true}, 0, "")
+		} else {
+			r.tracer("Image (file error)", err.Error())
+		}
 	} else {
 		r.tracer("Image (leaving)", "")
 	}

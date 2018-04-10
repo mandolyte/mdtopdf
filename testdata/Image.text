@@ -30,3 +30,9 @@ The Go gopher was designed by Renee French. The Gopher character design is licen
 
 Note: this snippet was adapted from the testdata folder file named: 
 `Markdown Documentation - Syntax.text`
+
+Here is a non-existent image... should generate a message in trace file.
+![Not from https://jpeg.org/images/jpeg-home.jpg](./image/xbay.jpg "Does not exist!")
+
+Here is a JPEG image... is it auto-detected?
+![from https://jpeg.org/images/jpeg-home.jpg](./image/bay.jpg "Down by the Bay")
