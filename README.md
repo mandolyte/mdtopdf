@@ -20,6 +20,10 @@ The tests create log files that trace the BlackFriday parser
 callbacks. This is a valuable debug tool showing each callback 
 and data provided in each while the AST is presented.
 
+2019-09-23: It appears that the BlackFriday project is no longer active.
+There is a fork `gomarkdown/markdown` that I may be able to move to
+in the future if needed.
+
 ## Supported Markdown
 The supported elements of markdown are:
 - Emphasized and strong text 
@@ -30,6 +34,8 @@ The supported elements of markdown are:
 - Tables (but see limitations below)
 - Links
 - Code blocks and backticked text
+
+How to use of non-Latin fonts/languages is documented in a section below.
 
 ## Limitations and Known Issues
 
@@ -46,7 +52,9 @@ This is a planned fix; [see here](https://github.com/mandolyte/mdtopdf/issues/1)
 
 6. The following text features may be tweaked: font, size, spacing, styile, fill color, and text color. These are exported and available via the `Styler` struct. Note that fill color only works if the text is ouput using CellFormat(). This is the case for: tables, codeblocks, and backticked text.
 
-7. Tables are supported, but no attempt is made to ensure fit. You can, however, change the font size and spacing to make it smaller. See example
+7. Tables are supported, but no attempt is made to ensure fit. You can, however, change the font size and spacing to make it smaller. See example.
+
+
 
 ## Installation 
 
