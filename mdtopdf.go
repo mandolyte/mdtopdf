@@ -28,7 +28,7 @@ import (
 	"strings"
 
 	"github.com/jung-kurt/gofpdf"
-	bf "gopkg.in/russross/blackfriday.v2"
+	bf "github.com/russross/blackfriday/v2"
 )
 
 // Color is a RGB set of ints; for a nice picker
