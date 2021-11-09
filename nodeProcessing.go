@@ -449,8 +449,6 @@ func (r *PdfRenderer) processTableCell(node *bf.Node, entering bool) {
 			textStyle: r.Normal, listkind: notlist,
 			leftMargin: r.cs.peek().leftMargin}
 		if node.TableCellData.IsHeader {
-			r.Pdf.SetDrawColor(128, 0, 0)
-			r.Pdf.SetLineWidth(.3)
 			x.isHeader = true
 			x.textStyle = r.THeader
 			r.setStyler(r.THeader)
