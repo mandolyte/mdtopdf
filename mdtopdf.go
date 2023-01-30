@@ -287,6 +287,14 @@ func (r *PdfRenderer) Process(content []byte) error {
 	return nil
 }
 
+// UpdateParagraphStyler - update with default styler 
+func (r *PdfRenderer) UpdateParagraphStyler(defaultStyler Styler) {
+	initcurrent := &containerState{containerType: bf.Paragraph,
+		listkind:  notlist,
+		textStyle: defaultStyler, leftMargin: r.mleft}
+	r.cs.push(initcurrent)
+}
+
 func (r *PdfRenderer) setStyler(s Styler) {
 	r.Pdf.SetFont(s.Font, s.Style, s.Size)
 	r.Pdf.SetTextColor(s.TextColor.Red, s.TextColor.Green, s.TextColor.Blue)
