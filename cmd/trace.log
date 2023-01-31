@@ -2,9 +2,23 @@
 [Document] Not Handled
 [cr()] LH=14
 [Heading (1, entering)] {1  false}
--[Text] Russian Phrases
+-[Text] 标题一
 -[Heading (leaving)] 
 -[cr()] LH=29
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 这是一个带有一些*强调文本*的段落 - 好吗？
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 这是一个无序列表：
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
 [Unordered List (entering)] {16 true 0 0 [] false}
 [... List Left Margin] set to 58.338
 -[Unordered Item (entering) #1] {16 false 45 46 [] false}
@@ -12,27 +26,84 @@
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[First Para within a list] breaking
---[Text] First phrase is: "����� �� ��� ���� ������ ����������� �����, �� ����� ���", which means "Eat these soft French rolls and drink some tea"
+--[Text] 这是一个无序列表
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Unordered List (entering)] {16 true 0 0 [] false}
+--[... List Left Margin] set to 88.326
+---[Unordered Item (entering) #1] {16 false 45 46 [] false}
+---[cr()] LH=14
+----[Paragraph (entering)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[First Para within a list] breaking
+----[Text] 分项1.a
+----[Paragraph (leaving)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[Unordered Item (leaving)] {16 false 45 46 [] false}
+---[Unordered Item (entering) #2] {0 false 45 46 [] false}
+---[cr()] LH=14
+----[Paragraph (entering)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[First Para within a list] breaking
+----[Text] 分项1.b
+----[Paragraph (leaving)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[Unordered Item (leaving)] {0 false 45 46 [] false}
+---[Unordered List (leaving)] {16 true 0 0 [] false}
+---[... Reset List Left Margin] re-set to 58.337999999999994
 --[Unordered Item (leaving)] {16 false 45 46 [] false}
--[Unordered Item (entering) #2] {0 false 45 46 [] false}
+-[Unordered Item (entering) #2] {32 false 45 46 [] false}
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[First Para within a list] breaking
---[Text] The second is: "��������� ����� � �������, �� �������� � ���� ������ ����!", which means "You can fall in love with beauty, but love is only a soul!"
+--[Text] 这是无序列表中的第二项
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered Item (leaving)] {0 false 45 46 [] false}
--[Unordered Item (entering) #3] {32 false 45 46 [] false}
--[cr()] LH=14
---[Paragraph (entering)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[First Para within a list] breaking
---[Text] Finally, "������ � ������", which means "Milk and cottage cheese"
---[Paragraph (leaving)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Unordered List (entering)] {16 true 0 0 [] false}
+--[... List Left Margin] set to 88.326
+---[Unordered Item (entering) #1] {16 false 45 46 [] false}
+---[cr()] LH=14
+----[Paragraph (entering)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[First Para within a list] breaking
+----[Text] 分项目2.a
+----[Paragraph (leaving)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[Unordered List (entering)] {16 true 0 0 [] false}
+----[... List Left Margin] set to 118.314
+-----[Unordered Item (entering) #1] {16 false 45 46 [] false}
+-----[cr()] LH=14
+------[Paragraph (entering)] 
+------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
+------[First Para within a list] breaking
+------[Text] 分项目2.a.i
+------[Paragraph (leaving)] 
+------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
+------[Unordered Item (leaving)] {16 false 45 46 [] false}
+-----[Unordered Item (entering) #2] {0 false 45 46 [] false}
+-----[cr()] LH=14
+------[Paragraph (entering)] 
+------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
+------[First Para within a list] breaking
+------[Text] 分项目2.a.ii
+------[Paragraph (leaving)] 
+------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
+------[Unordered Item (leaving)] {0 false 45 46 [] false}
+-----[Unordered List (leaving)] {16 true 0 0 [] false}
+-----[... Reset List Left Margin] re-set to 88.326
+----[Unordered Item (leaving)] {16 false 45 46 [] false}
+---[Unordered Item (entering) #2] {0 false 45 46 [] false}
+---[cr()] LH=14
+----[Paragraph (entering)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[First Para within a list] breaking
+----[Text] 分项目2.b
+----[Paragraph (leaving)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[Unordered Item (leaving)] {0 false 45 46 [] false}
+---[Unordered List (leaving)] {16 true 0 0 [] false}
+---[... Reset List Left Margin] re-set to 58.337999999999994
 --[Unordered Item (leaving)] {32 false 45 46 [] false}
 -[Unordered List (leaving)] {16 true 0 0 [] false}
 -[... Reset List Left Margin] re-set to 28.35
@@ -40,7 +111,382 @@
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Text] That's all folks!
+[Text] 这是一个有序/编号列表：
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Ordered List (entering)] {17 true 0 0 [] false}
+[... List Left Margin] set to 58.338
+-[Ordered Item (entering) #1] {17 false 42 46 [] false}
+-[cr()] LH=14
+--[Paragraph (entering)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[First Para within a list] breaking
+--[Text] 这是一个编号列表
+--[Paragraph (leaving)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Ordered List (entering)] {17 true 0 0 [] false}
+--[... List Left Margin] set to 88.326
+---[Ordered Item (entering) #1] {17 false 42 46 [] false}
+---[cr()] LH=14
+----[Paragraph (entering)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[First Para within a list] breaking
+----[Text] 一个
+----[Paragraph (leaving)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[Ordered Item (leaving)] {17 false 42 46 [] false}
+---[Ordered Item (entering) #2] {1 false 42 46 [] false}
+---[cr()] LH=14
+----[Paragraph (entering)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[First Para within a list] breaking
+----[Text] 两个
+----[Paragraph (leaving)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[Ordered Item (leaving)] {1 false 42 46 [] false}
+---[Ordered List (leaving)] {17 true 0 0 [] false}
+---[... Reset List Left Margin] re-set to 58.337999999999994
+--[Ordered Item (leaving)] {17 false 42 46 [] false}
+-[Ordered Item (entering) #2] {1 false 42 46 [] false}
+-[cr()] LH=14
+--[Paragraph (entering)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[First Para within a list] breaking
+--[Text] 这是编号列表中的第二项
+--[Paragraph (leaving)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Ordered List (entering)] {17 true 0 0 [] false}
+--[... List Left Margin] set to 88.326
+---[Ordered Item (entering) #1] {17 false 42 46 [] false}
+---[cr()] LH=14
+----[Paragraph (entering)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[First Para within a list] breaking
+----[Text] 一个
+----[Paragraph (leaving)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[Ordered Item (leaving)] {17 false 42 46 [] false}
+---[Ordered Item (entering) #2] {1 false 42 46 [] false}
+---[cr()] LH=14
+----[Paragraph (entering)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[First Para within a list] breaking
+----[Text] 两个
+----[Paragraph (leaving)] 
+----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
+----[Ordered List (entering)] {17 true 0 0 [] false}
+----[... List Left Margin] set to 118.314
+-----[Ordered Item (entering) #1] {17 false 42 46 [] false}
+-----[cr()] LH=14
+------[Paragraph (entering)] 
+------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
+------[First Para within a list] breaking
+------[Text] A 1.乙
+------[Paragraph (leaving)] 
+------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
+------[Ordered List (entering)] {17 true 0 0 [] false}
+------[... List Left Margin] set to 148.302
+-------[Ordered Item (entering) #1] {17 false 42 46 [] false}
+-------[cr()] LH=14
+--------[Paragraph (entering)] 
+--------[... Margins (left, top, right, bottom:] 188.286 28.35 28.35 56.7
+--------[First Para within a list] breaking
+--------[Text] x
+--------[Paragraph (leaving)] 
+--------[... Margins (left, top, right, bottom:] 188.286 28.35 28.35 56.7
+--------[Ordered Item (leaving)] {17 false 42 46 [] false}
+-------[Ordered Item (entering) #2] {1 false 42 46 [] false}
+-------[cr()] LH=14
+--------[Paragraph (entering)] 
+--------[... Margins (left, top, right, bottom:] 188.286 28.35 28.35 56.7
+--------[First Para within a list] breaking
+--------[Text] 年 1.z
+--------[Paragraph (leaving)] 
+--------[... Margins (left, top, right, bottom:] 188.286 28.35 28.35 56.7
+--------[Ordered Item (leaving)] {1 false 42 46 [] false}
+-------[Ordered List (leaving)] {17 true 0 0 [] false}
+-------[... Reset List Left Margin] re-set to 118.314
+------[Ordered Item (leaving)] {17 false 42 46 [] false}
+-----[Ordered List (leaving)] {17 true 0 0 [] false}
+-----[... Reset List Left Margin] re-set to 88.326
+----[Ordered Item (leaving)] {1 false 42 46 [] false}
+---[Ordered List (leaving)] {17 true 0 0 [] false}
+---[... Reset List Left Margin] re-set to 58.337999999999994
+--[Ordered Item (leaving)] {1 false 42 46 [] false}
+-[Ordered Item (entering) #3] {33 false 42 46 [] false}
+-[cr()] LH=14
+--[Paragraph (entering)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[First Para within a list] breaking
+--[Text] 最后编号的项目
+--[Paragraph (leaving)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Ordered Item (leaving)] {33 false 42 46 [] false}
+-[Ordered List (leaving)] {17 true 0 0 [] false}
+-[... Reset List Left Margin] re-set to 28.35
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] ##标题二 这是一个带有一些
+[Strong (entering)] 
+[Text] 强调文本
+[Strong (leaving)] 
+[Text] 的段落 - 好吗？
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Heading (3, entering)] {3  false}
+-[Text] 标题三
+-[Heading (leaving)] 
+-[cr()] LH=25
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 这是一个带有
+[Strong (entering)] 
+[Emph (entering)] 
+[Text] 强调文本的段落
+[Emph (leaving)] 
+[Strong (leaving)] 
+[Text]  - 好吗？
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Heading (4, entering)] {4  false}
+-[Text] 标题四
+-[Heading (leaving)] 
+-[cr()] LH=23
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 
+[Emph (entering)] 
+[Text] 一点文字
+[Emph (leaving)] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[cr()] LH=14
+[Heading (4, entering)] {4  false}
+-[Text] 标题五
+-[Heading (leaving)] 
+-[cr()] LH=23
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 只是一些普通的文字……没什么特别的
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 这是一个简单的表：
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Table (entering)] 
+[cr()] LH=14
+-[TableHead (entering)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] 标题
+----[... table header cell] Width=74.972, height=22
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] 另一个标题
+----[... table header cell] Width=145.012, height=22
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+-[TableHead (leaving)] 
+-[TableBody (entering)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] 字段 1
+----[... table body cell] Width=74.972, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] 东西
+----[... table body cell] Width=145.012, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] 领域 2
+----[... table body cell] Width=74.972, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] 别的东西
+----[... table body cell] Width=145.012, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] 领域 3
+----[... table body cell] Width=74.972, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] 东西
+----[... table body cell] Width=145.012, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] 领域 4
+----[... table body cell] Width=74.972, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] 别的东西
+----[... table body cell] Width=145.012, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] 领域 5
+----[... table body cell] Width=74.972, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] 东西
+----[... table body cell] Width=145.012, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+--[TableRow (entering)] 
+---[TableCell (entering)] 
+----[Text] 字段 6
+----[... table body cell] Width=74.972, height=14
+---[TableCell (leaving)] 
+---[TableCell (entering)] 
+----[Text] 别的东西
+----[... table body cell] Width=145.012, height=14
+---[TableCell (leaving)] 
+--[TableRow (leaving)] 
+-[TableBody (leaving)] 
+[Table (leaving)] 
+[cr()] LH=14
+[cr()] LH=14
+[Heading (6, entering)] {6  false}
+-[Text] 标题六
+-[Heading (leaving)] 
+-[cr()] LH=19
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 这真的是嵌套得很深。
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 这是一些代码： 
+[Code] 
+[Text]  文件名是
+[Code] 
+[Text] 。
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 这三行应该 只有一个段落，但保留BF 换行符，必须用空格替换换行符。
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 下面是一个带有内部代码块的块引用。
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[BlockQuote (entering)] 
+-[Paragraph (entering)] 
+-[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+-[cr()] LH=14
+-[Text] 示例：
+-[Paragraph (leaving)] 
+-[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+-[cr()] LH=14
+-[Paragraph (entering)] 
+-[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+-[cr()] LH=14
+-[Text] 子状态 { 打印“工作”； }
+-[Paragraph (leaving)] 
+-[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+-[cr()] LH=14
+-[Paragraph (entering)] 
+-[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+-[cr()] LH=14
+-[Text] 或：
+-[Paragraph (leaving)] 
+-[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+-[cr()] LH=14
+-[Paragraph (entering)] 
+-[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+-[cr()] LH=14
+-[Text] 子状态 { 返回“工作”； }
+-[Paragraph (leaving)] 
+-[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
+-[cr()] LH=14
+-[BlockQuote (leaving)] 
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 这是 gofpdf 徽标（内联）：
+[Image (entering)] Destination[../image/fpdf.png] Title[]
+[Text] 来自 https://github.com/jung-kurt/gofpdf/tree/master/image
+[Image (leaving)] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 这是一个地鼠：
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 
+[Image (entering)] Destination[../image/hiking.png] Title[可选标题]
+[Text] 来自 https://github.com/egonelbre/gophers
+[Image (leaving)] 
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Unordered List (entering)] {16 true 0 0 [] false}
+[... List Left Margin] set to 58.338
+-[Unordered Item (entering) #1] {48 false 42 46 [] false}
+-[cr()] LH=14
+--[Paragraph (entering)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[First Para within a list] breaking
+--[Text] Go gopher 由 Renee French 设计。 Gopher 角色设计在知识共享 3.0 署名许可下获得许可。阅读 
+---[Link (entering)] Destination[http://blog.golang.org/gopher] Title[]
+---[Text] http://blog.golang.org/gopher
+---[Link (leaving)] 
+--[Text]  了解更多详情。*
+--[Paragraph (leaving)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Unordered Item (leaving)] {48 false 42 46 [] false}
+-[Unordered List (leaving)] {16 true 0 0 [] false}
+-[... Reset List Left Margin] re-set to 28.35
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] 
+[Strong (entering)] 
+[Text] 这是文档的最后一行。
+[Strong (leaving)] 
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
