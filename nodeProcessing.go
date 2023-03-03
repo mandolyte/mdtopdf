@@ -29,10 +29,14 @@ import (
 )
 
 func (r *PdfRenderer) processText(node *bf.Node) {
+	r.tracer("Text", "fmt.Sprintf("r.NeedBlockquoteStyleUpdate=%v", r.NeedBlockquoteStyleUpdate)")
+
 	currentStyle := r.cs.peek().textStyle
 	r.setStyler(currentStyle)
 	s := string(node.Literal)
-	s = strings.Replace(s, "\n", " ", -1)
+	if !r.NeedBlockquoteStyleUpdate {
+		s = strings.Replace(s, "\n", " ", -1)
+	}
 	r.tracer("Text", s)
 
 	if r.cs.peek().containerType == bf.Link {
@@ -62,6 +66,9 @@ func (r *PdfRenderer) processText(node *bf.Node) {
 				fmt.Sprintf("Width=%v, height=%v", hw, h))
 			r.Pdf.CellFormat(hw, h, s, "LR", 0, "", fill, 0, "")
 		}
+	} else if r.NeedBlockquoteStyleUpdate && r.cs.peek().containerType == bf.BlockQuote {
+		r.tracer("Text BlockQuote", s)
+		r.multiCell(currentStyle, s)	
 	} else {
 		r.write(currentStyle, s)
 	}
@@ -224,9 +231,14 @@ func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
 }
 
 func (r *PdfRenderer) processCode(node *bf.Node) {
-	r.tracer("Code", "")
-	r.setStyler(r.Backtick)
-	r.write(r.Backtick, string(node.Literal))
+	r.tracer("Code", "fmt.Sprintf("r.NeedCodeStyleUpdate=%v", r.NeedCodeStyleUpdate)")
+	if r.NeedCodeStyleUpdate {
+		r.setStyler(r.Code)
+		r.multiCell(r.Code, string(node.Literal))
+	} else {
+		r.setStyler(r.Backtick)
+		r.write(r.Backtick, string(node.Literal))
+	}
 }
 
 func (r *PdfRenderer) processParagraph(node *bf.Node, entering bool) {
