@@ -93,6 +93,10 @@ type PdfRenderer struct {
 	TBody   Styler
 
 	cs states
+	
+	// update styling
+	NeedCodeStyleUpdate bool
+	NeedBlockquoteStyleUpdate bool
 }
 
 // NewPdfRenderer creates and configures an PdfRenderer object,
@@ -130,6 +134,10 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string) *PdfRenderer {
 	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
 		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
 
+	// Code text
+	r.Code = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
+	
 	// Headings
 	r.H1 = Styler{Font: "Arial", Style: "b", Size: 24, Spacing: 5,
 		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
@@ -213,6 +221,10 @@ func NewPdfRendererWithDefaultStyler(orient, papersz, pdfFile, tracerFile string
 	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
 		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
 
+	// Code text
+	r.Code = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
+
 	// Headings
 	r.H1 = Styler{Font: "Arial", Style: "b", Size: 24, Spacing: 5,
 		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
@@ -293,6 +305,16 @@ func (r *PdfRenderer) UpdateParagraphStyler(defaultStyler Styler) {
 		listkind:  notlist,
 		textStyle: defaultStyler, leftMargin: r.mleft}
 	r.cs.push(initcurrent)
+}
+
+// UpdateCodeStyler - update code fill styler
+func (r *PdfRenderer) UpdateCodeStyler() {
+	r.NeedCodeStyleUpdate = true
+}
+
+// UpdateBlockquoteStyler - update Blockquote fill styler
+func (r *PdfRenderer) UpdateBlockquoteStyler() {
+	r.NeedBlockquoteStyleUpdate = true
 }
 
 func (r *PdfRenderer) setStyler(s Styler) {
