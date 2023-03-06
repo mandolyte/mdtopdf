@@ -29,8 +29,6 @@ import (
 )
 
 func (r *PdfRenderer) processText(node *bf.Node) {
-	r.tracer("Text", "fmt.Sprintf("r.NeedBlockquoteStyleUpdate=%v", r.NeedBlockquoteStyleUpdate)")
-
 	currentStyle := r.cs.peek().textStyle
 	r.setStyler(currentStyle)
 	s := string(node.Literal)
@@ -231,7 +229,6 @@ func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
 }
 
 func (r *PdfRenderer) processCode(node *bf.Node) {
-	r.tracer("Code", "fmt.Sprintf("r.NeedCodeStyleUpdate=%v", r.NeedCodeStyleUpdate)")
 	if r.NeedCodeStyleUpdate {
 		r.setStyler(r.Code)
 		r.multiCell(r.Code, string(node.Literal))
