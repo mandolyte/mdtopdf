@@ -94,6 +94,9 @@ type PdfRenderer struct {
 
 	cs states
 	
+	// code styling
+	Code Styler
+	
 	// update styling
 	NeedCodeStyleUpdate bool
 	NeedBlockquoteStyleUpdate bool
