@@ -229,10 +229,16 @@ func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
 }
 
 func (r *PdfRenderer) processCode(node *bf.Node) {
+	r.tracer("processCode", fmt.Sprintf("%s", string(node.Literal)))
 	if r.NeedCodeStyleUpdate {
+		r.tracer("Code (entering)", "")
 		r.setStyler(r.Code)
-		r.multiCell(r.Code, string(node.Literal))
+		s := string(node.Literal)
+		hw := r.Pdf.GetStringWidth(s) + (1 * r.em)
+		h := r.Code.Size
+		r.Pdf.CellFormat(hw, h, s, "", 0, "C", true, 0, "")
 	} else {
+		r.tracer("Backtick (entering)", "")
 		r.setStyler(r.Backtick)
 		r.write(r.Backtick, string(node.Literal))
 	}
