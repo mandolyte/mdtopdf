@@ -71,15 +71,13 @@ a number of features. The test PDF was created with this command:
 go run convert.go -i test.md -o test.pdf
 ```
 
-## Using non-LATIN Glyphs/Fonts
+## Using non-ASCII Glyphs/Fonts
 
-In order to use a non-Latin language there are a number things that must be done. The PDF generator must be configured with:
+In order to use a non-ASCII language there are a number things that must be done. The PDF generator must be configured WithUnicodeTranslator:
 
-- the font 
-- a codepage map
-- the content must be translated to Unicode
-
-The above are all requirements of the PDF generator (see dependencies above). I don't know of a straightforward way to determine what the PDF generator needs. I was able to play with a little code to discover what is needed. In addition, the PDF generator testing code has some hints. My code to play with the PDF generator is at `mandolyte/samples/fpdf`.
+```go
+pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.WithUnicodeTranslator("cp1251")) // https://en.wikipedia.org/wiki/Windows-1251
+```
 
 In addition, this package's `Styler` must be used to set the font to match that is configured with the PDF generator.
 

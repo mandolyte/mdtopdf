@@ -41,17 +41,16 @@ func main() {
 		}
 	}
 
-	pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log")
+	pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.WithUnicodeTranslator("cp1251")) //
 	pf.Pdf.AddFont("Helvetica-1251", "", "helvetica_1251.json")
 	pf.Pdf.SetFont("Helvetica-1251", "", 12)
-	// get the unicode translator
-	tr := pf.Pdf.UnicodeTranslatorFromDescriptor("cp1251")
-	pf.Normal = mdtopdf.Styler{Font: "Helvetica-1251", Style: "", 
+
+	pf.Normal = mdtopdf.Styler{Font: "Helvetica-1251", Style: "",
 		Size: 12, Spacing: 2,
-		TextColor: mdtopdf.Color{0, 0, 0}, 
+		TextColor: mdtopdf.Color{0, 0, 0},
 		FillColor: mdtopdf.Color{255, 255, 255}}
 
-	err = pf.Process([]byte(tr(string(content))))
+	err = pf.Process(content)
 	if err != nil {
 		log.Fatalf("pdf.OutputFileAndClose() error:%v", err)
 	}
