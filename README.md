@@ -6,7 +6,7 @@
 
 This package depends on two other packages:
 - The BlackFriday v2 parser to read the markdown source
-- The `gofpdf` packace to generate the PDF
+- The `fpdf` packace to generate the PDF
 
 Both of the above are documented at Go Docs [http://godocs.org].
 
@@ -41,7 +41,7 @@ How to use of non-Latin fonts/languages is documented in a section below.
 
 1. It is common for Markdown to include HTML. HTML is treated as a "code block". *There is no attempt to convert raw HTML to PDF.*
 
-2. Github-flavored Markdown permits strikethough using tildes. This is not supported at present by `gofpdf` as a font style.
+2. Github-flavored Markdown permits strikethough using tildes. This is not supported at present by `fpdf` as a font style.
 
 3. The markdown link title, which would show when converted to HTML as hover-over text, is not supported. The generated PDF will show the actual URL that will be used if clicked, but this is a function of the PDF viewer.
 
@@ -79,7 +79,7 @@ In order to use a non-Latin language there are a number things that must be done
 - a codepage map
 - the content must be translated to Unicode
 
-The above are all requirements of the PDF generator (see dependencies above). I don't know of a straightforward way to determine what the PDF generator needs. I was able to play with a little code to discover what is needed. In addition, the PDF generator testing code has some hints. My code to play with the PDF generator is at `mandolyte/samples/gofpdf`.
+The above are all requirements of the PDF generator (see dependencies above). I don't know of a straightforward way to determine what the PDF generator needs. I was able to play with a little code to discover what is needed. In addition, the PDF generator testing code has some hints. My code to play with the PDF generator is at `mandolyte/samples/fpdf`.
 
 In addition, this package's `Styler` must be used to set the font to match that is configured with the PDF generator.
 

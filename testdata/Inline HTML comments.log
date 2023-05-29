@@ -7,7 +7,6 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
 [HTMLBlock] <!-- This is a simple comment -->
 [cr()] LH=14
 [cr()] LH=14
@@ -23,7 +22,6 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
 [HTMLBlock] <!-- one comment block -- -- with two comments -->
 [cr()] LH=14
 [cr()] LH=14
@@ -33,7 +31,6 @@
 [Text] The end.
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [Document] Not Handled
 [RenderFooter] Not handled

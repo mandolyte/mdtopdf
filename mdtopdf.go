@@ -12,9 +12,9 @@
  * Blackfriday Markdown Processor
  *   Available at http://github.com/russross/blackfriday
  *
- * gofpdf - a PDF document generator with high level support for
+ * fpdf - a PDF document generator with high level support for
  *   text, drawing and images.
- *   Available at https://github.com/jung-kurt/gofpdf
+ *   Available at https://github.com/go-pdf/fpdf
  */
 
 // Package mdtopdf converts markdown to PDF.
@@ -27,7 +27,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/jung-kurt/gofpdf"
+	"github.com/go-pdf/fpdf"
 	bf "github.com/russross/blackfriday/v2"
 )
 
@@ -40,7 +40,7 @@ type Color struct {
 // Styler is the struct to capture the styling features for text
 // Size and Spacing are specified in points.
 // The sum of Size and Spacing is used as line height value
-// in the gofpdf API
+// in the fpdf API
 type Styler struct {
 	Font      string
 	Style     string
@@ -53,9 +53,9 @@ type Styler struct {
 // PdfRenderer is the struct to manage conversion of a markdown object
 // to PDF format.
 type PdfRenderer struct {
-	// Pdf can be used to access the underlying created gofpdf object
+	// Pdf can be used to access the underlying created fpdf object
 	// prior to processing the markdown source
-	Pdf                *gofpdf.Fpdf
+	Pdf                *fpdf.Fpdf
 	orientation, units string
 	papersize, fontdir string
 
@@ -93,12 +93,12 @@ type PdfRenderer struct {
 	TBody   Styler
 
 	cs states
-	
+
 	// code styling
 	Code Styler
-	
+
 	// update styling
-	NeedCodeStyleUpdate bool
+	NeedCodeStyleUpdate       bool
 	NeedBlockquoteStyleUpdate bool
 }
 
@@ -140,7 +140,7 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string) *PdfRenderer {
 	// Code text
 	r.Code = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
 		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
-	
+
 	// Headings
 	r.H1 = Styler{Font: "Arial", Style: "b", Size: 24, Spacing: 5,
 		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
@@ -168,7 +168,7 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string) *PdfRenderer {
 	r.TBody = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
 		TextColor: Color{0, 0, 0}, FillColor: Color{240, 240, 240}}
 
-	r.Pdf = gofpdf.New(r.orientation, r.units, r.papersize, r.fontdir)
+	r.Pdf = fpdf.New(r.orientation, r.units, r.papersize, r.fontdir)
 	r.Pdf.AddPage()
 	// set default font
 	r.setStyler(r.Normal)
@@ -211,8 +211,8 @@ func NewPdfRendererWithDefaultStyler(orient, papersz, pdfFile, tracerFile string
 
 	// Normal Text
 	/*
-	r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
-		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
+		r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
+			TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
 	*/
 	r.Normal = defaultStyler
 
@@ -255,7 +255,7 @@ func NewPdfRendererWithDefaultStyler(orient, papersz, pdfFile, tracerFile string
 	r.TBody = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
 		TextColor: Color{0, 0, 0}, FillColor: Color{240, 240, 240}}
 
-	r.Pdf = gofpdf.New(r.orientation, r.units, r.papersize, r.fontdir)
+	r.Pdf = fpdf.New(r.orientation, r.units, r.papersize, r.fontdir)
 	r.Pdf.AddPage()
 	// set default font
 	r.setStyler(r.Normal)
@@ -302,7 +302,7 @@ func (r *PdfRenderer) Process(content []byte) error {
 	return nil
 }
 
-// UpdateParagraphStyler - update with default styler 
+// UpdateParagraphStyler - update with default styler
 func (r *PdfRenderer) UpdateParagraphStyler(defaultStyler Styler) {
 	initcurrent := &containerState{containerType: bf.Paragraph,
 		listkind:  notlist,

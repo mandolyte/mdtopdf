@@ -12,9 +12,9 @@
  * Blackfriday Markdown Processor
  *   Available at http://github.com/russross/blackfriday
  *
- * gofpdf - a PDF document generator with high level support for
+ * fpdf - a PDF document generator with high level support for
  *   text, drawing and images.
- *   Available at https://github.com/jung-kurt/gofpdf
+ *   Available at https://github.com/go-pdf/fpdf
  */
 
 package mdtopdf
@@ -24,7 +24,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/jung-kurt/gofpdf"
+	"github.com/go-pdf/fpdf"
 	bf "github.com/russross/blackfriday/v2"
 )
 
@@ -66,7 +66,7 @@ func (r *PdfRenderer) processText(node *bf.Node) {
 		}
 	} else if r.NeedBlockquoteStyleUpdate && r.cs.peek().containerType == bf.BlockQuote {
 		r.tracer("Text BlockQuote", s)
-		r.multiCell(currentStyle, s)	
+		r.multiCell(currentStyle, s)
 	} else {
 		r.write(currentStyle, s)
 	}
@@ -219,7 +219,7 @@ func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
 		if err == nil {
 			r.Pdf.ImageOptions(string(node.LinkData.Destination),
 				-1, 0, 0, 0, true,
-				gofpdf.ImageOptions{ImageType: "", ReadDpi: true}, 0, "")
+				fpdf.ImageOptions{ImageType: "", ReadDpi: true}, 0, "")
 		} else {
 			r.tracer("Image (file error)", err.Error())
 		}
