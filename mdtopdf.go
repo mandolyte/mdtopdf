@@ -274,7 +274,6 @@ func NewPdfRendererWithDefaultStyler(orient, papersz, pdfFile, tracerFile string
 
 // Process takes the markdown content, parses it to generate the PDF
 func (r *PdfRenderer) Process(content []byte) error {
-
 	// try to open tracer
 	var f *os.File
 	var err error
@@ -288,6 +287,21 @@ func (r *PdfRenderer) Process(content []byte) error {
 		defer r.w.Flush()
 	}
 
+	err = r.Run(content)
+	if err != nil {
+		return fmt.Errorf("Pdf.OutputFileAndClose() error on %v:%v", r.pdfFile, err)
+	}
+
+	err = r.Pdf.OutputFileAndClose(r.pdfFile)
+	if err != nil {
+		return fmt.Errorf("Pdf.OutputFileAndClose() error on %v:%v", r.pdfFile, err)
+	}
+
+	return nil
+}
+
+// Run takes the markdown content, parses it but don't generate the PDF. you can access the PDF with youRenderer.Pdf
+func (r *PdfRenderer) Run(content []byte) error {
 	// Preprocess content by changing all CRLF to LF
 	s := string(content)
 	s = strings.Replace(s, "\r\n", "\n", -1)
@@ -295,10 +309,6 @@ func (r *PdfRenderer) Process(content []byte) error {
 	content = []byte(s)
 	_ = bf.Run(content, bf.WithRenderer(r))
 
-	err = r.Pdf.OutputFileAndClose(r.pdfFile)
-	if err != nil {
-		return fmt.Errorf("Pdf.OutputFileAndClose() error on %v:%v", r.pdfFile, err)
-	}
 	return nil
 }
 
