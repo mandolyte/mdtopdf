@@ -49,7 +49,8 @@
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[First Para within a list] breaking
 --[Text] An exclamation mark: 
---[Code] 
+--[processCode] !
+--[Backtick (entering)] 
 --[Text] ;
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -60,7 +61,8 @@
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[First Para within a list] breaking
 --[Text] followed by a set of square brackets, containing the 
---[Code] 
+--[processCode] alt
+--[Backtick (entering)] 
 --[Text]  attribute text for the image;
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -71,7 +73,8 @@
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
 --[First Para within a list] breaking
 --[Text] followed by a set of parentheses, containing the URL or path to the image, and an optional 
---[Code] 
+--[processCode] title
+--[Backtick (entering)] 
 --[Text]  attribute enclosed in double or single quotes.
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -84,7 +87,7 @@
 [cr()] LH=14
 [Text] Here is the first picture: 
 [Image (entering)] Destination[./image/fpdf.png] Title[]
-[Text] from https://github.com/jung-kurt/gofpdf/tree/master/image
+[Text] from https://github.com/go-pdf/fpdf/tree/master/image
 [Image (leaving)] 
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -115,7 +118,8 @@
 [cr()] LH=14
 [Text] Note: this snippet was adapted from the testdata folder file named:
 [Text]  
-[Code] 
+[processCode] Markdown Documentation - Syntax.text
+[Backtick (entering)] 
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
@@ -124,7 +128,7 @@
 [cr()] LH=14
 [Text] Here is a non-existent image... should generate a message in trace file. 
 [Image (entering)] Destination[./image/xbay.jpg] Title[Does not exist!]
-[Image (file error)] CreateFile ./image/xbay.jpg: The system cannot find the file specified.
+[Image (file error)] stat ./image/xbay.jpg: no such file or directory
 [Text] Not from https://jpeg.org/images/jpeg-home.jpg
 [Image (leaving)] 
 [Paragraph (leaving)] 

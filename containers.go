@@ -12,9 +12,9 @@
  * Blackfriday Markdown Processor
  *   Available at http://github.com/russross/blackfriday
  *
- * gofpdf - a PDF document generator with high level support for
+ * fpdf - a PDF document generator with high level support for
  *   text, drawing and images.
- *   Available at https://github.com/jung-kurt/gofpdf
+ *   Available at https://github.com/go-pdf/fpdf
  */
 
 package mdtopdf

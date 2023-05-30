@@ -7,7 +7,6 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
 [HTMLBlock] <div>
 	foo
 </div>
@@ -20,8 +19,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
 [Codeblock] {false [] 0 0 0}
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
@@ -29,15 +28,14 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
 [Codeblock] {false [] 0 0 0}
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Now, nested:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [HTMLBlock] <div>
 	<div>
@@ -55,7 +53,6 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
 [HTMLBlock] <!-- Comment -->
 [cr()] LH=14
 [cr()] LH=14
@@ -65,7 +62,6 @@
 [Text] Multiline:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [HTMLBlock] <!--
 Blah
@@ -80,15 +76,14 @@ Blah
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
 [Codeblock] {false [] 0 0 0}
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Just plain comment, with trailing spaces on the line:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [HTMLBlock] <!-- foo -->   
 [cr()] LH=14
@@ -100,15 +95,14 @@ Blah
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[cr()] LH=14
 [Codeblock] {false [] 0 0 0}
+[cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Hr's:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [cr()] LH=14
 [HTMLBlock] <hr>
 [cr()] LH=14

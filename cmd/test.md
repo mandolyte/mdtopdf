@@ -78,7 +78,7 @@ The below is a blockquote with inner codeblocks.
 >         return "working";
 >     }
 
-Here is the gofpdf logo (inline): ![from https://github.com/jung-kurt/gofpdf/tree/master/image](../image/fpdf.png)
+Here is the fpdf logo (inline): ![from https://github.com/go-pdf/fpdf/tree/master/image](../image/fpdf.png)
 
 Here is a Gopher:
 
