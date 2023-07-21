@@ -44,8 +44,7 @@ func main() {
 	// uncomment to treat a horizontal line as a new page
 	// pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.IsHorizontalRuleNewPage(true))
 	// uncomment to pass a syntax highlight dir (for codeblocks)
-	pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.IsHorizontalRuleNewPage(true),
-		mdtopdf.SetSyntaxHighlightBaseDir("/home/jesse/tmp/highlight-jesse/syntax_files"))
+	pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.SetSyntaxHighlightBaseDir("../highlight/syntax_files"))
 	//pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log")
 	pf.Pdf.SetSubject("How to convert markdown to PDF", true)
 	pf.Pdf.SetTitle("Example PDF converted from Markdown", true)
