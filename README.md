@@ -67,7 +67,7 @@ go get github.com/mandolyte/mdtopdf
 
 `mdtopdf` supports colourised output via the [gohighlight module](github.com/jessp01/gohighlight).
 
-See 
+For examples, see [testdata/Markdown Documentation - Syntax.text](./testdata/Markdown Documentation - Syntax.text) and [testdata/Markdown Documentation - Syntax.pdf](./testdata/Markdown Documentation - Syntax.pdf)
 
 
 ## Quick start
