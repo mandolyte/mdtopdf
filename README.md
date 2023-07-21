@@ -8,7 +8,7 @@ This package depends on two other packages:
 - The BlackFriday v2 parser to read the markdown source
 - The `fpdf` packace to generate the PDF
 
-Both of the above are documented at Go Docs [http://godocs.org].
+Both of the above are documented at [Go Docs](http://godocs.org).
 
 The tests included here are from the BlackFriday package.
 See the "testdata" folder.
@@ -67,8 +67,7 @@ go get github.com/mandolyte/mdtopdf
 
 `mdtopdf` supports colourised output via the [gohighlight module](github.com/jessp01/gohighlight).
 
-For examples, see [testdata/Markdown Documentation - Syntax.text](./testdata/Markdown Documentation - Syntax.text) and [testdata/Markdown Documentation - Syntax.pdf](./testdata/Markdown Documentation - Syntax.pdf)
-
+For examples, see `testdata/Markdown Documentation - Syntax.text` and `testdata/Markdown Documentation - Syntax.pdf`
 
 ## Quick start
 
@@ -82,7 +81,6 @@ To benefit from Syntax highlighting, invoke thusly:
 
 ```
 go run convert.go -i syn_test.md -s /path/to/syntax_files -o test.pdf
-
 ```
 
 ## Using non-ASCII Glyphs/Fonts
