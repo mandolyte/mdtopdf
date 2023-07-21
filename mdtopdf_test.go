@@ -26,7 +26,7 @@ import (
 	"testing"
 )
 
-func testit(inputf string, t *testing.T) {
+func testit(inputf string, gohighlight bool, t *testing.T) {
 	inputd := "./testdata/"
 	input := path.Join(inputd, inputf)
 
@@ -41,7 +41,13 @@ func testit(inputf string, t *testing.T) {
 		t.Errorf("%v:%v", input, err)
 	}
 
-	r := NewPdfRenderer("", "", pdffile, tracerfile)
+	var r *PdfRenderer
+	if (gohighlight){
+	    r = NewPdfRenderer("", "", pdffile, tracerfile, IsHorizontalRuleNewPage(true),
+		SetSyntaxHighlightBaseDir("./highlight/syntax_files"))
+	}else{
+	    r = NewPdfRenderer("", "", pdffile, tracerfile)
+	}
 	err = r.Process(content)
 	if err != nil {
 		t.Error(err)
@@ -49,101 +55,105 @@ func testit(inputf string, t *testing.T) {
 }
 
 func TestTables(t *testing.T) {
-	testit("Tables.text", t)
+	testit("Tables.text", false, t)
 }
 
 func TestMarkdownDocumenationBasic(t *testing.T) {
-	testit("Markdown Documentation - Basics.text", t)
+	testit("Markdown Documentation - Basics.text", false, t)
 }
 
 func TestMarkdownDocumenationSyntax(t *testing.T) {
-	testit("Markdown Documentation - Syntax.text", t)
+	testit("Markdown Documentation - Syntax.text", false, t)
+}
+
+func TestMarkdownDocumenationColourSyntax(t *testing.T) {
+	testit("Markdown Documentation - Colour.text", true, t)
 }
 
 func TestImage(t *testing.T) {
-	testit("Image.text", t)
+	testit("Image.text", false, t)
 }
 
 func TestAutoLinks(t *testing.T) {
-	testit("Auto links.text", t)
+	testit("Auto links.text", false, t)
 }
 
 func TestAmpersandEncoding(t *testing.T) {
-	testit("Amps and angle encoding.text", t)
+	testit("Amps and angle encoding.text", false, t)
 }
 
 func TestInlineLinks(t *testing.T) {
-	testit("Links, inline style.text", t)
+	testit("Links, inline style.text", false, t)
 }
 
 func TestLists(t *testing.T) {
-	testit("Ordered and unordered lists.text", t)
+	testit("Ordered and unordered lists.text", false, t)
 }
 
 func TestStringEmph(t *testing.T) {
-	testit("Strong and em together.text", t)
+	testit("Strong and em together.text", false, t)
 }
 
 func TestTabs(t *testing.T) {
-	testit("Tabs.text", t)
+	testit("Tabs.text", false, t)
 }
 
 func TestBackslashEscapes(t *testing.T) {
-	testit("Backslash escapes.text", t)
+	testit("Backslash escapes.text", false, t)
 }
 
 func TestBackquotes(t *testing.T) {
-	testit("Blockquotes with code blocks.text", t)
+	testit("Blockquotes with code blocks.text", false, t)
 }
 
 func TestCodeBlocks(t *testing.T) {
-	testit("Code Blocks.text", t)
+	testit("Code Blocks.text", false, t)
 }
 
 func TestCodeSpans(t *testing.T) {
-	testit("Code Spans.text", t)
+	testit("Code Spans.text", false, t)
 }
 
 func TestHardWrappedPara(t *testing.T) {
-	testit("Hard-wrapped paragraphs with list-like lines no empty line before block.text", t)
+	testit("Hard-wrapped paragraphs with list-like lines no empty line before block.text", false, t)
 }
 
 func TestHardWrappedPara2(t *testing.T) {
-	testit("Hard-wrapped paragraphs with list-like lines.text", t)
+	testit("Hard-wrapped paragraphs with list-like lines.text", false, t)
 }
 
 func TestHorizontalRules(t *testing.T) {
-	testit("Horizontal rules.text", t)
+	testit("Horizontal rules.text", false, t)
 }
 
 func TestInlineHtmlSimple(t *testing.T) {
-	testit("Inline HTML (Simple).text", t)
+	testit("Inline HTML (Simple).text", false, t)
 }
 
 func TestInlineHtmlAdvanced(t *testing.T) {
-	testit("Inline HTML (Advanced).text", t)
+	testit("Inline HTML (Advanced).text", false, t)
 }
 
 func TestInlineHtmlComments(t *testing.T) {
-	testit("Inline HTML comments.text", t)
+	testit("Inline HTML comments.text", false, t)
 }
 
 func TestTitleWithQuotes(t *testing.T) {
-	testit("Literal quotes in titles.text", t)
+	testit("Literal quotes in titles.text", false, t)
 }
 
 func TestNestedBlockquotes(t *testing.T) {
-	testit("Nested blockquotes.text", t)
+	testit("Nested blockquotes.text", false, t)
 }
 
 func TestLinksReference(t *testing.T) {
-	testit("Links, reference style.text", t)
+	testit("Links, reference style.text", false, t)
 }
 
 func TestLinksShortcut(t *testing.T) {
-	testit("Links, shortcut references.text", t)
+	testit("Links, shortcut references.text", false, t)
 }
 
 func TestTidyness(t *testing.T) {
-	testit("Tidyness.text", t)
+	testit("Tidyness.text", false, t)
 }

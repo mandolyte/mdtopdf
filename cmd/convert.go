@@ -41,7 +41,12 @@ func main() {
 		}
 	}
 
-	pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log")
+	// uncomment to treat a horizontal line as a new page
+	// pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.IsHorizontalRuleNewPage(true))
+	// uncomment to pass a syntax highlight dir (for codeblocks)
+	pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.IsHorizontalRuleNewPage(true),
+		mdtopdf.SetSyntaxHighlightBaseDir("/home/jesse/tmp/highlight-jesse/syntax_files"))
+	//pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log")
 	pf.Pdf.SetSubject("How to convert markdown to PDF", true)
 	pf.Pdf.SetTitle("Example PDF converted from Markdown", true)
 	pf.THeader = mdtopdf.Styler{Font: "Times", Style: "IUB", Size: 20, Spacing: 2,
