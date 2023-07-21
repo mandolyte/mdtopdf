@@ -113,7 +113,8 @@ func (r *PdfRenderer) processCodeblock(node *bf.Node) {
 					case highlight.Groups["default"]:
 						fallthrough
 					case highlight.Groups[""]:
-						r.Pdf.SetTextColor(0, 0, 0)
+						currentStyle := r.cs.peek().textStyle
+						r.setStyler(currentStyle)
 					case highlight.Groups["statement"]:
 						fallthrough
 					case highlight.Groups["green"]:
@@ -169,7 +170,8 @@ func (r *PdfRenderer) processCodeblock(node *bf.Node) {
 					case highlight.Groups["high.green"]:
 						r.Pdf.SetTextColor(82, 204, 0)
 					default:
-						r.Pdf.SetTextColor(0, 0, 0)
+						currentStyle := r.cs.peek().textStyle
+						r.setStyler(currentStyle)
 					}
 				}
 				r.Pdf.Write(5, string(c))

@@ -55,6 +55,15 @@ func main() {
 	}
 	pf.Pdf.SetSubject("How to convert markdown to PDF", true)
 	pf.Pdf.SetTitle("Example PDF converted from Markdown", true)
+	pf.H1 = mdtopdf.Styler{Font: "Times", Style: "IUB", Size: 20, Spacing: 2,
+		TextColor: mdtopdf.Color{Red: 0, Green: 0, Blue: 0},
+		FillColor: mdtopdf.Color{Red: 179, Green: 179, Blue: 255}}
+	pf.H2 = mdtopdf.Styler{Font: "Times", Style: "IUB", Size: 20, Spacing: 2,
+		TextColor: mdtopdf.Color{Red: 0, Green: 0, Blue: 0},
+		FillColor: mdtopdf.Color{Red: 179, Green: 179, Blue: 255}}
+	pf.H3 = mdtopdf.Styler{Font: "Times", Style: "IUB", Size: 20, Spacing: 2,
+		TextColor: mdtopdf.Color{Red: 0, Green: 0, Blue: 0},
+		FillColor: mdtopdf.Color{Red: 179, Green: 179, Blue: 255}}
 	pf.THeader = mdtopdf.Styler{Font: "Times", Style: "IUB", Size: 20, Spacing: 2,
 		TextColor: mdtopdf.Color{Red: 0, Green: 0, Blue: 0},
 		FillColor: mdtopdf.Color{Red: 179, Green: 179, Blue: 255}}
