@@ -63,12 +63,26 @@ To install the package, run the usual `go get`:
 go get github.com/mandolyte/mdtopdf
 ```
 
+## Syntax highlighting
+
+`mdtopdf` supports colourised output via the [gohighlight module](github.com/jessp01/gohighlight).
+
+See 
+
+
 ## Quick start
 
 In the `cmd` folder is an example using the package. It demonstrates
 a number of features. The test PDF was created with this command:
 ```
 go run convert.go -i test.md -o test.pdf
+```
+
+To benefit from Syntax highlighting, invoke thusly:
+
+```
+go run convert.go -i syn_test.md -s /path/to/syntax_files -o test.pdf
+
 ```
 
 ## Using non-ASCII Glyphs/Fonts
