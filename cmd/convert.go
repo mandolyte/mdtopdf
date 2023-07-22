@@ -11,7 +11,8 @@ import (
 )
 
 var input = flag.String("i", "", "Input text filename; default is os.Stdin")
-var output = flag.String("o", "", "Output PDF filename; requiRed")
+var output = flag.String("o", "", "Output PDF filename; required")
+var pathToSyntaxFiles = flag.String("s", "", "Path to github.com/jessp01/gohighlight/syntax_files")
 var help = flag.Bool("help", false, "Show usage message")
 
 func main() {
@@ -41,7 +42,17 @@ func main() {
 		}
 	}
 
-	pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log")
+	var pf *mdtopdf.PdfRenderer
+
+	// uncomment to treat a horizontal line as a new page
+	// pf = mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.IsHorizontalRuleNewPage(true))
+
+	if (*pathToSyntaxFiles != ""){
+	    pf = mdtopdf.NewPdfRenderer("", "", *output, "trace.log",
+		    mdtopdf.SetSyntaxHighlightBaseDir(*pathToSyntaxFiles))
+	}else{
+	    pf = mdtopdf.NewPdfRenderer("", "", *output, "trace.log")
+	}
 	pf.Pdf.SetSubject("How to convert markdown to PDF", true)
 	pf.Pdf.SetTitle("Example PDF converted from Markdown", true)
 	pf.THeader = mdtopdf.Styler{Font: "Times", Style: "IUB", Size: 20, Spacing: 2,

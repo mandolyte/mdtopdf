@@ -1,0 +1,3 @@
+[submodule "highlight"]
+	path = highlight
+	url = https://github.com/jessp01/gohighlight

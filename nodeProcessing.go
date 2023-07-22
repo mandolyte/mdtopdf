@@ -21,10 +21,12 @@ package mdtopdf
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"strings"
 
 	"github.com/go-pdf/fpdf"
+	"github.com/jessp01/gohighlight"
 	bf "github.com/russross/blackfriday/v2"
 )
 
@@ -72,18 +74,113 @@ func (r *PdfRenderer) processText(node *bf.Node) {
 	}
 }
 
-func (r *PdfRenderer) processCodeblock(node *bf.Node) {
-	r.tracer("Codeblock", fmt.Sprintf("%v", node.CodeBlockData))
+func (r *PdfRenderer) outputUnhighlightedCodeBlock(codeBlock string) {
 	r.setStyler(r.Backtick)
 	r.cr() // start on next line!
-	r.multiCell(r.Backtick, string(node.Literal))
-	/*
-		lines := strings.Split(strings.TrimSpace(string(node.Literal)), "\n")
-		for n := range lines {
-			r.Pdf.CellFormat(0, r.Backtick.Size,
-				lines[n], "", 1, "LT", true, 0, "")
+	r.multiCell(r.Backtick, codeBlock)
+}
+
+func (r *PdfRenderer) processCodeblock(node *bf.Node) {
+	r.tracer("Codeblock", fmt.Sprintf("%v", node.CodeBlockData))
+
+	currentStyle := r.cs.peek().textStyle
+	r.setStyler(currentStyle)
+
+	var isValidSyntaxHighlightBaseDir bool = false
+	if stat, err := os.Stat(r.SyntaxHighlightBaseDir); err == nil && stat.IsDir() {
+		isValidSyntaxHighlightBaseDir = true
+	}
+
+	if len(node.Info) < 1 || !isValidSyntaxHighlightBaseDir {
+		r.outputUnhighlightedCodeBlock(string(node.Literal))
+		return
+	} else {
+		syntaxFile, lerr := ioutil.ReadFile(r.SyntaxHighlightBaseDir + "/" + string(node.Info) + ".yaml")
+		if lerr != nil {
+			r.outputUnhighlightedCodeBlock(string(node.Literal))
+			return
 		}
-	*/
+		syntaxDef, _ := highlight.ParseDef(syntaxFile)
+		h := highlight.NewHighlighter(syntaxDef)
+		matches := h.HighlightString(string(node.Literal))
+		r.cr()
+		lines := strings.Split(string(node.Literal), "\n")
+		for lineN, l := range lines {
+			colN := 0
+			for _, c := range l {
+				if group, ok := matches[lineN][colN]; ok {
+					switch group {
+					case highlight.Groups["default"]:
+						fallthrough
+					case highlight.Groups[""]:
+						currentStyle := r.cs.peek().textStyle
+						r.setStyler(currentStyle)
+					case highlight.Groups["statement"]:
+						fallthrough
+					case highlight.Groups["green"]:
+						r.Pdf.SetTextColor(42, 170, 138)
+					case highlight.Groups["identifier"]:
+						fallthrough
+					case highlight.Groups["blue"]:
+						r.Pdf.SetTextColor(137, 207, 240)
+
+					case highlight.Groups["preproc"]:
+						r.Pdf.SetTextColor(255, 80, 80)
+
+					case highlight.Groups["special"]:
+						fallthrough
+					case highlight.Groups["type.keyword"]:
+						fallthrough
+					case highlight.Groups["red"]:
+						r.Pdf.SetTextColor(136, 8, 8)
+
+					case highlight.Groups["constant"]:
+						fallthrough
+					case highlight.Groups["constant.number"]:
+						fallthrough
+					case highlight.Groups["constant.bool"]:
+						fallthrough
+					case highlight.Groups["symbol.brackets"]:
+						fallthrough
+					case highlight.Groups["identifier.var"]:
+						fallthrough
+					case highlight.Groups["cyan"]:
+						r.Pdf.SetTextColor(0, 136, 163)
+
+					case highlight.Groups["constant.specialChar"]:
+						fallthrough
+					case highlight.Groups["constant.string.url"]:
+						fallthrough
+					case highlight.Groups["constant.string"]:
+						fallthrough
+					case highlight.Groups["magenta"]:
+						r.Pdf.SetTextColor(255, 0, 255)
+
+					case highlight.Groups["type"]:
+						fallthrough
+					case highlight.Groups["symbol.operator"]:
+						fallthrough
+					case highlight.Groups["symbol.tag.extended"]:
+						fallthrough
+					case highlight.Groups["yellow"]:
+						r.Pdf.SetTextColor(255, 165, 0)
+
+					case highlight.Groups["comment"]:
+						fallthrough
+					case highlight.Groups["high.green"]:
+						r.Pdf.SetTextColor(82, 204, 0)
+					default:
+						currentStyle := r.cs.peek().textStyle
+						r.setStyler(currentStyle)
+					}
+				}
+				r.Pdf.Write(5, string(c))
+				colN++
+			}
+
+			r.cr()
+		}
+	}
 }
 
 func (r *PdfRenderer) processList(node *bf.Node, entering bool) {
@@ -356,25 +453,29 @@ func (r *PdfRenderer) processHeading(node *bf.Node, entering bool) {
 
 func (r *PdfRenderer) processHorizontalRule(node *bf.Node) {
 	r.tracer("HorizontalRule", "")
-	// do a newline
-	r.cr()
-	// get the current x and y (assume left margin in ok)
-	x, y := r.Pdf.GetXY()
-	// get the page margins
-	lm, _, _, _ := r.Pdf.GetMargins()
-	// get the page size
-	w, _ := r.Pdf.GetPageSize()
-	// now compute the x value of the right side of page
-	newx := w - lm
-	r.tracer("... From X,Y", fmt.Sprintf("%v,%v", x, y))
-	r.Pdf.MoveTo(x, y)
-	r.tracer("...   To X,Y", fmt.Sprintf("%v,%v", newx, y))
-	r.Pdf.LineTo(newx, y)
-	r.Pdf.SetLineWidth(3)
-	r.Pdf.SetFillColor(200, 200, 200)
-	r.Pdf.DrawPath("F")
-	// another newline
-	r.cr()
+	if r.HorizontalRuleNewPage {
+		r.Pdf.AddPage()
+	} else {
+		// do a newline
+		r.cr()
+		// get the current x and y (assume left margin in ok)
+		x, y := r.Pdf.GetXY()
+		// get the page margins
+		lm, _, _, _ := r.Pdf.GetMargins()
+		// get the page size
+		w, _ := r.Pdf.GetPageSize()
+		// now compute the x value of the right side of page
+		newx := w - lm
+		r.tracer("... From X,Y", fmt.Sprintf("%v,%v", x, y))
+		r.Pdf.MoveTo(x, y)
+		r.tracer("...   To X,Y", fmt.Sprintf("%v,%v", newx, y))
+		r.Pdf.LineTo(newx, y)
+		r.Pdf.SetLineWidth(3)
+		r.Pdf.SetFillColor(200, 200, 200)
+		r.Pdf.DrawPath("F")
+		// another newline
+		r.cr()
+	}
 }
 
 func (r *PdfRenderer) processHTMLBlock(node *bf.Node) {
