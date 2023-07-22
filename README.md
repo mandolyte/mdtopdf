@@ -83,6 +83,15 @@ To benefit from Syntax highlighting, invoke thusly:
 go run convert.go -i syn_test.md -s /path/to/syntax_files -o test.pdf
 ```
 
+*Note 1: the `cmd` folder has an example for the syntax highlighting. 
+See the script `run_syntax_highlighting.sh`. This example assumes that
+the folder with the syntax files is located at relative location:
+`../../../jessp01/gohighlight/syntax_files`.*
+
+*Note 2: when annotating the code block to specify the language, the
+annotation name must match syntax base filename. In particular, you
+must use `javascript`, not `js`.*
+
 ## Using non-ASCII Glyphs/Fonts
 
 In order to use a non-ASCII language there are a number things that must be done. The PDF generator must be configured WithUnicodeTranslator:
