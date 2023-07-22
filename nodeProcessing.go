@@ -239,7 +239,6 @@ func (r *PdfRenderer) processItem(node *bf.Node, entering bool) {
 		r.cs.push(x)
 		if r.cs.peek().listkind == unordered {
 			tr := r.Pdf.UnicodeTranslatorFromDescriptor("")
-			//r.Pdf.SetFont("","",r.Normal.Size + 3)
 			r.Pdf.CellFormat(3*r.em, r.Normal.Size+r.Normal.Spacing,
 				tr("•"),
 				"", 0, "RB", false, 0, "")
