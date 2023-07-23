@@ -47,12 +47,12 @@ func main() {
 	// uncomment to treat a horizontal line as a new page
 	// pf = mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.IsHorizontalRuleNewPage(true))
 
-	if (*pathToSyntaxFiles != ""){
-	    pf = mdtopdf.NewPdfRenderer("", "", *output, "trace.log",
-		    mdtopdf.SetSyntaxHighlightBaseDir(*pathToSyntaxFiles))
-	}else{
-	    pf = mdtopdf.NewPdfRenderer("", "", *output, "trace.log",
-		    mdtopdf.SetSyntaxHighlightBaseDir("../highlight/syntax_files"))
+	if *pathToSyntaxFiles != "" {
+		pf = mdtopdf.NewPdfRenderer("", "", *output, "trace.log",
+			mdtopdf.SetSyntaxHighlightBaseDir(*pathToSyntaxFiles))
+	} else {
+		pf = mdtopdf.NewPdfRenderer("", "", *output, "trace.log",
+			mdtopdf.SetSyntaxHighlightBaseDir("../highlight/syntax_files"))
 	}
 	pf.Pdf.SetSubject("How to convert markdown to PDF", true)
 	pf.Pdf.SetTitle("Example PDF converted from Markdown", true)
