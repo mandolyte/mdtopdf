@@ -238,8 +238,9 @@ func (r *PdfRenderer) processItem(node *bf.Node, entering bool) {
 		// text/paragraphs in the item
 		r.cs.push(x)
 		if r.cs.peek().listkind == unordered {
+			tr := r.Pdf.UnicodeTranslatorFromDescriptor("")
 			r.Pdf.CellFormat(3*r.em, r.Normal.Size+r.Normal.Spacing,
-				"-",
+				tr("•"),
 				"", 0, "RB", false, 0, "")
 		} else if r.cs.peek().listkind == ordered {
 			r.Pdf.CellFormat(3*r.em, r.Normal.Size+r.Normal.Spacing,

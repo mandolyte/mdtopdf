@@ -104,8 +104,8 @@ type PdfRenderer struct {
 	// update styling
 	NeedCodeStyleUpdate       bool
 	NeedBlockquoteStyleUpdate bool
-	HorizontalRuleNewPage bool
-	SyntaxHighlightBaseDir string
+	HorizontalRuleNewPage     bool
+	SyntaxHighlightBaseDir    string
 }
 
 // NewPdfRenderer creates and configures an PdfRenderer object,
@@ -396,12 +396,12 @@ func WithUnicodeTranslator(cp string) RenderOption {
 
 func IsHorizontalRuleNewPage(value bool) RenderOption {
 	return func(r *PdfRenderer) {
-	    r.HorizontalRuleNewPage = value
+		r.HorizontalRuleNewPage = value
 	}
 }
 
 func SetSyntaxHighlightBaseDir(path string) RenderOption {
 	return func(r *PdfRenderer) {
-	    r.SyntaxHighlightBaseDir = path
+		r.SyntaxHighlightBaseDir = path
 	}
 }
