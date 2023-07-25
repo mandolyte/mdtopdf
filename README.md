@@ -104,3 +104,31 @@ In addition, this package's `Styler` must be used to set the font to match that 
 
 A complete working example may be found for Russian in the `cmd` folder nameed
 `russian.go`.
+
+
+# Note to Self
+
+In order to update `pkg.go.dev` with latest release, the following will do the trick. 
+Essentially, it is creating a module and then running the go get command for the
+desired release.
+Using the proxy will have the side effect of updating the info on the go pkg web site.
+
+```sh
+$ pwd
+/home/cecil/Downloads
+$ mkdir tmp
+$ cd tmp
+$ ls
+$ go mod init example.com/mypkg
+go: creating new go.mod: module example.com/mypkg
+$ cat go.mod 
+module example.com/mypkg
+
+go 1.20
+$ GOPROXY=https://proxy.golang.org GO111MODULE=on go get github.com/mandolyte/mdtopdf@v1.4.1
+go: added github.com/go-pdf/fpdf v0.8.0
+go: added github.com/jessp01/gohighlight v0.21.1-7
+go: added github.com/mandolyte/mdtopdf v1.4.1
+go: added github.com/russross/blackfriday/v2 v2.1.0
+go: added gopkg.in/yaml.v2 v2.4.0
+```
