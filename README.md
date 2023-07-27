@@ -132,7 +132,7 @@ For example, the below will:
 
 ```sh
 $ go run convert.go  -i /path/to/md \
-    -o apt_dpkg_deb.pdf --title "My Grand Title" --author "Random Bloke" \
+    -o /path/to/pdf --title "My Grand Title" --author "Random Bloke" \
     --theme dark --new-page-on-hr --with-footer
 ```
 
