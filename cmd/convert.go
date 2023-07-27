@@ -52,7 +52,6 @@ func main() {
 		opts = append(opts, mdtopdf.SetSyntaxHighlightBaseDir("../highlight/syntax_files"))
 	}
 
-
 	// get text for PDF
 	var content []byte
 	var err error
@@ -73,10 +72,10 @@ func main() {
 	fillColor := mdtopdf.Colorlookup("white")
 	backgroundColor := "white"
 	if *themeArg == "dark" {
-	    theme = mdtopdf.DARK
-	    backgroundColor = "eerieblack"
-	    textColor = mdtopdf.Colorlookup("darkgray")
-	    fillColor = mdtopdf.Colorlookup("black")
+		theme = mdtopdf.DARK
+		backgroundColor = "eerieblack"
+		textColor = mdtopdf.Colorlookup("darkgray")
+		fillColor = mdtopdf.Colorlookup("black")
 	}
 
 	pf := mdtopdf.NewPdfRenderer("", *pageSize, *output, "trace.log", opts, theme)

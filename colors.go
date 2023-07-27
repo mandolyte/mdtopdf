@@ -9,7 +9,7 @@ import (
 // The functions below were taken almost as is from https://github.com/ajstarks/deck/blob/master/cmd/pdfdeck/colors.go
 
 // colornames maps SVG color names to RGB triples.
-var colornames = map[string]Color{
+var colornames = map[string]RGB{
 	"aliceblue":            {240, 248, 255},
 	"antiquewhite":         {250, 235, 215},
 	"aqua":                 {0, 255, 255},
@@ -18,9 +18,9 @@ var colornames = map[string]Color{
 	"beige":                {245, 245, 220},
 	"bisque":               {255, 228, 196},
 	"black":                {0, 0, 0},
-	"charlestongreen":	{35, 43, 43},
-	"eerieblack":		{27, 27, 27},
-	"jetblack":		{52, 52, 52},
+	"charlestongreen":      {35, 43, 43},
+	"eerieblack":           {27, 27, 27},
+	"jetblack":             {52, 52, 52},
 	"blanchedalmond":       {255, 235, 205},
 	"blue":                 {0, 0, 255},
 	"blueviolet":           {138, 43, 226},
@@ -164,10 +164,10 @@ var colornames = map[string]Color{
 
 // colorlookup returns a RGB triple corresponding to the named color, "rgb(r,g,b)" or "#rrggbb" string.
 // On error, return black.
-func Colorlookup(s string) (Color) {
+func Colorlookup(s string) Color {
 	color, ok := colornames[s]
 	if ok {
-	    return Color{color.Red, color.Green, color.Blue}
+		return Color{color.red, color.green, color.blue}
 	}
 	var red, green, blue int
 	ls := len(s)

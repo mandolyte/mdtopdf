@@ -56,10 +56,9 @@ type RenderOption func(r *PdfRenderer)
 type Theme int
 
 const (
-	DARK Theme = 1
+	DARK  Theme = 1
 	LIGHT Theme = 2
 )
-
 
 // PdfRenderer is the struct to manage conversion of a markdown object
 // to PDF format.
@@ -114,8 +113,8 @@ type PdfRenderer struct {
 	NeedBlockquoteStyleUpdate bool
 	HorizontalRuleNewPage     bool
 	SyntaxHighlightBaseDir    string
-	Theme Theme
-	BackgroundColor		  Color
+	Theme                     Theme
+	BackgroundColor           Color
 }
 
 func (r *PdfRenderer) SetLightTheme() {
@@ -230,8 +229,6 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string, opts []RenderOp
 		r.orientation = orient
 	}
 
-
-
 	r.units = "pt"
 	r.papersize = "Letter"
 	if papersz != "" {
@@ -242,7 +239,7 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string, opts []RenderOp
 
 	r.Theme = theme
 	if theme == 0 {
-	    r.Theme = LIGHT
+		r.Theme = LIGHT
 	}
 
 	r.Pdf = fpdf.New(r.orientation, r.units, r.papersize, r.fontdir)
@@ -251,13 +248,12 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string, opts []RenderOp
 		r.SetPageBackground("", r.BackgroundColor)
 	})
 
-
 	r.Pdf.AddPage()
 	switch r.Theme {
 	case DARK:
-	    r.SetDarkTheme()
+		r.SetDarkTheme()
 	case LIGHT:
-	    r.SetLightTheme()
+		r.SetLightTheme()
 	}
 	// set default font
 	r.setStyler(r.Normal)
@@ -470,17 +466,16 @@ func (r *PdfRenderer) tracer(source, msg string) {
 }
 
 func dorect(doc *fpdf.Fpdf, x, y, w, h float64, color Color) {
-        doc.SetFillColor(color.Red, color.Green, color.Blue)
-        doc.Rect(x, y, w, h, "F")
+	doc.SetFillColor(color.Red, color.Green, color.Blue)
+	doc.Rect(x, y, w, h, "F")
 }
 
 func (r *PdfRenderer) SetPageBackground(colorStr string, color Color) {
-        w, h := r.Pdf.GetPageSize()
-        //var red, green, blue int
-        if (colorStr != ""){
-            color = Colorlookup(colorStr)
-        }
-        dorect(r.Pdf, 0, 0, w, h, color)
+	w, h := r.Pdf.GetPageSize()
+	if colorStr != "" {
+		color = Colorlookup(colorStr)
+	}
+	dorect(r.Pdf, 0, 0, w, h, color)
 }
 
 // Options
