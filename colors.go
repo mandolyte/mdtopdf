@@ -9,7 +9,7 @@ import (
 // The functions below were taken almost as is from https://github.com/ajstarks/deck/blob/master/cmd/pdfdeck/colors.go
 
 // colornames maps SVG color names to RGB triples.
-var colornames = map[string]RGB{
+var colornames = map[string]Color{
 	"aliceblue":            {240, 248, 255},
 	"antiquewhite":         {250, 235, 215},
 	"aqua":                 {0, 255, 255},
@@ -167,7 +167,7 @@ var colornames = map[string]RGB{
 func Colorlookup(s string) Color {
 	color, ok := colornames[s]
 	if ok {
-		return Color{color.red, color.green, color.blue}
+		return Color{color.Red, color.Green, color.Blue}
 	}
 	var red, green, blue int
 	ls := len(s)
