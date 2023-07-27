@@ -131,7 +131,7 @@ func (r *PdfRenderer) processCodeblock(node *bf.Node) {
 					case highlight.Groups["type.keyword"]:
 						fallthrough
 					case highlight.Groups["red"]:
-						r.Pdf.SetTextColor(136, 8, 8)
+						r.Pdf.SetTextColor(255, 80, 80)
 
 					case highlight.Groups["constant"]:
 						fallthrough
