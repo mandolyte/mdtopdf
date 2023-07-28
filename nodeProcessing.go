@@ -349,8 +349,8 @@ func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
 			if err != nil {
 			    fmt.Println(err.Error())
 			}else{
-			    fmt.Println("Downloaded image to:" + destination)
 			    destination = os.TempDir() + "/" + filepath.Base(destination)
+			    fmt.Println("Downloaded image to: " + destination)
 			}
 		    }
 		}
