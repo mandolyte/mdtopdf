@@ -21,9 +21,13 @@ package mdtopdf
 
 import (
 	"fmt"
+	"io"
 	"io/ioutil"
 	"os"
 	"strings"
+	"errors"
+	"net/http"
+	"path/filepath"
 
 	"github.com/go-pdf/fpdf"
 	"github.com/jessp01/gohighlight"
@@ -75,8 +79,8 @@ func (r *PdfRenderer) processText(node *bf.Node) {
 }
 
 func (r *PdfRenderer) outputUnhighlightedCodeBlock(codeBlock string) {
-	r.setStyler(r.Backtick)
 	r.cr() // start on next line!
+	r.setStyler(r.Backtick)
 	r.multiCell(r.Backtick, codeBlock)
 }
 
@@ -284,11 +288,15 @@ func (r *PdfRenderer) processStrong(node *bf.Node, entering bool) {
 }
 
 func (r *PdfRenderer) processLink(node *bf.Node, entering bool) {
+	destination := string(node.LinkData.Destination)
 	if entering {
+		if r.InputBaseUrl != "" && strings.HasPrefix(destination,"./") {
+		    destination = r.InputBaseUrl + "/" + strings.Replace(destination,"./","",1)
+		}
 		x := &containerState{containerType: bf.Link,
 			textStyle: r.Link, listkind: notlist,
 			leftMargin:  r.cs.peek().leftMargin,
-			destination: string(node.LinkData.Destination)}
+			destination: destination}
 		r.cs.push(x)
 		r.tracer("Link (entering)",
 			fmt.Sprintf("Destination[%v] Title[%v]",
@@ -300,20 +308,62 @@ func (r *PdfRenderer) processLink(node *bf.Node, entering bool) {
 	}
 }
 
+func downloadFile(URL, fileName string) error {
+	//fmt.Printf("%s, %s\n", URL,fileName)
+	//Get the response bytes from the url
+	response, err := http.Get(URL)
+	if err != nil {
+		return err
+	}
+	defer response.Body.Close()
+
+	if response.StatusCode != 200 {
+		return errors.New("Received non 200 response code")
+	}
+	//Create a empty file
+	file, err := os.Create(fileName)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	//Write the bytes to the fiel
+	_, err = io.Copy(file, response.Body)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
 	// while this has entering and leaving states, it doesn't appear
 	// to be useful except for other markup languages to close the tag
 	if entering {
+		r.cr() // newline before getting started
+		destination := string(node.LinkData.Destination)
+		if !strings.HasPrefix(destination, "http") {
+		    if _, err := os.Stat(destination); errors.Is(err, os.ErrNotExist) && r.InputBaseUrl != "" {
+		    // download the image so we can use it
+			err := downloadFile(r.InputBaseUrl + "/" + destination, os.TempDir() + "/" + filepath.Base(destination))
+			if err != nil {
+			    fmt.Println(err.Error())
+			}else{
+			    fmt.Println("Downloaded image to:" + destination)
+			    destination = os.TempDir() + "/" + filepath.Base(destination)
+			}
+		    }
+		}
 		r.tracer("Image (entering)",
 			fmt.Sprintf("Destination[%v] Title[%v]",
-				string(node.LinkData.Destination),
+				destination,
 				string(node.LinkData.Title)))
 		// following changes suggested by @sirnewton01, issue #6
 		// does file exist?
-		var imgPath = string(node.LinkData.Destination)
+		var imgPath = destination
 		_, err := os.Stat(imgPath)
 		if err == nil {
-			r.Pdf.ImageOptions(string(node.LinkData.Destination),
+			r.Pdf.ImageOptions(destination,
 				-1, 0, 0, 0, true,
 				fpdf.ImageOptions{ImageType: "", ReadDpi: true}, 0, "")
 		} else {

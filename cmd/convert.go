@@ -6,6 +6,10 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"regexp"
+	"net/http"
+	"path/filepath"
+	"strings"
 
 	"github.com/mandolyte/mdtopdf"
 )
@@ -22,6 +26,7 @@ var themeArg = flag.String("theme", "light", "[light|dark]")
 var hrAsNewPage = flag.Bool("new-page-on-hr", false, "Interpret HR as a new page; useful for presentations")
 var printFooter = flag.Bool("with-footer", false, "Print doc footer (author  title  page number)")
 var pageSize = flag.String("page-size", "A4", "[A3 | A4 | A5]")
+var orientation = flag.String("orientation", "portrait", "[portrait | landscape]")
 var help = flag.Bool("help", false, "Show usage message")
 
 var opts []mdtopdf.RenderOption
@@ -55,13 +60,26 @@ func main() {
 	// get text for PDF
 	var content []byte
 	var err error
+	var inputBaseUrl string
 	if *input == "" {
 		content, err = ioutil.ReadAll(os.Stdin)
 		if err != nil {
 			log.Fatal(err)
 		}
 	} else {
-		content, err = ioutil.ReadFile(*input)
+	        httpRegex := regexp.MustCompile("^http(s)?://")
+                if httpRegex.Match([]byte(*input)){
+                    resp, err := http.Get(*input)
+                    if err != nil {
+                        log.Fatal(err)
+                    }
+                    defer resp.Body.Close()
+		    content, err = ioutil.ReadAll(resp.Body)
+		    // get the base URL so we can adjust relative links and images
+		    inputBaseUrl = strings.Replace(filepath.Dir(*input),":/","://",1)
+                }else{
+		    content, err = ioutil.ReadFile(*input)
+		}
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -78,7 +96,10 @@ func main() {
 		fillColor = mdtopdf.Colorlookup("black")
 	}
 
-	pf := mdtopdf.NewPdfRenderer("", *pageSize, *output, "trace.log", opts, theme)
+	pf := mdtopdf.NewPdfRenderer(*orientation, *pageSize, *output, "trace.log", opts, theme)
+	if inputBaseUrl != "" {
+	    pf.InputBaseUrl = inputBaseUrl
+	}
 	pf.Pdf.SetSubject(*title, true)
 	pf.Pdf.SetTitle(*title, true)
 	pf.BackgroundColor = mdtopdf.Colorlookup(backgroundColor)
@@ -102,11 +123,15 @@ func main() {
 			pf.Pdf.SetFont("Arial", "I", 8)
 			// Text color in gray
 			pf.Pdf.SetTextColor(128, 128, 128)
-			w, _, _ := pf.Pdf.PageSize(pf.Pdf.PageNo())
-			//fmt.Printf("Width: %d, height: %d, unit: %s\n", w, h, u)
+			w, h, _ := pf.Pdf.PageSize(pf.Pdf.PageNo())
+			// fmt.Printf("Width: %f, height: %f, unit: %s\n", w, h, u)
 			pf.Pdf.SetX(4)
 			pf.Pdf.CellFormat(0, 10, fmt.Sprintf("%s", *author), "", 0, "", true, 0, "")
-			pf.Pdf.SetX(w/2 - float64(len(*title)))
+			middle := w/2
+			if *orientation == "landscape" {
+			    middle = h/2
+			}
+			pf.Pdf.SetX(middle - float64(len(*title)))
 			pf.Pdf.CellFormat(0, 10, fmt.Sprintf("%s", *title), "", 0, "", true, 0, "")
 			pf.Pdf.SetX(-40)
 			pf.Pdf.CellFormat(0, 10, fmt.Sprintf("Page %d", pf.Pdf.PageNo()), "", 0, "", true, 0, "")

@@ -113,6 +113,7 @@ type PdfRenderer struct {
 	NeedBlockquoteStyleUpdate bool
 	HorizontalRuleNewPage     bool
 	SyntaxHighlightBaseDir    string
+	InputBaseUrl		  string
 	Theme                     Theme
 	BackgroundColor           Color
 }
