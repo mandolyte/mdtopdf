@@ -186,9 +186,9 @@ func (r *PdfRenderer) SetDarkTheme() {
 
 	// Headings
 	r.H1 = Styler{Font: "Arial", Style: "b", Size: 24, Spacing: 5,
-		FillColor: Colorlookup("black"), TextColor: Colorlookup("cornflowerblue")}
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
 	r.H2 = Styler{Font: "Arial", Style: "b", Size: 22, Spacing: 5,
-		FillColor: Colorlookup("black"), TextColor: Colorlookup("cornflowerblue")}
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
 	r.H3 = Styler{Font: "Arial", Style: "b", Size: 20, Spacing: 5,
 		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
 	r.H4 = Styler{Font: "Arial", Style: "b", Size: 18, Spacing: 5,
