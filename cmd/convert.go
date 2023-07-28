@@ -14,7 +14,7 @@ import (
 	"github.com/mandolyte/mdtopdf"
 )
 
-var input = flag.String("i", "", "Input text filename; default is os.Stdin")
+var input = flag.String("i", "", "Input filename or HTTP(s) URL; default is os.Stdin")
 var output = flag.String("o", "", "Output PDF filename; required")
 var pathToSyntaxFiles = flag.String("s", "", "Path to github.com/jessp01/gohighlight/syntax_files")
 var title = flag.String("title", "", "Presentation title")
