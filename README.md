@@ -60,7 +60,12 @@ This is a planned fix; [see here](https://github.com/mandolyte/mdtopdf/issues/1)
 
 To install the package, run the usual `go get`:
 ```
-go get github.com/mandolyte/mdtopdf
+$ go get github.com/mandolyte/mdtopdf
+```
+
+You can also install the `md2pdf` binary directly onto your `$GOBIN` dir with:
+```
+$ go install github.com/mandolyte/mdtopdf/cmd@latest
 ```
 
 ## Syntax highlighting
@@ -74,13 +79,13 @@ For examples, see `testdata/Markdown Documentation - Syntax.text` and `testdata/
 In the `cmd` folder is an example using the package. It demonstrates
 a number of features. The test PDF was created with this command:
 ```
-$ go run convert.go -i test.md -o test.pdf
+$ go run md2pdf.go -i test.md -o test.pdf
 ```
 
 To benefit from Syntax highlighting, invoke thusly:
 
 ```
-$ go run convert.go -i syn_test.md -s /path/to/syntax_files -o test.pdf
+$ go run md2pdf.go -i syn_test.md -s /path/to/syntax_files -o test.pdf
 ```
 
 *Note 1: the `cmd` folder has an example for the syntax highlighting. 
@@ -131,7 +136,7 @@ For example, the below will:
 - Print a footer (`author name, title, page number`)
 
 ```sh
-$ go run convert.go  -i /path/to/md \
+$ go run md2pdf.go  -i /path/to/md \
     -o /path/to/pdf --title "My Grand Title" --author "Random Bloke" \
     --theme dark --new-page-on-hr --with-footer
 ```
@@ -153,7 +158,7 @@ A complete working example may be found for Russian in the `cmd` folder nameed
 For a full example, run:
 
 ```sh
-$ go run convert.go -i russian.md -o russian.pdf \
+$ go run md2pdf.go -i russian.md -o russian.pdf \
     --unicode-encoding cp1251 --font-file helvetica_1251.json --font-name Helvetica_1251
 ```
 

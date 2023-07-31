@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"os"
-	"regexp"
 	"net/http"
+	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 
 	"github.com/mandolyte/mdtopdf"
@@ -60,28 +60,34 @@ func main() {
 	// get text for PDF
 	var content []byte
 	var err error
-	var inputBaseUrl string
+	var inputBaseURL string
 	if *input == "" {
 		content, err = ioutil.ReadAll(os.Stdin)
 		if err != nil {
 			log.Fatal(err)
 		}
 	} else {
-	        httpRegex := regexp.MustCompile("^http(s)?://")
-                if httpRegex.Match([]byte(*input)){
-                    resp, err := http.Get(*input)
-                    if err != nil {
-                        log.Fatal(err)
-                    }
-                    defer resp.Body.Close()
-		    content, err = ioutil.ReadAll(resp.Body)
-		    // get the base URL so we can adjust relative links and images
-		    inputBaseUrl = strings.Replace(filepath.Dir(*input),":/","://",1)
-                }else{
-		    content, err = ioutil.ReadFile(*input)
-		}
-		if err != nil {
-			log.Fatal(err)
+		httpRegex := regexp.MustCompile("^http(s)?://")
+		if httpRegex.Match([]byte(*input)) {
+			resp, err := http.Get(*input)
+			if err != nil {
+				log.Fatal(err)
+			}
+			defer resp.Body.Close()
+			content, err = ioutil.ReadAll(resp.Body)
+			if err != nil {
+				fmt.Println(err.Error())
+				return
+			}
+			// get the base URL so we can adjust relative links and images
+			inputBaseURL = strings.Replace(filepath.Dir(*input), ":/", "://", 1)
+		} else {
+			content, err = ioutil.ReadFile(*input)
+			if err != nil {
+				// log.Fatal(err)
+				fmt.Println(err.Error())
+				return
+			}
 		}
 	}
 
@@ -97,8 +103,8 @@ func main() {
 	}
 
 	pf := mdtopdf.NewPdfRenderer(*orientation, *pageSize, *output, "trace.log", opts, theme)
-	if inputBaseUrl != "" {
-	    pf.InputBaseUrl = inputBaseUrl
+	if inputBaseURL != "" {
+		pf.InputBaseUrl = inputBaseURL
 	}
 	pf.Pdf.SetSubject(*title, true)
 	pf.Pdf.SetTitle(*title, true)
@@ -127,9 +133,9 @@ func main() {
 			// fmt.Printf("Width: %f, height: %f, unit: %s\n", w, h, u)
 			pf.Pdf.SetX(4)
 			pf.Pdf.CellFormat(0, 10, fmt.Sprintf("%s", *author), "", 0, "", true, 0, "")
-			middle := w/2
+			middle := w / 2
 			if *orientation == "landscape" {
-			    middle = h/2
+				middle = h / 2
 			}
 			pf.Pdf.SetX(middle - float64(len(*title)))
 			pf.Pdf.CellFormat(0, 10, fmt.Sprintf("%s", *title), "", 0, "", true, 0, "")
@@ -140,7 +146,7 @@ func main() {
 
 	err = pf.Process(content)
 	if err != nil {
-		log.Fatalf("error:%v", err)
+		fmt.Printf("error:%v\n", err)
 	}
 }
 
