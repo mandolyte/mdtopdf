@@ -53,6 +53,13 @@ type Styler struct {
 // RenderOption allows to define functions to configure the renderer
 type RenderOption func(r *PdfRenderer)
 
+type Theme int
+
+const (
+	DARK  Theme = 1
+	LIGHT Theme = 2
+)
+
 // PdfRenderer is the struct to manage conversion of a markdown object
 // to PDF format.
 type PdfRenderer struct {
@@ -106,11 +113,110 @@ type PdfRenderer struct {
 	NeedBlockquoteStyleUpdate bool
 	HorizontalRuleNewPage     bool
 	SyntaxHighlightBaseDir    string
+	InputBaseUrl		  string
+	Theme                     Theme
+	BackgroundColor           Color
+}
+
+func (r *PdfRenderer) SetLightTheme() {
+	r.BackgroundColor = Colorlookup("white")
+	r.SetPageBackground("", r.BackgroundColor)
+	// Normal Text
+	r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
+		TextColor: Colorlookup("black"), FillColor: Colorlookup("white")}
+
+	// Link text
+	r.Link = Styler{Font: "Arial", Style: "b", Size: 12, Spacing: 2,
+		TextColor: Colorlookup("cornflowerblue")}
+
+	// Backticked text
+	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
+
+	// Code text
+	r.Code = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
+
+	// Headings
+	r.H1 = Styler{Font: "Arial", Style: "b", Size: 24, Spacing: 5,
+		TextColor: Colorlookup("black"), FillColor: Colorlookup("white")}
+	r.H2 = Styler{Font: "Arial", Style: "b", Size: 22, Spacing: 5,
+		TextColor: Colorlookup("black"), FillColor: Colorlookup("white")}
+	r.H3 = Styler{Font: "Arial", Style: "b", Size: 20, Spacing: 5,
+		TextColor: Colorlookup("black"), FillColor: Colorlookup("white")}
+	r.H4 = Styler{Font: "Arial", Style: "b", Size: 18, Spacing: 5,
+		TextColor: Colorlookup("black"), FillColor: Colorlookup("white")}
+	r.H5 = Styler{Font: "Arial", Style: "b", Size: 16, Spacing: 5,
+		TextColor: Colorlookup("black"), FillColor: Colorlookup("white")}
+	r.H6 = Styler{Font: "Arial", Style: "b", Size: 14, Spacing: 5,
+		TextColor: Colorlookup("black"), FillColor: Colorlookup("white")}
+
+	//r.inBlockquote = false
+	//r.inHeading = false
+	r.Blockquote = Styler{Font: "Arial", Style: "i", Size: 12, Spacing: 2,
+		TextColor: Colorlookup("black"), FillColor: Colorlookup("white")}
+
+	// Table Header Text
+	r.THeader = Styler{Font: "Arial", Style: "B", Size: 12, Spacing: 2,
+		TextColor: Colorlookup("black"), FillColor: Color{180, 180, 180}}
+
+	// Table Body Text
+	r.TBody = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
+		TextColor: Colorlookup("black"), FillColor: Color{240, 240, 240}}
+
+}
+
+func (r *PdfRenderer) SetDarkTheme() {
+	r.BackgroundColor = Colorlookup("eerieblack")
+	r.SetPageBackground("", r.BackgroundColor)
+	// Normal Text
+	r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
+
+	// Link text
+	r.Link = Styler{Font: "Arial", Style: "b", Size: 12, Spacing: 2,
+		TextColor: Colorlookup("cornflowerblue")}
+
+	// Backticked text
+	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+		TextColor: Colorlookup("lightgrey"), FillColor: Color{32, 35, 37}}
+
+	// Code text
+	r.Code = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+		TextColor: Colorlookup("lightgrey"), FillColor: Color{32, 35, 37}}
+
+	// Headings
+	r.H1 = Styler{Font: "Arial", Style: "b", Size: 24, Spacing: 5,
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
+	r.H2 = Styler{Font: "Arial", Style: "b", Size: 22, Spacing: 5,
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
+	r.H3 = Styler{Font: "Arial", Style: "b", Size: 20, Spacing: 5,
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
+	r.H4 = Styler{Font: "Arial", Style: "b", Size: 18, Spacing: 5,
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
+	r.H5 = Styler{Font: "Arial", Style: "b", Size: 16, Spacing: 5,
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
+	r.H6 = Styler{Font: "Arial", Style: "b", Size: 14, Spacing: 5,
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
+
+	//r.inBlockquote = false
+	//r.inHeading = false
+	r.Blockquote = Styler{Font: "Arial", Style: "i", Size: 12, Spacing: 2,
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
+
+	// Table Header Text
+	r.THeader = Styler{Font: "Arial", Style: "B", Size: 12, Spacing: 2,
+		TextColor: Colorlookup("darkgray"), FillColor: Color{27, 27, 27}}
+
+	// Table Body Text
+	r.TBody = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
+		FillColor: Color{200, 200, 200}, TextColor: Color{128, 128, 128}}
+
 }
 
 // NewPdfRenderer creates and configures an PdfRenderer object,
 // which satisfies the Renderer interface.
-func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string, opts ...RenderOption) *PdfRenderer {
+func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string, opts []RenderOption, theme Theme) *PdfRenderer {
 
 	r := new(PdfRenderer)
 
@@ -123,6 +229,7 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string, opts ...RenderO
 	if orient != "" {
 		r.orientation = orient
 	}
+
 	r.units = "pt"
 	r.papersize = "Letter"
 	if papersz != "" {
@@ -131,51 +238,24 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string, opts ...RenderO
 
 	r.fontdir = "."
 
-	// Normal Text
-	r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
-		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
-
-	// Link text
-	r.Link = Styler{Font: "Arial", Style: "iu", Size: 12, Spacing: 2,
-		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
-
-	// Backticked text
-	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
-		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
-
-	// Code text
-	r.Code = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
-		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
-
-	// Headings
-	r.H1 = Styler{Font: "Arial", Style: "b", Size: 24, Spacing: 5,
-		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
-	r.H2 = Styler{Font: "Arial", Style: "b", Size: 22, Spacing: 5,
-		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
-	r.H3 = Styler{Font: "Arial", Style: "b", Size: 20, Spacing: 5,
-		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
-	r.H4 = Styler{Font: "Arial", Style: "b", Size: 18, Spacing: 5,
-		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
-	r.H5 = Styler{Font: "Arial", Style: "b", Size: 16, Spacing: 5,
-		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
-	r.H6 = Styler{Font: "Arial", Style: "b", Size: 14, Spacing: 5,
-		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
-
-	//r.inBlockquote = false
-	//r.inHeading = false
-	r.Blockquote = Styler{Font: "Arial", Style: "i", Size: 12, Spacing: 2,
-		TextColor: Color{0, 0, 0}, FillColor: Color{255, 255, 255}}
-
-	// Table Header Text
-	r.THeader = Styler{Font: "Arial", Style: "B", Size: 12, Spacing: 2,
-		TextColor: Color{0, 0, 0}, FillColor: Color{180, 180, 180}}
-
-	// Table Body Text
-	r.TBody = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
-		TextColor: Color{0, 0, 0}, FillColor: Color{240, 240, 240}}
+	r.Theme = theme
+	if theme == 0 {
+		r.Theme = LIGHT
+	}
 
 	r.Pdf = fpdf.New(r.orientation, r.units, r.papersize, r.fontdir)
+
+	r.Pdf.SetHeaderFunc(func() {
+		r.SetPageBackground("", r.BackgroundColor)
+	})
+
 	r.Pdf.AddPage()
+	switch r.Theme {
+	case DARK:
+		r.SetDarkTheme()
+	case LIGHT:
+		r.SetLightTheme()
+	}
 	// set default font
 	r.setStyler(r.Normal)
 	r.mleft, r.mtop, r.mright, r.mbottom = r.Pdf.GetMargins()
@@ -199,12 +279,12 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string, opts ...RenderO
 // NewPdfRendererWithDefaultStyler creates and configures an PdfRenderer object,
 // which satisfies the Renderer interface.
 // update default styler for normal
-func NewPdfRendererWithDefaultStyler(orient, papersz, pdfFile, tracerFile string, defaultStyler Styler, opts ...RenderOption) *PdfRenderer {
+func NewPdfRendererWithDefaultStyler(orient, papersz, pdfFile, tracerFile string, defaultStyler Styler, opts []RenderOption, theme Theme) *PdfRenderer {
 	opts = append(opts, func(r *PdfRenderer) {
 		r.Normal = defaultStyler
 	})
 
-	return NewPdfRenderer(orient, papersz, pdfFile, tracerFile, opts...)
+	return NewPdfRenderer(orient, papersz, pdfFile, tracerFile, opts, theme)
 }
 
 // Process takes the markdown content, parses it to generate the PDF
@@ -224,12 +304,12 @@ func (r *PdfRenderer) Process(content []byte) error {
 
 	err = r.Run(content)
 	if err != nil {
-		return fmt.Errorf("Pdf.OutputFileAndClose() error on %v:%v", r.pdfFile, err)
+		return fmt.Errorf("error on %v:%v", r.pdfFile, err)
 	}
 
 	err = r.Pdf.OutputFileAndClose(r.pdfFile)
 	if err != nil {
-		return fmt.Errorf("Pdf.OutputFileAndClose() error on %v:%v", r.pdfFile, err)
+		return fmt.Errorf("error on %v:%v", r.pdfFile, err)
 	}
 
 	return nil
@@ -276,6 +356,7 @@ func (r *PdfRenderer) setStyler(s Styler) {
 }
 
 func (r *PdfRenderer) write(s Styler, t string) {
+	//fmt.Printf("%s, %#v\n",t, s)
 	r.Pdf.Write(s.Size+s.Spacing, t)
 }
 
@@ -383,6 +464,19 @@ func (r *PdfRenderer) tracer(source, msg string) {
 		indent := strings.Repeat("-", len(r.cs.stack)-1)
 		r.w.WriteString(fmt.Sprintf("%v[%v] %v\n", indent, source, msg))
 	}
+}
+
+func dorect(doc *fpdf.Fpdf, x, y, w, h float64, color Color) {
+	doc.SetFillColor(color.Red, color.Green, color.Blue)
+	doc.Rect(x, y, w, h, "F")
+}
+
+func (r *PdfRenderer) SetPageBackground(colorStr string, color Color) {
+	w, h := r.Pdf.GetPageSize()
+	if colorStr != "" {
+		color = Colorlookup(colorStr)
+	}
+	dorect(r.Pdf, 0, 0, w, h, color)
 }
 
 // Options

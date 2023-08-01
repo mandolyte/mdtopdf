@@ -60,7 +60,12 @@ This is a planned fix; [see here](https://github.com/mandolyte/mdtopdf/issues/1)
 
 To install the package, run the usual `go get`:
 ```
-go get github.com/mandolyte/mdtopdf
+$ go get github.com/mandolyte/mdtopdf
+```
+
+You can also install the `md2pdf` binary directly onto your `$GOBIN` dir with:
+```
+$ go install github.com/mandolyte/mdtopdf/cmd@latest
 ```
 
 ## Syntax highlighting
@@ -74,13 +79,13 @@ For examples, see `testdata/Markdown Documentation - Syntax.text` and `testdata/
 In the `cmd` folder is an example using the package. It demonstrates
 a number of features. The test PDF was created with this command:
 ```
-go run convert.go -i test.md -o test.pdf
+$ go run md2pdf.go -i test.md -o test.pdf
 ```
 
 To benefit from Syntax highlighting, invoke thusly:
 
 ```
-go run convert.go -i syn_test.md -s /path/to/syntax_files -o test.pdf
+$ go run md2pdf.go -i syn_test.md -s /path/to/syntax_files -o test.pdf
 ```
 
 *Note 1: the `cmd` folder has an example for the syntax highlighting. 
@@ -89,21 +94,73 @@ the folder with the syntax files is located at relative location:
 `../../../jessp01/gohighlight/syntax_files`.*
 
 *Note 2: when annotating the code block to specify the language, the
-annotation name must match syntax base filename. In particular, you
-must use `javascript`, not `js`.*
+annotation name must match syntax base filename.*
+
+### Additional options
+
+```sh
+  -i string
+    	Input text filename; default is os.Stdin
+  -o string
+    	Output PDF filename; required
+  -s string
+    	Path to github.com/jessp01/gohighlight/syntax_files
+  --new-page-on-hr
+    	Interpret HR as a new page; useful for presentations
+  --page-size string
+    	[A3 | A4 | A5] (default "A4")
+  --theme string
+    	[light|dark] (default "light")
+  --title string
+    	Presentation title
+  --author string
+    	Author; used if -footer is passed
+  --font-file string
+    	path to font file to use
+  --font-name string
+    	Font name ID; e.g 'Helvetica-1251'
+  --unicode-encoding string
+    	e.g 'cp1251'
+  --with-footer
+    	Print doc footer (author  title  page number)
+  --help
+    	Show usage message
+```
+
+For example, the below will:
+
+- Set the title to `My Grand Title`
+- Set `Random Bloke` as the author (used in the footer)
+- Set the dark theme
+- Start a new page when encountering a HR (`---`); useful for creating presentations
+- Print a footer (`author name, title, page number`)
+
+```sh
+$ go run md2pdf.go  -i /path/to/md \
+    -o /path/to/pdf --title "My Grand Title" --author "Random Bloke" \
+    --theme dark --new-page-on-hr --with-footer
+```
 
 ## Using non-ASCII Glyphs/Fonts
 
 In order to use a non-ASCII language there are a number things that must be done. The PDF generator must be configured WithUnicodeTranslator:
 
 ```go
-pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.WithUnicodeTranslator("cp1251")) // https://en.wikipedia.org/wiki/Windows-1251
+// https://en.wikipedia.org/wiki/Windows-1251
+pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.WithUnicodeTranslator("cp1251")) 
 ```
 
 In addition, this package's `Styler` must be used to set the font to match that is configured with the PDF generator.
 
 A complete working example may be found for Russian in the `cmd` folder nameed
 `russian.go`.
+
+For a full example, run:
+
+```sh
+$ go run md2pdf.go -i russian.md -o russian.pdf \
+    --unicode-encoding cp1251 --font-file helvetica_1251.json --font-name Helvetica_1251
+```
 
 
 # Note to Self
