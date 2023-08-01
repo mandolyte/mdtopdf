@@ -65,7 +65,7 @@ $ go get github.com/mandolyte/mdtopdf
 
 You can also install the `md2pdf` binary directly onto your `$GOBIN` dir with:
 ```
-$ go install github.com/mandolyte/mdtopdf/cmd@latest
+$ go install github.com/mandolyte/mdtopdf/cmd/md2pdf@latest
 ```
 
 ## Syntax highlighting
