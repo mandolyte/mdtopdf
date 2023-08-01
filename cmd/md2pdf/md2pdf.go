@@ -54,7 +54,7 @@ func main() {
 	if *pathToSyntaxFiles != "" {
 		opts = append(opts, mdtopdf.SetSyntaxHighlightBaseDir(*pathToSyntaxFiles))
 	} else {
-		opts = append(opts, mdtopdf.SetSyntaxHighlightBaseDir("../highlight/syntax_files"))
+		opts = append(opts, mdtopdf.SetSyntaxHighlightBaseDir("../../highlight/syntax_files"))
 	}
 
 	// get text for PDF
