@@ -1,2 +1,3 @@
 #!/bin/sh
-go run convert.go -i test_syntax_highlighting.md -o test_syntax_highlighting.pdf -s ../../../jessp01/gohighlight/syntax_files
+cd md2pdf || exit
+go run md2pdf.go -i test_syntax_highlighting.md -o test_syntax_highlighting.pdf -s ../gohighlight/syntax_files

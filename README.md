@@ -88,6 +88,14 @@ To benefit from Syntax highlighting, invoke thusly:
 $ go run md2pdf.go -i syn_test.md -s /path/to/syntax_files -o test.pdf
 ```
 
+This repo has the [gohighlight module](https://github.com/jessp01/gohighlight) configured as a submodule so if you clone
+with `--recursive`, you will have the `highlight` dir in its root. Alternatively, you may issue the below to update an
+existing clone:
+
+```sh
+git submodule update --remote
+```
+
 *Note 1: the `cmd` folder has an example for the syntax highlighting. 
 See the script `run_syntax_highlighting.sh`. This example assumes that
 the folder with the syntax files is located at relative location:
