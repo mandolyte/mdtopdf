@@ -86,6 +86,7 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Here is the first picture: 
+[cr()] LH=14
 [Image (entering)] Destination[./image/fpdf.png] Title[]
 [Text] from https://github.com/go-pdf/fpdf/tree/master/image
 [Image (leaving)] 
@@ -96,6 +97,7 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Here is the second picture: 
+[cr()] LH=14
 [Image (entering)] Destination[./image/hiking.png] Title[Optional title]
 [Text] from https://github.com/egonelbre/gophers
 [Image (leaving)] 
@@ -127,6 +129,7 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Here is a non-existent image... should generate a message in trace file. 
+[cr()] LH=14
 [Image (entering)] Destination[./image/xbay.jpg] Title[Does not exist!]
 [Image (file error)] stat ./image/xbay.jpg: no such file or directory
 [Text] Not from https://jpeg.org/images/jpeg-home.jpg
@@ -138,6 +141,7 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [Text] Here is a JPEG image... is it auto-detected? 
+[cr()] LH=14
 [Image (entering)] Destination[./image/bay.jpg] Title[Down by the Bay]
 [Text] from https://jpeg.org/images/jpeg-home.jpg
 [Image (leaving)] 

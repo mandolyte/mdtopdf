@@ -27,6 +27,7 @@ var hrAsNewPage = flag.Bool("new-page-on-hr", false, "Interpret HR as a new page
 var printFooter = flag.Bool("with-footer", false, "Print doc footer (author  title  page number)")
 var pageSize = flag.String("page-size", "A4", "[A3 | A4 | A5]")
 var orientation = flag.String("orientation", "portrait", "[portrait | landscape]")
+var logFile = flag.String("log-file", "md2pdf_trace.log", "Path to log file")
 var help = flag.Bool("help", false, "Show usage message")
 
 var opts []mdtopdf.RenderOption
@@ -102,9 +103,9 @@ func main() {
 		fillColor = mdtopdf.Colorlookup("black")
 	}
 
-	pf := mdtopdf.NewPdfRenderer(*orientation, *pageSize, *output, "trace.log", opts, theme)
+	pf := mdtopdf.NewPdfRenderer(*orientation, *pageSize, *output, *logFile, opts, theme)
 	if inputBaseURL != "" {
-		pf.InputBaseUrl = inputBaseURL
+		pf.InputBaseURL = inputBaseURL
 	}
 	pf.Pdf.SetSubject(*title, true)
 	pf.Pdf.SetTitle(*title, true)

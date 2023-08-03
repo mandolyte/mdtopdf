@@ -162,7 +162,7 @@ var colornames = map[string]Color{
 	"yellowgreen":          {154, 205, 50},
 }
 
-// colorlookup returns a RGB triple corresponding to the named color, "rgb(r,g,b)" or "#rrggbb" string.
+// Colorlookup returns a RGB triple corresponding to the named color, "rgb(r,g,b)" or "#rrggbb" string.
 // On error, return black.
 func Colorlookup(s string) Color {
 	color, ok := colornames[s]
