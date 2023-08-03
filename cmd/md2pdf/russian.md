@@ -83,11 +83,11 @@ The below is a blockquote with inner codeblocks.
 >         return "working";
 >     }
 
-Here is the fpdf logo (inline): ![from https://github.com/go-pdf/fpdf/tree/master/image](../image/fpdf.png)
+Here is the fpdf logo (inline): ![from https://github.com/go-pdf/fpdf/tree/master/image](../../image/fpdf.png)
 
 Here is a Gopher:
 
-![from https://github.com/egonelbre/gophers](../image/hiking.png "Optional title")
+![from https://github.com/egonelbre/gophers](../../image/hiking.png "Optional title")
 
 *The Go gopher was designed by Renee French. The Gopher character design is licensed under the Creative Commons 3.0 Attributions license. Read http://blog.golang.org/gopher for more details.*
 

@@ -24,14 +24,20 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
+	"regexp"
+	"strconv"
 	"strings"
 
+	"github.com/canhlinh/svg2png"
+	"github.com/gabriel-vasile/mimetype"
 	"github.com/go-pdf/fpdf"
 	highlight "github.com/jessp01/gohighlight"
 	bf "github.com/russross/blackfriday/v2"
+	"github.com/sirupsen/logrus"
 )
 
 func (r *PdfRenderer) processText(node *bf.Node) {
@@ -101,6 +107,10 @@ func (r *PdfRenderer) processCodeblock(node *bf.Node) {
 	if len(node.Info) < 1 || !isValidSyntaxHighlightBaseDir {
 		r.outputUnhighlightedCodeBlock(string(node.Literal))
 		return
+	}
+
+	if strings.HasPrefix(string(node.Literal), "<script") && string(node.Info) == "html" {
+		node.Info = []byte("javascript")
 	}
 	syntaxFile, lerr := ioutil.ReadFile(r.SyntaxHighlightBaseDir + "/" + string(node.Info) + ".yaml")
 	if lerr != nil {
@@ -291,8 +301,8 @@ func (r *PdfRenderer) processStrong(node *bf.Node, entering bool) {
 func (r *PdfRenderer) processLink(node *bf.Node, entering bool) {
 	destination := string(node.LinkData.Destination)
 	if entering {
-		if r.InputBaseUrl != "" && strings.HasPrefix(destination, "./") {
-			destination = r.InputBaseUrl + "/" + strings.Replace(destination, "./", "", 1)
+		if r.InputBaseURL != "" && !strings.HasPrefix(destination, "http") {
+			destination = r.InputBaseURL + "/" + strings.Replace(destination, "./", "", 1)
 		}
 		x := &containerState{containerType: bf.Link,
 			textStyle: r.Link, listkind: notlist,
@@ -310,6 +320,12 @@ func (r *PdfRenderer) processLink(node *bf.Node, entering bool) {
 }
 
 func downloadFile(url, fileName string) error {
+	/* client := http.Client{
+		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			fmt.Println("Redirected to:", req.URL)
+			return nil
+		},
+	} */
 	// Get the response bytes from the url
 	response, err := http.Get(url)
 	if err != nil {
@@ -327,7 +343,7 @@ func downloadFile(url, fileName string) error {
 	}
 	defer file.Close()
 
-	// Write the bytes to the fiel
+	// Write the bytes to the file
 	_, err = io.Copy(file, response.Body)
 	if err != nil {
 		return err
@@ -342,17 +358,52 @@ func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
 	if entering {
 		r.cr() // newline before getting started
 		destination := string(node.LinkData.Destination)
-		if !strings.HasPrefix(destination, "http") {
-			if _, err := os.Stat(destination); errors.Is(err, os.ErrNotExist) && r.InputBaseUrl != "" {
-				// download the image so we can use it
-				err := downloadFile(r.InputBaseUrl+"/"+destination, os.TempDir()+"/"+filepath.Base(destination))
-				if err != nil {
-					fmt.Println(err.Error())
-				} else {
-					destination = os.TempDir() + "/" + filepath.Base(destination)
-					fmt.Println("Downloaded image to: " + destination)
+		tempDir := os.TempDir() + "/" + filepath.Base(os.Args[0])
+		_, err := os.Stat(destination)
+		if errors.Is(err, os.ErrNotExist) {
+			// download the image so we can use it
+			var source string = destination
+			if !strings.HasPrefix(destination, "http") {
+				if r.InputBaseURL != "" {
+					source = r.InputBaseURL + "/" + destination
 				}
 			}
+			os.MkdirAll(tempDir, 755)
+			err := downloadFile(source, tempDir+"/"+filepath.Base(destination))
+			if err != nil {
+				fmt.Println(err.Error())
+			} else {
+				destination = tempDir + "/" + filepath.Base(destination)
+				fmt.Println("Downloaded image to: " + destination)
+			}
+		}
+		mtype, err := mimetype.DetectFile(destination)
+		if mtype.Is("image/svg+xml") {
+			re := regexp.MustCompile(`<svg\s*.*\s*width="([0-9\.]+)"\sheight="([0-9\.]+)".*>`)
+			contents, _ := ioutil.ReadFile(destination)
+			matches := re.FindStringSubmatch(string(contents))
+			tf, err := os.CreateTemp(tempDir, "*.svg")
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			if _, err := tf.Write(contents); err != nil {
+				tf.Close()
+				log.Fatal(err)
+			}
+			if err := tf.Close(); err != nil {
+				log.Fatal(err)
+			}
+			os.Rename(destination, tf.Name())
+			destination = tf.Name()
+			width, _ := strconv.ParseFloat(matches[1], 64)
+			height, _ := strconv.ParseFloat(matches[2], 64)
+			chrome := svg2png.NewChrome().SetHeight(int(height)).SetWith(int(width))
+			outputFileName := destination + ".png"
+			if err := chrome.Screenshoot(destination, outputFileName); err != nil {
+				logrus.Panic(err)
+			}
+			destination = outputFileName
 		}
 		r.tracer("Image (entering)",
 			fmt.Sprintf("Destination[%v] Title[%v]",
@@ -361,7 +412,7 @@ func (r *PdfRenderer) processImage(node *bf.Node, entering bool) {
 		// following changes suggested by @sirnewton01, issue #6
 		// does file exist?
 		var imgPath = destination
-		_, err := os.Stat(imgPath)
+		_, err = os.Stat(imgPath)
 		if err == nil {
 			r.Pdf.ImageOptions(destination,
 				-1, 0, 0, 0, true,

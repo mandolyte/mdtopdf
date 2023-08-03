@@ -53,10 +53,13 @@ type Styler struct {
 // RenderOption allows to define functions to configure the renderer
 type RenderOption func(r *PdfRenderer)
 
+// Theme [light|dark]
 type Theme int
 
 const (
-	DARK  Theme = 1
+	// DARK const
+	DARK Theme = 1
+	// LIGHT const
 	LIGHT Theme = 2
 )
 
@@ -113,11 +116,12 @@ type PdfRenderer struct {
 	NeedBlockquoteStyleUpdate bool
 	HorizontalRuleNewPage     bool
 	SyntaxHighlightBaseDir    string
-	InputBaseUrl		  string
+	InputBaseURL              string
 	Theme                     Theme
 	BackgroundColor           Color
 }
 
+// SetLightTheme sets theme to 'light'
 func (r *PdfRenderer) SetLightTheme() {
 	r.BackgroundColor = Colorlookup("white")
 	r.SetPageBackground("", r.BackgroundColor)
@@ -151,8 +155,6 @@ func (r *PdfRenderer) SetLightTheme() {
 	r.H6 = Styler{Font: "Arial", Style: "b", Size: 14, Spacing: 5,
 		TextColor: Colorlookup("black"), FillColor: Colorlookup("white")}
 
-	//r.inBlockquote = false
-	//r.inHeading = false
 	r.Blockquote = Styler{Font: "Arial", Style: "i", Size: 12, Spacing: 2,
 		TextColor: Colorlookup("black"), FillColor: Colorlookup("white")}
 
@@ -166,6 +168,7 @@ func (r *PdfRenderer) SetLightTheme() {
 
 }
 
+// SetDarkTheme sets theme to 'dark'
 func (r *PdfRenderer) SetDarkTheme() {
 	r.BackgroundColor = Colorlookup("eerieblack")
 	r.SetPageBackground("", r.BackgroundColor)
@@ -199,8 +202,6 @@ func (r *PdfRenderer) SetDarkTheme() {
 	r.H6 = Styler{Font: "Arial", Style: "b", Size: 14, Spacing: 5,
 		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
 
-	//r.inBlockquote = false
-	//r.inHeading = false
 	r.Blockquote = Styler{Font: "Arial", Style: "i", Size: 12, Spacing: 2,
 		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
 
@@ -262,7 +263,6 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string, opts []RenderOp
 	r.em = r.Pdf.GetStringWidth("m")
 	r.IndentValue = 3 * r.em
 
-	//r.current = r.normal // set default
 	r.cs = states{stack: make([]*containerState, 0)}
 	initcurrent := &containerState{containerType: bf.Paragraph,
 		listkind:  notlist,
@@ -319,7 +319,7 @@ func (r *PdfRenderer) Process(content []byte) error {
 func (r *PdfRenderer) Run(content []byte) error {
 	// Preprocess content by changing all CRLF to LF
 	s := string(content)
-	s = strings.Replace(s, "\r\n", "\n", -1)
+	s = strings.ReplaceAll(s, "\r\n", "\n")
 
 	if r.unicodeTranslator != nil {
 		s = r.unicodeTranslator(s)
@@ -356,7 +356,7 @@ func (r *PdfRenderer) setStyler(s Styler) {
 }
 
 func (r *PdfRenderer) write(s Styler, t string) {
-	//fmt.Printf("%s, %#v\n",t, s)
+	// fmt.Printf("%s, %#v\n",t, s)
 	r.Pdf.Write(s.Size+s.Spacing, t)
 }
 
@@ -455,7 +455,6 @@ func (r *PdfRenderer) cr() {
 	LH := r.cs.peek().textStyle.Size + r.cs.peek().textStyle.Spacing
 	r.tracer("cr()", fmt.Sprintf("LH=%v", LH))
 	r.write(r.cs.peek().textStyle, "\n")
-	//r.Pdf.Ln(-1)
 }
 
 // Tracer traces parse and pdf generation activity.
@@ -471,6 +470,7 @@ func dorect(doc *fpdf.Fpdf, x, y, w, h float64, color Color) {
 	doc.Rect(x, y, w, h, "F")
 }
 
+// SetPageBackground - sets background colour of page. String IDs ("blue", "grey", etc) and `Color` structs are both supported
 func (r *PdfRenderer) SetPageBackground(colorStr string, color Color) {
 	w, h := r.Pdf.GetPageSize()
 	if colorStr != "" {
@@ -488,12 +488,14 @@ func WithUnicodeTranslator(cp string) RenderOption {
 	}
 }
 
+// IsHorizontalRuleNewPage if true, will start a new page when encountering a HR (---). Useful for presentations.
 func IsHorizontalRuleNewPage(value bool) RenderOption {
 	return func(r *PdfRenderer) {
 		r.HorizontalRuleNewPage = value
 	}
 }
 
+// SetSyntaxHighlightBaseDir path to https://github.com/jessp01/gohighlight/tree/master/syntax_files
 func SetSyntaxHighlightBaseDir(path string) RenderOption {
 	return func(r *PdfRenderer) {
 		r.SyntaxHighlightBaseDir = path
