@@ -1,6 +1,8 @@
 # mdtopdf
 
-[![GoDoc](https://godoc.org/github.com/mandolyte/mdtopdf?status.svg)](https://godoc.org/github.com/mandolyte/mdtopdf)
+[![CI][badge-build]][build]
+[![GoDoc][go-docs-badge]][go-docs]
+[![License][badge-license]][license]
 
 ## Introduction: Markdown to PDF
 
@@ -197,3 +199,10 @@ go: added github.com/mandolyte/mdtopdf v1.4.1
 go: added github.com/russross/blackfriday/v2 v2.1.0
 go: added gopkg.in/yaml.v2 v2.4.0
 ```
+
+[license]: ./LICENSE
+[badge-license]: https://img.shields.io/github/license/mandolyte/mdtopdf.svg
+[go-docs-badge]: https://godoc.org/github.com/mandolyte/mdtopdf?status.svg
+[go-docs]: https://godoc.org/github.com/mandolyte/mdtopdf
+[badge-build]: https://github.com/mandolyte/mdtopdf/actions/workflows/go.yml/badge.svg
+[build]: https://github.com/mandolyte/mdtopdf/actions/workflows/go.yml
