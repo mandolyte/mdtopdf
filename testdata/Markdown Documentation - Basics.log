@@ -1,7 +1,9 @@
 [RenderHeader] Not handled
 [Document] Not Handled
 [cr()] LH=14
-[Heading (1, entering)] []
+[Heading (1, entering)] Container
+  Text 'Markdown: Basics'
+
 -[Text] Markdown: Basics
 -[Heading (leaving)] 
 -[cr()] LH=29
@@ -15,7 +17,9 @@
 [cr()] LH=14
 [cr()] LH=14
 [cr()] LH=14
-[Heading (2, entering)] []
+[Heading (2, entering)] Container
+  Text 'Getting the Gist of Markdown's Format…'
+
 -[Text] Getting the Gist of Markdown's Formatting Syntax
 -[Heading (leaving)] 
 -[cr()] LH=27
@@ -57,7 +61,9 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [cr()] LH=14
-[Heading (2, entering)] []
+[Heading (2, entering)] Container
+  Text 'Paragraphs, Headers, Blockquotes'
+
 -[Text] Paragraphs, Headers, Blockquotes
 -[Heading (leaving)] 
 -[cr()] LH=27
@@ -115,7 +121,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf 'A First Level Header\n===============…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -124,10 +131,13 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<h1>A First Level Header</h1>\n\n<h2>…'
+
 [cr()] LH=14
 [cr()] LH=14
-[Heading (3, entering)] []
+[Heading (3, entering)] Container
+  Text 'Phrase Emphasis'
+
 -[Text] Phrase Emphasis
 -[Heading (leaving)] 
 -[cr()] LH=25
@@ -145,7 +155,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf 'Some of these words *are emphasized*.…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -154,10 +165,13 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<p>Some of these words <em>are emphas…'
+
 [cr()] LH=14
 [cr()] LH=14
-[Heading (2, entering)] []
+[Heading (2, entering)] Container
+  Text 'Lists'
+
 -[Text] Lists
 -[Heading (leaving)] 
 -[cr()] LH=27
@@ -177,7 +191,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '*   Candy.\n*   Gum.\n*   Booze.\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -186,7 +201,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '+   Candy.\n+   Gum.\n+   Booze.\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -195,7 +211,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '-   Candy.\n-   Gum.\n-   Booze.\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -204,7 +221,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<ul>\n<li>Candy.</li>\n<li>Gum.</li>\…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -213,7 +231,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '1.  Red\n2.  Green\n3.  Blue\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -222,7 +241,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<ol>\n<li>Red</li>\n<li>Green</li>\n<…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -234,7 +254,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '*   A list item.\n\n    With multiple…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -243,10 +264,13 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<ul>\n<li><p>A list item.</p>\n<p>Wit…'
+
 [cr()] LH=14
 [cr()] LH=14
-[Heading (3, entering)] []
+[Heading (3, entering)] Container
+  Text 'Links'
+
 -[Text] Links
 -[Heading (leaving)] 
 -[cr()] LH=25
@@ -272,7 +296,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf 'This is an [example link](http://exam…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -281,7 +306,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<p>This is an <a href="http://example…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -290,7 +316,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf 'This is an [example link](http://exam…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -299,7 +326,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<p>This is an <a href="http://example…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -308,7 +336,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf 'I get 10 times more traffic from [Goo…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -317,7 +346,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<p>I get 10 times more traffic from <…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -330,7 +360,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf 'I start my morning with a cup of coff…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -339,10 +370,13 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<p>I start my morning with a cup of c…'
+
 [cr()] LH=14
 [cr()] LH=14
-[Heading (3, entering)] []
+[Heading (3, entering)] Container
+  Text 'Images'
+
 -[Text] Images
 -[Heading (leaving)] 
 -[cr()] LH=25
@@ -360,7 +394,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '![alt text](/path/to/img.jpg "Title")\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -369,7 +404,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '![alt text][id]\n\n[id]: /path/to/img…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -378,10 +414,13 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<img src="/path/to/img.jpg" alt="alt …'
+
 [cr()] LH=14
 [cr()] LH=14
-[Heading (3, entering)] []
+[Heading (3, entering)] Container
+  Text 'Code'
+
 -[Text] Code
 -[Heading (leaving)] 
 -[cr()] LH=25
@@ -401,7 +440,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf 'I strongly recommend against using an…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -410,7 +450,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<p>I strongly recommend against using…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -435,7 +476,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf 'If you want your page to validate und…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -444,6 +486,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '<p>If you want your page to validate …'
+
 [cr()] LH=14
 [Document] Not Handled

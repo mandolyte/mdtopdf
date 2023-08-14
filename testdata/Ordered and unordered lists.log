@@ -1,7 +1,9 @@
 [RenderHeader] Not handled
 [Document] Not Handled
 [cr()] LH=14
-[Heading (2, entering)] []
+[Heading (2, entering)] Container
+  Text 'Unordered'
+
 -[Text] Unordered
 -[Heading (leaving)] 
 -[cr()] LH=27
@@ -12,49 +14,95 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Unordered List (entering)] []
+[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'asterisk 1'
+  ListItem
+    Paragraph
+      Text 'asterisk 2'
+  ListItem
+    Paragraph
+      Text 'asterisk 3'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'Lorem ipsum dolor sit amet, consectet…'
+
 [... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] []
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'asterisk 1'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] asterisk 1
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #2] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'asterisk 1'
+
+-[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'asterisk 2'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] asterisk 2
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #3] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'asterisk 2'
+
+-[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'asterisk 3'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] asterisk 3
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #4] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'asterisk 3'
+
+-[Unordered Item (entering) #4] Container
+  Paragraph
+    Text 'Lorem ipsum dolor sit amet, consectet…'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered List (leaving)] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Lorem ipsum dolor sit amet, consectet…'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'asterisk 1'
+  ListItem
+    Paragraph
+      Text 'asterisk 2'
+  ListItem
+    Paragraph
+      Text 'asterisk 3'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'Lorem ipsum dolor sit amet, consectet…'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -64,39 +112,233 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Unordered List (entering)] []
+[Unordered List (entering)] Container
+  ListItem 'flags=has_block start'
+    Paragraph
+      Text 'asterisk 1'
+  ListItem 'flags=has_block'
+    Paragraph
+      Text 'asterisk 2'
+  ListItem 'flags=has_block end'
+    Paragraph
+      Text 'asterisk 3'
+
 [... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] []
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'asterisk 1'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] asterisk 1
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #2] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'asterisk 1'
+
+-[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'asterisk 2'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] asterisk 2
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #3] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'asterisk 2'
+
+-[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'asterisk 3'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] asterisk 3
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered List (leaving)] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'asterisk 3'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=has_block start'
+    Paragraph
+      Text 'asterisk 1'
+  ListItem 'flags=has_block'
+    Paragraph
+      Text 'asterisk 2'
+  ListItem 'flags=has_block end'
+    Paragraph
+      Text 'asterisk 3'
+
+-[... Reset List Left Margin] re-set to 28.35
+[cr()] LH=14
+[HorizontalRule] 
+[cr()] LH=14
+[... From X,Y] 28.35,321.35
+[...   To X,Y] 583.65,321.35
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Pluses tight:
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Plus 1'
+  ListItem
+    Paragraph
+      Text 'Plus 2'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'Plus 3'
+
+[... List Left Margin] set to 58.338
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'Plus 1'
+
+-[cr()] LH=14
+--[Paragraph (entering)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[First Para within a list] breaking
+--[Text] Plus 1
+--[Paragraph (leaving)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Plus 1'
+
+-[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'Plus 2'
+
+-[cr()] LH=14
+--[Paragraph (entering)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[First Para within a list] breaking
+--[Text] Plus 2
+--[Paragraph (leaving)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Plus 2'
+
+-[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'Plus 3'
+
+-[cr()] LH=14
+--[Paragraph (entering)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[First Para within a list] breaking
+--[Text] Plus 3
+--[Paragraph (leaving)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Plus 3'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Plus 1'
+  ListItem
+    Paragraph
+      Text 'Plus 2'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'Plus 3'
+
+-[... Reset List Left Margin] re-set to 28.35
+[cr()] LH=14
+[Paragraph (entering)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Text] Pluses loose:
+[Paragraph (leaving)] 
+[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
+[cr()] LH=14
+[Unordered List (entering)] Container
+  ListItem 'flags=has_block start'
+    Paragraph
+      Text 'Plus 1'
+  ListItem 'flags=has_block'
+    Paragraph
+      Text 'Plus 2'
+  ListItem 'flags=has_block end'
+    Paragraph
+      Text 'Plus 3'
+
+[... List Left Margin] set to 58.338
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'Plus 1'
+
+-[cr()] LH=14
+--[Paragraph (entering)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[First Para within a list] breaking
+--[Text] Plus 1
+--[Paragraph (leaving)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Plus 1'
+
+-[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'Plus 2'
+
+-[cr()] LH=14
+--[Paragraph (entering)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[First Para within a list] breaking
+--[Text] Plus 2
+--[Paragraph (leaving)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Plus 2'
+
+-[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'Plus 3'
+
+-[cr()] LH=14
+--[Paragraph (entering)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[First Para within a list] breaking
+--[Text] Plus 3
+--[Paragraph (leaving)] 
+--[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Plus 3'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=has_block start'
+    Paragraph
+      Text 'Plus 1'
+  ListItem 'flags=has_block'
+    Paragraph
+      Text 'Plus 2'
+  ListItem 'flags=has_block end'
+    Paragraph
+      Text 'Plus 3'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [HorizontalRule] 
@@ -107,132 +349,78 @@
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Text] Pluses tight:
-[Paragraph (leaving)] 
-[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[Unordered List (entering)] []
-[... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] []
--[cr()] LH=14
---[Paragraph (entering)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Text] Plus 1
---[Paragraph (leaving)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #2] []
--[cr()] LH=14
---[Paragraph (entering)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Text] Plus 2
---[Paragraph (leaving)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #3] []
--[cr()] LH=14
---[Paragraph (entering)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Text] Plus 3
---[Paragraph (leaving)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered List (leaving)] []
--[... Reset List Left Margin] re-set to 28.35
-[cr()] LH=14
-[Paragraph (entering)] 
-[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[Text] Pluses loose:
-[Paragraph (leaving)] 
-[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
-[Unordered List (entering)] []
-[... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] []
--[cr()] LH=14
---[Paragraph (entering)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Text] Plus 1
---[Paragraph (leaving)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #2] []
--[cr()] LH=14
---[Paragraph (entering)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Text] Plus 2
---[Paragraph (leaving)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #3] []
--[cr()] LH=14
---[Paragraph (entering)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Text] Plus 3
---[Paragraph (leaving)] 
---[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered List (leaving)] []
--[... Reset List Left Margin] re-set to 28.35
-[cr()] LH=14
-[HorizontalRule] 
-[cr()] LH=14
-[... From X,Y] 28.35,182.35
-[...   To X,Y] 583.65,182.35
-[cr()] LH=14
-[Paragraph (entering)] 
-[... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
-[cr()] LH=14
 [Text] Minuses tight:
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Unordered List (entering)] []
+[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Minus 1'
+  ListItem
+    Paragraph
+      Text 'Minus 2'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'Minus 3'
+
 [... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] []
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'Minus 1'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Minus 1
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #2] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Minus 1'
+
+-[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'Minus 2'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Minus 2
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #3] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Minus 2'
+
+-[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'Minus 3'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Minus 3
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered List (leaving)] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Minus 3'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Minus 1'
+  ListItem
+    Paragraph
+      Text 'Minus 2'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'Minus 3'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -242,43 +430,80 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Unordered List (entering)] []
+[Unordered List (entering)] Container
+  ListItem 'flags=has_block start'
+    Paragraph
+      Text 'Minus 1'
+  ListItem 'flags=has_block'
+    Paragraph
+      Text 'Minus 2'
+  ListItem 'flags=has_block end'
+    Paragraph
+      Text 'Minus 3'
+
 [... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] []
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'Minus 1'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Minus 1
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #2] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Minus 1'
+
+-[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'Minus 2'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Minus 2
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #3] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Minus 2'
+
+-[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'Minus 3'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Minus 3
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered List (leaving)] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Minus 3'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=has_block start'
+    Paragraph
+      Text 'Minus 1'
+  ListItem 'flags=has_block'
+    Paragraph
+      Text 'Minus 2'
+  ListItem 'flags=has_block end'
+    Paragraph
+      Text 'Minus 3'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [cr()] LH=14
-[Heading (2, entering)] []
+[Heading (2, entering)] Container
+  Text 'Ordered'
+
 -[Text] Ordered
 -[Heading (leaving)] 
 -[cr()] LH=27
@@ -289,39 +514,74 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Ordered List (entering)] []
+[Ordered List (entering)] Container
+  ListItem 'flags=ordered start'
+    Paragraph
+      Text 'First'
+  ListItem 'flags=ordered'
+    Paragraph
+      Text 'Second'
+  ListItem 'flags=ordered end'
+    Paragraph
+      Text 'Third'
+
 [... List Left Margin] set to 58.338
--[Ordered Item (entering) #1] []
+-[Ordered Item (entering) #1] Container
+  Paragraph
+    Text 'First'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] First
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #2] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'First'
+
+-[Ordered Item (entering) #2] Container
+  Paragraph
+    Text 'Second'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Second
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #3] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Second'
+
+-[Ordered Item (entering) #3] Container
+  Paragraph
+    Text 'Third'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Third
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered List (leaving)] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Third'
+
+-[Ordered List (leaving)] Container
+  ListItem 'flags=ordered start'
+    Paragraph
+      Text 'First'
+  ListItem 'flags=ordered'
+    Paragraph
+      Text 'Second'
+  ListItem 'flags=ordered end'
+    Paragraph
+      Text 'Third'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -331,39 +591,74 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Ordered List (entering)] []
+[Ordered List (entering)] Container
+  ListItem 'flags=ordered start'
+    Paragraph
+      Text 'One'
+  ListItem 'flags=ordered'
+    Paragraph
+      Text 'Two'
+  ListItem 'flags=ordered end'
+    Paragraph
+      Text 'Three'
+
 [... List Left Margin] set to 58.338
--[Ordered Item (entering) #1] []
+-[Ordered Item (entering) #1] Container
+  Paragraph
+    Text 'One'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] One
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #2] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'One'
+
+-[Ordered Item (entering) #2] Container
+  Paragraph
+    Text 'Two'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Two
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #3] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Two'
+
+-[Ordered Item (entering) #3] Container
+  Paragraph
+    Text 'Three'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Three
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered List (leaving)] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Three'
+
+-[Ordered List (leaving)] Container
+  ListItem 'flags=ordered start'
+    Paragraph
+      Text 'One'
+  ListItem 'flags=ordered'
+    Paragraph
+      Text 'Two'
+  ListItem 'flags=ordered end'
+    Paragraph
+      Text 'Three'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -373,39 +668,74 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Ordered List (entering)] []
+[Ordered List (entering)] Container
+  ListItem 'flags=ordered has_block start'
+    Paragraph
+      Text 'First'
+  ListItem 'flags=ordered has_block'
+    Paragraph
+      Text 'Second'
+  ListItem 'flags=ordered has_block end'
+    Paragraph
+      Text 'Third'
+
 [... List Left Margin] set to 58.338
--[Ordered Item (entering) #1] []
+-[Ordered Item (entering) #1] Container
+  Paragraph
+    Text 'First'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] First
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #2] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'First'
+
+-[Ordered Item (entering) #2] Container
+  Paragraph
+    Text 'Second'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Second
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #3] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Second'
+
+-[Ordered Item (entering) #3] Container
+  Paragraph
+    Text 'Third'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Third
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered List (leaving)] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Third'
+
+-[Ordered List (leaving)] Container
+  ListItem 'flags=ordered has_block start'
+    Paragraph
+      Text 'First'
+  ListItem 'flags=ordered has_block'
+    Paragraph
+      Text 'Second'
+  ListItem 'flags=ordered has_block end'
+    Paragraph
+      Text 'Third'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -415,39 +745,74 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Ordered List (entering)] []
+[Ordered List (entering)] Container
+  ListItem 'flags=ordered has_block start'
+    Paragraph
+      Text 'One'
+  ListItem 'flags=ordered has_block'
+    Paragraph
+      Text 'Two'
+  ListItem 'flags=ordered has_block end'
+    Paragraph
+      Text 'Three'
+
 [... List Left Margin] set to 58.338
--[Ordered Item (entering) #1] []
+-[Ordered Item (entering) #1] Container
+  Paragraph
+    Text 'One'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] One
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #2] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'One'
+
+-[Ordered Item (entering) #2] Container
+  Paragraph
+    Text 'Two'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Two
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #3] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Two'
+
+-[Ordered Item (entering) #3] Container
+  Paragraph
+    Text 'Three'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Three
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered List (leaving)] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Three'
+
+-[Ordered List (leaving)] Container
+  ListItem 'flags=ordered has_block start'
+    Paragraph
+      Text 'One'
+  ListItem 'flags=ordered has_block'
+    Paragraph
+      Text 'Two'
+  ListItem 'flags=ordered has_block end'
+    Paragraph
+      Text 'Three'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -457,94 +822,228 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Ordered List (entering)] []
+[Ordered List (entering)] Container
+  ListItem 'flags=ordered has_block start'
+    Paragraph
+      Text 'Item 1, graf one.'
+    Paragraph
+      Text 'Item 2. graf two. The quick brown fox…'
+  ListItem 'flags=ordered has_block'
+    Paragraph
+      Text 'Item 2.'
+  ListItem 'flags=ordered has_block end'
+    Paragraph
+      Text 'Item 3.'
+
 [... List Left Margin] set to 58.338
--[Ordered Item (entering) #1] []
+-[Ordered Item (entering) #1] Container
+  Paragraph
+    Text 'Item 1, graf one.'
+  Paragraph
+    Text 'Item 2. graf two. The quick brown fox…'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Item 1, graf one.
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Not First Para within a list] indent etc.
 --[cr()] LH=14
 --[Text] Item 2. graf two. The quick brown fox jumped over the lazy dog's back.
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
+--[Not First Para within a list] 
 --[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #2] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Item 1, graf one.'
+  Paragraph
+    Text 'Item 2. graf two. The quick brown fox…'
+
+-[Ordered Item (entering) #2] Container
+  Paragraph
+    Text 'Item 2.'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Item 2.
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #3] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Item 2.'
+
+-[Ordered Item (entering) #3] Container
+  Paragraph
+    Text 'Item 3.'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Item 3.
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered List (leaving)] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Item 3.'
+
+-[Ordered List (leaving)] Container
+  ListItem 'flags=ordered has_block start'
+    Paragraph
+      Text 'Item 1, graf one.'
+    Paragraph
+      Text 'Item 2. graf two. The quick brown fox…'
+  ListItem 'flags=ordered has_block'
+    Paragraph
+      Text 'Item 2.'
+  ListItem 'flags=ordered has_block end'
+    Paragraph
+      Text 'Item 3.'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [cr()] LH=14
-[Heading (2, entering)] []
+[Heading (2, entering)] Container
+  Text 'Nested'
+
 -[Text] Nested
 -[Heading (leaving)] 
 -[cr()] LH=27
-[Unordered List (entering)] []
+[Unordered List (entering)] Container
+  ListItem 'flags=start end'
+    Paragraph
+      Text 'Tab'
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text 'Tab'
+        List 'tight flags=start'
+          ListItem 'flags=start'
+            Paragraph
+              Text 'Tab'
+
 [... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] []
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'Tab'
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text 'Tab'
+      List 'tight flags=start'
+        ListItem 'flags=start'
+          Paragraph
+            Text 'Tab'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Tab
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered List (entering)] []
+--[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Tab'
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text 'Tab'
+
 --[... List Left Margin] set to 88.326
----[Unordered Item (entering) #1] []
+---[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'Tab'
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text 'Tab'
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
+----[First Para within a list] breaking
 ----[Text] Tab
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
-----[Unordered List (entering)] []
+----[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Tab'
+
 ----[... List Left Margin] set to 118.314
------[Unordered Item (entering) #1] []
+-----[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'Tab'
+
 -----[cr()] LH=14
 ------[Paragraph (entering)] 
 ------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
-------[cr()] LH=14
+------[First Para within a list] breaking
 ------[Text] Tab
 ------[Paragraph (leaving)] 
 ------[... Margins (left, top, right, bottom:] 158.298 28.35 28.35 56.7
-------[cr()] LH=14
-------[Unordered Item (leaving)] []
------[Unordered List (leaving)] []
+------[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Tab'
+
+-----[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Tab'
+
 -----[... Reset List Left Margin] re-set to 88.326
-----[Unordered Item (leaving)] []
----[Unordered List (leaving)] []
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Tab'
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text 'Tab'
+
+---[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Tab'
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text 'Tab'
+
 ---[... Reset List Left Margin] re-set to 58.337999999999994
---[Unordered Item (leaving)] []
--[Unordered List (leaving)] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Tab'
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text 'Tab'
+      List 'tight flags=start'
+        ListItem 'flags=start'
+          Paragraph
+            Text 'Tab'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=start end'
+    Paragraph
+      Text 'Tab'
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text 'Tab'
+        List 'tight flags=start'
+          ListItem 'flags=start'
+            Paragraph
+              Text 'Tab'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -554,73 +1053,183 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Ordered List (entering)] []
+[Ordered List (entering)] Container
+  ListItem 'flags=ordered start'
+    Paragraph
+      Text 'First'
+  ListItem 'flags=ordered'
+    Paragraph
+      Text 'Second:'
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text 'Fee'
+      ListItem
+        Paragraph
+          Text 'Fie'
+      ListItem
+        Paragraph
+          Text 'Foe'
+  ListItem 'flags=ordered end'
+    Paragraph
+      Text 'Third'
+
 [... List Left Margin] set to 58.338
--[Ordered Item (entering) #1] []
+-[Ordered Item (entering) #1] Container
+  Paragraph
+    Text 'First'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] First
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #2] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'First'
+
+-[Ordered Item (entering) #2] Container
+  Paragraph
+    Text 'Second:'
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text 'Fee'
+    ListItem
+      Paragraph
+        Text 'Fie'
+    ListItem
+      Paragraph
+        Text 'Foe'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Second:
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered List (entering)] []
+--[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Fee'
+  ListItem
+    Paragraph
+      Text 'Fie'
+  ListItem
+    Paragraph
+      Text 'Foe'
+
 --[... List Left Margin] set to 88.326
----[Unordered Item (entering) #1] []
+---[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'Fee'
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
+----[First Para within a list] breaking
 ----[Text] Fee
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
-----[Unordered Item (leaving)] []
----[Unordered Item (entering) #2] []
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Fee'
+
+---[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'Fie'
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
+----[First Para within a list] breaking
 ----[Text] Fie
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
-----[Unordered Item (leaving)] []
----[Unordered Item (entering) #3] []
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Fie'
+
+---[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'Foe'
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
+----[First Para within a list] breaking
 ----[Text] Foe
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
-----[Unordered Item (leaving)] []
----[Unordered List (leaving)] []
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Foe'
+
+---[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Fee'
+  ListItem
+    Paragraph
+      Text 'Fie'
+  ListItem
+    Paragraph
+      Text 'Foe'
+
 ---[... Reset List Left Margin] re-set to 58.337999999999994
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #3] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Second:'
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text 'Fee'
+    ListItem
+      Paragraph
+        Text 'Fie'
+    ListItem
+      Paragraph
+        Text 'Foe'
+
+-[Ordered Item (entering) #3] Container
+  Paragraph
+    Text 'Third'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Third
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered List (leaving)] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Third'
+
+-[Ordered List (leaving)] Container
+  ListItem 'flags=ordered start'
+    Paragraph
+      Text 'First'
+  ListItem 'flags=ordered'
+    Paragraph
+      Text 'Second:'
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text 'Fee'
+      ListItem
+        Paragraph
+          Text 'Fie'
+      ListItem
+        Paragraph
+          Text 'Foe'
+  ListItem 'flags=ordered end'
+    Paragraph
+      Text 'Third'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -630,73 +1239,183 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Ordered List (entering)] []
+[Ordered List (entering)] Container
+  ListItem 'flags=ordered has_block start'
+    Paragraph
+      Text 'First'
+  ListItem 'flags=ordered has_block'
+    Paragraph
+      Text 'Second:'
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text 'Fee'
+      ListItem
+        Paragraph
+          Text 'Fie'
+      ListItem
+        Paragraph
+          Text 'Foe'
+  ListItem 'flags=ordered has_block end'
+    Paragraph
+      Text 'Third'
+
 [... List Left Margin] set to 58.338
--[Ordered Item (entering) #1] []
+-[Ordered Item (entering) #1] Container
+  Paragraph
+    Text 'First'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] First
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #2] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'First'
+
+-[Ordered Item (entering) #2] Container
+  Paragraph
+    Text 'Second:'
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text 'Fee'
+    ListItem
+      Paragraph
+        Text 'Fie'
+    ListItem
+      Paragraph
+        Text 'Foe'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Second:
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered List (entering)] []
+--[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Fee'
+  ListItem
+    Paragraph
+      Text 'Fie'
+  ListItem
+    Paragraph
+      Text 'Foe'
+
 --[... List Left Margin] set to 88.326
----[Unordered Item (entering) #1] []
+---[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'Fee'
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
+----[First Para within a list] breaking
 ----[Text] Fee
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
-----[Unordered Item (leaving)] []
----[Unordered Item (entering) #2] []
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Fee'
+
+---[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'Fie'
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
+----[First Para within a list] breaking
 ----[Text] Fie
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
-----[Unordered Item (leaving)] []
----[Unordered Item (entering) #3] []
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Fie'
+
+---[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'Foe'
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
+----[First Para within a list] breaking
 ----[Text] Foe
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
-----[Unordered Item (leaving)] []
----[Unordered List (leaving)] []
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Foe'
+
+---[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Fee'
+  ListItem
+    Paragraph
+      Text 'Fie'
+  ListItem
+    Paragraph
+      Text 'Foe'
+
 ---[... Reset List Left Margin] re-set to 58.337999999999994
---[Ordered Item (leaving)] []
--[Ordered Item (entering) #3] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Second:'
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text 'Fee'
+    ListItem
+      Paragraph
+        Text 'Fie'
+    ListItem
+      Paragraph
+        Text 'Foe'
+
+-[Ordered Item (entering) #3] Container
+  Paragraph
+    Text 'Third'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] Third
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Ordered Item (leaving)] []
--[Ordered List (leaving)] []
+--[Ordered Item (leaving)] Container
+  Paragraph
+    Text 'Third'
+
+-[Ordered List (leaving)] Container
+  ListItem 'flags=ordered has_block start'
+    Paragraph
+      Text 'First'
+  ListItem 'flags=ordered has_block'
+    Paragraph
+      Text 'Second:'
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text 'Fee'
+      ListItem
+        Paragraph
+          Text 'Fie'
+      ListItem
+        Paragraph
+          Text 'Foe'
+  ListItem 'flags=ordered has_block end'
+    Paragraph
+      Text 'Third'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -706,40 +1425,92 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Unordered List (entering)] []
+[Unordered List (entering)] Container
+  ListItem 'flags=has_block start'
+    Paragraph
+      Text 'this'
+    List 'tight flags=start'
+      ListItem 'flags=start end'
+        Paragraph
+          Text 'sub'
+    Paragraph
+      Text 'that'
+
 [... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] []
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'this'
+  List 'tight flags=start'
+    ListItem 'flags=start end'
+      Paragraph
+        Text 'sub'
+  Paragraph
+    Text 'that'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] this
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered List (entering)] []
+--[Unordered List (entering)] Container
+  ListItem 'flags=start end'
+    Paragraph
+      Text 'sub'
+
 --[... List Left Margin] set to 88.326
----[Unordered Item (entering) #1] []
+---[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'sub'
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
+----[First Para within a list] breaking
 ----[Text] sub
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[cr()] LH=14
-----[Unordered Item (leaving)] []
----[Unordered List (leaving)] []
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'sub'
+
+---[Unordered List (leaving)] Container
+  ListItem 'flags=start end'
+    Paragraph
+      Text 'sub'
+
 ---[... Reset List Left Margin] re-set to 58.337999999999994
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 58.337999999999994 28.35 28.35 56.7
+--[Not First Para within a list] indent etc.
 --[cr()] LH=14
 --[Text] that
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 58.337999999999994 28.35 28.35 56.7
+--[Not First Para within a list] 
 --[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered List (leaving)] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'this'
+  List 'tight flags=start'
+    ListItem 'flags=start end'
+      Paragraph
+        Text 'sub'
+  Paragraph
+    Text 'that'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=has_block start'
+    Paragraph
+      Text 'this'
+    List 'tight flags=start'
+      ListItem 'flags=start end'
+        Paragraph
+          Text 'sub'
+    Paragraph
+      Text 'that'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Document] Not Handled

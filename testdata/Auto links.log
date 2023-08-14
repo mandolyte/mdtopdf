@@ -21,23 +21,47 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Unordered List (entering)] []
+[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'In a list?'
+  ListItem
+    Paragraph
+      Text
+      Link 'url=http://example.com/'
+        Text 'http://example.com/'
+      Text
+  ListItem 'flags=end'
+    Paragraph
+      Text 'It should.'
+
 [... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] []
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'In a list?'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] In a list?
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #2] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'In a list?'
+
+-[Unordered Item (entering) #2] Container
+  Paragraph
+    Text
+    Link 'url=http://example.com/'
+      Text 'http://example.com/'
+    Text
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] 
 ---[Link (entering)] Destination[http://example.com/] Title[]
 ---[Text] http://example.com/
@@ -45,19 +69,42 @@
 --[Text] 
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #3] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=http://example.com/'
+      Text 'http://example.com/'
+    Text
+
+-[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'It should.'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] It should.
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered List (leaving)] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'It should.'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'In a list?'
+  ListItem
+    Paragraph
+      Text
+      Link 'url=http://example.com/'
+        Text 'http://example.com/'
+      Text
+  ListItem 'flags=end'
+    Paragraph
+      Text 'It should.'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [BlockQuote (entering)] 
@@ -82,6 +129,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf 'or here: <http://example.com/>\n'
+
 [cr()] LH=14
 [Document] Not Handled

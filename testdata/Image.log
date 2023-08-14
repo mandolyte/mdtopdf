@@ -32,7 +32,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] []
+[Codeblock] Leaf '![Alt text](./image/fpdf.png)\n\n![Al…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -41,48 +42,107 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Unordered List (entering)] []
+[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'An exclamation mark:'
+      Code '!'
+      Text ';'
+  ListItem
+    Paragraph
+      Text 'followed by a set of square brackets,…'
+      Code 'alt'
+      Text '\nattribute text for the image;'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'followed by a set of parentheses, con…'
+      Code 'title'
+      Text 'attribute enclosed in double\nor sin…'
+
 [... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] []
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'An exclamation mark:'
+    Code '!'
+    Text ';'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] An exclamation mark: 
 --[processCode] !
 --[Backtick (entering)] 
 --[Text] ;
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #2] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'An exclamation mark:'
+    Code '!'
+    Text ';'
+
+-[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'followed by a set of square brackets,…'
+    Code 'alt'
+    Text '\nattribute text for the image;'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] followed by a set of square brackets, containing the 
 --[processCode] alt
 --[Backtick (entering)] 
 --[Text]  attribute text for the image;
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered Item (entering) #3] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'followed by a set of square brackets,…'
+    Code 'alt'
+    Text '\nattribute text for the image;'
+
+-[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'followed by a set of parentheses, con…'
+    Code 'title'
+    Text 'attribute enclosed in double\nor sin…'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
+--[First Para within a list] breaking
 --[Text] followed by a set of parentheses, containing the URL or path to the image, and an optional 
 --[processCode] title
 --[Backtick (entering)] 
 --[Text]  attribute enclosed in double or single quotes.
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[cr()] LH=14
---[Unordered Item (leaving)] []
--[Unordered List (leaving)] []
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'followed by a set of parentheses, con…'
+    Code 'title'
+    Text 'attribute enclosed in double\nor sin…'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'An exclamation mark:'
+      Code '!'
+      Text ';'
+  ListItem
+    Paragraph
+      Text 'followed by a set of square brackets,…'
+      Code 'alt'
+      Text '\nattribute text for the image;'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'followed by a set of parentheses, con…'
+      Code 'title'
+      Text 'attribute enclosed in double\nor sin…'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 

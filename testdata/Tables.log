@@ -1,7 +1,9 @@
 [RenderHeader] Not handled
 [Document] Not Handled
 [cr()] LH=14
-[Heading (1, entering)] []
+[Heading (1, entering)] Container
+  Text 'Table Tests'
+
 -[Text] Table Tests
 -[Heading (leaving)] 
 -[cr()] LH=29
@@ -18,9 +20,11 @@
 --[TableRow (entering)] 
 ---[TableCell (entering)] 
 ----[Text] Header
+----[... table header cell] Width=60.672, height=14
 ---[TableCell (leaving)] 
 ---[TableCell (entering)] 
 ----[Text] Another header
+----[... table header cell] Width=108.67200000000001, height=14
 ---[TableCell (leaving)] 
 --[TableRow (leaving)] 
 -[TableHead (leaving)] 
@@ -28,17 +32,21 @@
 --[TableRow (entering)] 
 ---[TableCell (entering)] 
 ----[Text] field 1
+----[... table body cell] Width=60.672, height=14
 ---[TableCell (leaving)] 
 ---[TableCell (entering)] 
 ----[Text] something
+----[... table body cell] Width=108.67200000000001, height=14
 ---[TableCell (leaving)] 
 --[TableRow (leaving)] 
 --[TableRow (entering)] 
 ---[TableCell (entering)] 
 ----[Text] field 2
+----[... table body cell] Width=60.672, height=14
 ---[TableCell (leaving)] 
 ---[TableCell (entering)] 
 ----[Text] something else
+----[... table body cell] Width=108.67200000000001, height=14
 ---[TableCell (leaving)] 
 --[TableRow (leaving)] 
 -[TableBody (leaving)] 
