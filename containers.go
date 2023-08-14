@@ -19,10 +19,6 @@
 
 package mdtopdf
 
-import (
-	"reflect"
-)
-
 type listType int
 
 const (
@@ -54,7 +50,6 @@ func (n listType) String() string {
 }
 
 type containerState struct {
-	containerType  reflect.Type
 	textStyle      Styler
 	leftMargin     float64
 	firstParagraph bool

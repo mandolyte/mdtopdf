@@ -96,7 +96,7 @@ func (r *PdfRenderer) outputUnhighlightedCodeBlock(codeBlock string) {
 }
 
 func (r *PdfRenderer) processCodeblock(node ast.CodeBlock) {
-	r.tracer("Codeblock", fmt.Sprintf("%v", node.Content))
+	r.tracer("Codeblock", fmt.Sprintf("%v", ast.ToString(node.AsLeaf())))
 
 	currentStyle := r.cs.peek().textStyle
 	r.setStyler(currentStyle)
@@ -210,7 +210,7 @@ func (r *PdfRenderer) processList(node ast.List, entering bool) {
 	r.setStyler(r.Normal)
 	if entering {
 		r.tracer(fmt.Sprintf("%v List (entering)", kind),
-			fmt.Sprintf("%v", node.Content))
+			fmt.Sprintf("%v", ast.ToString(node.AsContainer())))
 		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin + r.IndentValue)
 		r.tracer("... List Left Margin",
 			fmt.Sprintf("set to %v", r.cs.peek().leftMargin+r.IndentValue))
@@ -221,7 +221,7 @@ func (r *PdfRenderer) processList(node ast.List, entering bool) {
 		r.cs.push(x)
 	} else {
 		r.tracer(fmt.Sprintf("%v List (leaving)", kind),
-			fmt.Sprintf("%v", node.Content))
+			fmt.Sprintf("%v", ast.ToString(node.AsContainer())))
 		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin - r.IndentValue)
 		r.tracer("... Reset List Left Margin",
 			fmt.Sprintf("re-set to %v", r.cs.peek().leftMargin-r.IndentValue))
@@ -241,7 +241,7 @@ func (r *PdfRenderer) processItem(node ast.ListItem, entering bool) {
 	if entering {
 		r.tracer(fmt.Sprintf("%v Item (entering) #%v",
 			r.cs.peek().listkind, r.cs.peek().itemNumber+1),
-			fmt.Sprintf("%v", node.Content))
+			fmt.Sprintf("%v", ast.ToString(node.AsContainer())))
 		r.cr() // newline before getting started
 		x := &containerState{
 			textStyle: r.Normal, itemNumber: r.cs.peek().itemNumber + 1,
@@ -268,7 +268,7 @@ func (r *PdfRenderer) processItem(node ast.ListItem, entering bool) {
 	} else {
 		r.tracer(fmt.Sprintf("%v Item (leaving)",
 			r.cs.peek().listkind),
-			fmt.Sprintf("%v", node.Content))
+			fmt.Sprintf("%v", ast.ToString(node.AsContainer())))
 		// before we output the new line, reset left margin
 		r.Pdf.SetLeftMargin(r.cs.peek().leftMargin)
 		r.cs.parent().itemNumber++
@@ -505,37 +505,37 @@ func (r *PdfRenderer) processHeading(node ast.Heading, entering bool) {
 		r.cr()
 		switch node.Level {
 		case 1:
-			r.tracer("Heading (1, entering)", fmt.Sprintf("%v", node.Content))
+			r.tracer("Heading (1, entering)", fmt.Sprintf("%v", ast.ToString(node.AsContainer())))
 			x := &containerState{
 				textStyle: r.H1, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
 			r.cs.push(x)
 		case 2:
-			r.tracer("Heading (2, entering)", fmt.Sprintf("%v", node.Content))
+			r.tracer("Heading (2, entering)", fmt.Sprintf("%v", ast.ToString(node.AsContainer())))
 			x := &containerState{
 				textStyle: r.H2, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
 			r.cs.push(x)
 		case 3:
-			r.tracer("Heading (3, entering)", fmt.Sprintf("%v", node.Content))
+			r.tracer("Heading (3, entering)", fmt.Sprintf("%v", ast.ToString(node.AsContainer())))
 			x := &containerState{
 				textStyle: r.H3, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
 			r.cs.push(x)
 		case 4:
-			r.tracer("Heading (4, entering)", fmt.Sprintf("%v", node.Content))
+			r.tracer("Heading (4, entering)", fmt.Sprintf("%v", ast.ToString(node.AsContainer())))
 			x := &containerState{
 				textStyle: r.H4, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
 			r.cs.push(x)
 		case 5:
-			r.tracer("Heading (5, entering)", fmt.Sprintf("%v", node.Content))
+			r.tracer("Heading (5, entering)", fmt.Sprintf("%v", ast.ToString(node.AsContainer())))
 			x := &containerState{
 				textStyle: r.H5, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
 			r.cs.push(x)
 		case 6:
-			r.tracer("Heading (6, entering)", fmt.Sprintf("%v", node.Content))
+			r.tracer("Heading (6, entering)", fmt.Sprintf("%v", ast.ToString(node.AsContainer())))
 			x := &containerState{
 				textStyle: r.H6, listkind: notlist,
 				leftMargin: r.cs.peek().leftMargin}
