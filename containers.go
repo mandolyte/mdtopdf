@@ -20,7 +20,7 @@
 package mdtopdf
 
 import (
-	bf "github.com/russross/blackfriday/v2"
+	"reflect"
 )
 
 type listType int
@@ -54,7 +54,7 @@ func (n listType) String() string {
 }
 
 type containerState struct {
-	containerType  bf.NodeType
+	containerType  reflect.Type
 	textStyle      Styler
 	leftMargin     float64
 	firstParagraph bool
