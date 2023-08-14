@@ -323,16 +323,15 @@ func (r *PdfRenderer) Process(content []byte) error {
 func (r *PdfRenderer) Run(content []byte) error {
 	// Preprocess content by changing all CRLF to LF
 	s := content
-	s = markdown.NormalizeNewlines([]byte(s))
+	s = markdown.NormalizeNewlines(s)
+
+	if r.unicodeTranslator != nil {
+		s = []byte(r.unicodeTranslator(string(s)))
+	}
 
 	exts := parser.CommonExtensions // parser.OrderedListStart | parser.NoEmptyLineBeforeBlock
 	p := parser.NewWithExtensions(exts)
 	doc := markdown.Parse(s, p)
-
-	/*if r.unicodeTranslator != nil {
-		s = r.unicodeTranslator(s)
-	}*/
-
 	_ = markdown.Render(doc, r)
 
 	return nil
