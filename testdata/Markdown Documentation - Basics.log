@@ -1,7 +1,7 @@
 [RenderHeader] Not handled
 [Document] Not Handled
 [cr()] LH=14
-[Heading (1, entering)] {1  false}
+[Heading (1, entering)] []
 -[Text] Markdown: Basics
 -[Heading (leaving)] 
 -[cr()] LH=29
@@ -15,7 +15,7 @@
 [cr()] LH=14
 [cr()] LH=14
 [cr()] LH=14
-[Heading (2, entering)] {2  false}
+[Heading (2, entering)] []
 -[Text] Getting the Gist of Markdown's Formatting Syntax
 -[Heading (leaving)] 
 -[cr()] LH=27
@@ -57,7 +57,7 @@
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
 [cr()] LH=14
-[Heading (2, entering)] {2  false}
+[Heading (2, entering)] []
 -[Text] Paragraphs, Headers, Blockquotes
 -[Heading (leaving)] 
 -[cr()] LH=27
@@ -115,7 +115,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -124,10 +124,10 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [cr()] LH=14
-[Heading (3, entering)] {3  false}
+[Heading (3, entering)] []
 -[Text] Phrase Emphasis
 -[Heading (leaving)] 
 -[cr()] LH=25
@@ -145,7 +145,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -154,10 +154,10 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [cr()] LH=14
-[Heading (2, entering)] {2  false}
+[Heading (2, entering)] []
 -[Text] Lists
 -[Heading (leaving)] 
 -[cr()] LH=27
@@ -177,7 +177,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -186,7 +186,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -195,7 +195,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -204,7 +204,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -213,7 +213,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -222,7 +222,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -234,7 +234,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -243,10 +243,10 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [cr()] LH=14
-[Heading (3, entering)] {3  false}
+[Heading (3, entering)] []
 -[Text] Links
 -[Heading (leaving)] 
 -[cr()] LH=25
@@ -272,7 +272,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -281,7 +281,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -290,7 +290,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -299,7 +299,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -308,7 +308,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -317,7 +317,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -330,7 +330,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -339,10 +339,10 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [cr()] LH=14
-[Heading (3, entering)] {3  false}
+[Heading (3, entering)] []
 -[Text] Images
 -[Heading (leaving)] 
 -[cr()] LH=25
@@ -360,7 +360,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -369,7 +369,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -378,10 +378,10 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [cr()] LH=14
-[Heading (3, entering)] {3  false}
+[Heading (3, entering)] []
 -[Text] Code
 -[Heading (leaving)] 
 -[cr()] LH=25
@@ -401,7 +401,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -410,7 +410,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -435,7 +435,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -444,7 +444,6 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] []
 [cr()] LH=14
 [Document] Not Handled
-[RenderFooter] Not handled

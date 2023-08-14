@@ -28,7 +28,8 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"reflect"
+
+	// "reflect"
 	"regexp"
 	"strconv"
 	"strings"
@@ -41,16 +42,16 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-func (r *PdfRenderer) processText(node ast.Node) {
+func (r *PdfRenderer) processText(node *ast.Text) {
 	currentStyle := r.cs.peek().textStyle
 	r.setStyler(currentStyle)
-	s := string(node.AsLeaf().Literal)
+	s := string(node.Literal)
 	if !r.NeedBlockquoteStyleUpdate {
 		s = strings.ReplaceAll(s, "\n", " ")
 	}
 	r.tracer("Text", s)
 
-	switch node.(type) {
+	switch node.Parent.(type) {
 
 	case *ast.Link:
 		r.writeLink(currentStyle, s, r.cs.peek().destination)
@@ -229,6 +230,11 @@ func (r *PdfRenderer) processList(node ast.List, entering bool) {
 			r.cr()
 		}
 	}
+}
+
+func isListItem(node ast.Node) bool {
+	_, ok := node.(*ast.ListItem)
+	return ok
 }
 
 func (r *PdfRenderer) processItem(node ast.ListItem, entering bool) {
@@ -435,14 +441,14 @@ func (r *PdfRenderer) processCode(node ast.Node) {
 	}
 }
 
-func (r *PdfRenderer) processParagraph(node ast.Node, entering bool) {
+func (r *PdfRenderer) processParagraph(node *ast.Paragraph, entering bool) {
 	r.setStyler(r.Normal)
 	if entering {
 		r.tracer("Paragraph (entering)", "")
 		lm, tm, rm, bm := r.Pdf.GetMargins()
 		r.tracer("... Margins (left, top, right, bottom:",
 			fmt.Sprintf("%v %v %v %v", lm, tm, rm, bm))
-		if reflect.TypeOf(node).Name() == "ast.ListItem" {
+		if isListItem(node.Parent) {
 			t := r.cs.peek().listkind
 			if t == unordered || t == ordered || t == definition {
 				if r.cs.peek().firstParagraph {
@@ -460,7 +466,7 @@ func (r *PdfRenderer) processParagraph(node ast.Node, entering bool) {
 		lm, tm, rm, bm := r.Pdf.GetMargins()
 		r.tracer("... Margins (left, top, right, bottom:",
 			fmt.Sprintf("%v %v %v %v", lm, tm, rm, bm))
-		if reflect.TypeOf(node).Name() == "ast.ListItem" {
+		if isListItem(node.Parent) {
 			t := r.cs.peek().listkind
 			if t == unordered || t == ordered || t == definition {
 				if r.cs.peek().firstParagraph {
