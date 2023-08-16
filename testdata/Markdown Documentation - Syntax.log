@@ -1,7 +1,9 @@
 [RenderHeader] Not handled
 [Document] Not Handled
 [cr()] LH=14
-[Heading (1, entering)] {1  false}
+[Heading (1, entering)] Container
+  Text 'Markdown: Syntax'
+
 -[Text] Markdown: Syntax
 -[Heading (leaving)] 
 -[cr()] LH=29
@@ -14,9 +16,153 @@
 </ul>
 [cr()] LH=14
 [cr()] LH=14
-[Unordered List (entering)] {16 true 0 0 [] false}
+[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text
+      Link 'url=#overview'
+        Text 'Overview'
+      Text
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text
+          Link 'url=#philosophy'
+            Text 'Philosophy'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#html'
+            Text 'Inline HTML'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#autoescape'
+            Text 'Automatic Escaping for Special Charac…'
+          Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#block'
+        Text 'Block Elements'
+      Text
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text
+          Link 'url=#p'
+            Text 'Paragraphs and Line Breaks'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#header'
+            Text 'Headers'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#blockquote'
+            Text 'Blockquotes'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#list'
+            Text 'Lists'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#precode'
+            Text 'Code Blocks'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#hr'
+            Text 'Horizontal Rules'
+          Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#span'
+        Text 'Span Elements'
+      Text
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text
+          Link 'url=#link'
+            Text 'Links'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#em'
+            Text 'Emphasis'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#code'
+            Text 'Code'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#img'
+            Text 'Images'
+          Text
+  ListItem 'flags=end'
+    Paragraph
+      Text
+      Link 'url=#misc'
+        Text 'Miscellaneous'
+      Text
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text
+          Link 'url=#backslash'
+            Text 'Backslash Escapes'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#autolink'
+            Text 'Automatic Links'
+          Text
+
 [... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] {16 false 42 46 [] false}
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text
+    Link 'url=#overview'
+      Text 'Overview'
+    Text
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text
+        Link 'url=#philosophy'
+          Text 'Philosophy'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#html'
+          Text 'Inline HTML'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#autoescape'
+          Text 'Automatic Escaping for Special Charac…'
+        Text
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -28,9 +174,34 @@
 --[Text] 
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered List (entering)] {16 true 0 0 [] false}
+--[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text
+      Link 'url=#philosophy'
+        Text 'Philosophy'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#html'
+        Text 'Inline HTML'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#autoescape'
+        Text 'Automatic Escaping for Special Charac…'
+      Text
+
 --[... List Left Margin] set to 88.326
----[Unordered Item (entering) #1] {16 false 42 46 [] false}
+---[Unordered Item (entering) #1] Container
+  Paragraph
+    Text
+    Link 'url=#philosophy'
+      Text 'Philosophy'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -42,8 +213,20 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {16 false 42 46 [] false}
----[Unordered Item (entering) #2] {0 false 42 46 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#philosophy'
+      Text 'Philosophy'
+    Text
+
+---[Unordered Item (entering) #2] Container
+  Paragraph
+    Text
+    Link 'url=#html'
+      Text 'Inline HTML'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -55,8 +238,20 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {0 false 42 46 [] false}
----[Unordered Item (entering) #3] {0 false 42 46 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#html'
+      Text 'Inline HTML'
+    Text
+
+---[Unordered Item (entering) #3] Container
+  Paragraph
+    Text
+    Link 'url=#autoescape'
+      Text 'Automatic Escaping for Special Charac…'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -68,11 +263,104 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {0 false 42 46 [] false}
----[Unordered List (leaving)] {16 true 0 0 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#autoescape'
+      Text 'Automatic Escaping for Special Charac…'
+    Text
+
+---[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text
+      Link 'url=#philosophy'
+        Text 'Philosophy'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#html'
+        Text 'Inline HTML'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#autoescape'
+        Text 'Automatic Escaping for Special Charac…'
+      Text
+
 ---[... Reset List Left Margin] re-set to 58.337999999999994
---[Unordered Item (leaving)] {16 false 42 46 [] false}
--[Unordered Item (entering) #2] {0 false 42 46 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#overview'
+      Text 'Overview'
+    Text
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text
+        Link 'url=#philosophy'
+          Text 'Philosophy'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#html'
+          Text 'Inline HTML'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#autoescape'
+          Text 'Automatic Escaping for Special Charac…'
+        Text
+
+-[Unordered Item (entering) #2] Container
+  Paragraph
+    Text
+    Link 'url=#block'
+      Text 'Block Elements'
+    Text
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text
+        Link 'url=#p'
+          Text 'Paragraphs and Line Breaks'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#header'
+          Text 'Headers'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#blockquote'
+          Text 'Blockquotes'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#list'
+          Text 'Lists'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#precode'
+          Text 'Code Blocks'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#hr'
+          Text 'Horizontal Rules'
+        Text
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -84,9 +372,52 @@
 --[Text] 
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered List (entering)] {16 true 0 0 [] false}
+--[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text
+      Link 'url=#p'
+        Text 'Paragraphs and Line Breaks'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#header'
+        Text 'Headers'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#blockquote'
+        Text 'Blockquotes'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#list'
+        Text 'Lists'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#precode'
+        Text 'Code Blocks'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#hr'
+        Text 'Horizontal Rules'
+      Text
+
 --[... List Left Margin] set to 88.326
----[Unordered Item (entering) #1] {16 false 42 46 [] false}
+---[Unordered Item (entering) #1] Container
+  Paragraph
+    Text
+    Link 'url=#p'
+      Text 'Paragraphs and Line Breaks'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -98,8 +429,20 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {16 false 42 46 [] false}
----[Unordered Item (entering) #2] {0 false 42 46 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#p'
+      Text 'Paragraphs and Line Breaks'
+    Text
+
+---[Unordered Item (entering) #2] Container
+  Paragraph
+    Text
+    Link 'url=#header'
+      Text 'Headers'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -111,8 +454,20 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {0 false 42 46 [] false}
----[Unordered Item (entering) #3] {0 false 42 46 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#header'
+      Text 'Headers'
+    Text
+
+---[Unordered Item (entering) #3] Container
+  Paragraph
+    Text
+    Link 'url=#blockquote'
+      Text 'Blockquotes'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -124,8 +479,20 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {0 false 42 46 [] false}
----[Unordered Item (entering) #4] {0 false 42 46 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#blockquote'
+      Text 'Blockquotes'
+    Text
+
+---[Unordered Item (entering) #4] Container
+  Paragraph
+    Text
+    Link 'url=#list'
+      Text 'Lists'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -137,8 +504,20 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {0 false 42 46 [] false}
----[Unordered Item (entering) #5] {0 false 42 46 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#list'
+      Text 'Lists'
+    Text
+
+---[Unordered Item (entering) #5] Container
+  Paragraph
+    Text
+    Link 'url=#precode'
+      Text 'Code Blocks'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -150,8 +529,20 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {0 false 42 46 [] false}
----[Unordered Item (entering) #6] {0 false 42 46 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#precode'
+      Text 'Code Blocks'
+    Text
+
+---[Unordered Item (entering) #6] Container
+  Paragraph
+    Text
+    Link 'url=#hr'
+      Text 'Horizontal Rules'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -163,11 +554,128 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {0 false 42 46 [] false}
----[Unordered List (leaving)] {16 true 0 0 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#hr'
+      Text 'Horizontal Rules'
+    Text
+
+---[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text
+      Link 'url=#p'
+        Text 'Paragraphs and Line Breaks'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#header'
+        Text 'Headers'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#blockquote'
+        Text 'Blockquotes'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#list'
+        Text 'Lists'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#precode'
+        Text 'Code Blocks'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#hr'
+        Text 'Horizontal Rules'
+      Text
+
 ---[... Reset List Left Margin] re-set to 58.337999999999994
---[Unordered Item (leaving)] {0 false 42 46 [] false}
--[Unordered Item (entering) #3] {0 false 42 46 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#block'
+      Text 'Block Elements'
+    Text
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text
+        Link 'url=#p'
+          Text 'Paragraphs and Line Breaks'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#header'
+          Text 'Headers'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#blockquote'
+          Text 'Blockquotes'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#list'
+          Text 'Lists'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#precode'
+          Text 'Code Blocks'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#hr'
+          Text 'Horizontal Rules'
+        Text
+
+-[Unordered Item (entering) #3] Container
+  Paragraph
+    Text
+    Link 'url=#span'
+      Text 'Span Elements'
+    Text
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text
+        Link 'url=#link'
+          Text 'Links'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#em'
+          Text 'Emphasis'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#code'
+          Text 'Code'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#img'
+          Text 'Images'
+        Text
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -179,9 +687,40 @@
 --[Text] 
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered List (entering)] {16 true 0 0 [] false}
+--[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text
+      Link 'url=#link'
+        Text 'Links'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#em'
+        Text 'Emphasis'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#code'
+        Text 'Code'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#img'
+        Text 'Images'
+      Text
+
 --[... List Left Margin] set to 88.326
----[Unordered Item (entering) #1] {16 false 42 46 [] false}
+---[Unordered Item (entering) #1] Container
+  Paragraph
+    Text
+    Link 'url=#link'
+      Text 'Links'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -193,8 +732,20 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {16 false 42 46 [] false}
----[Unordered Item (entering) #2] {0 false 42 46 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#link'
+      Text 'Links'
+    Text
+
+---[Unordered Item (entering) #2] Container
+  Paragraph
+    Text
+    Link 'url=#em'
+      Text 'Emphasis'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -206,8 +757,20 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {0 false 42 46 [] false}
----[Unordered Item (entering) #3] {0 false 42 46 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#em'
+      Text 'Emphasis'
+    Text
+
+---[Unordered Item (entering) #3] Container
+  Paragraph
+    Text
+    Link 'url=#code'
+      Text 'Code'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -219,8 +782,20 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {0 false 42 46 [] false}
----[Unordered Item (entering) #4] {0 false 42 46 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#code'
+      Text 'Code'
+    Text
+
+---[Unordered Item (entering) #4] Container
+  Paragraph
+    Text
+    Link 'url=#img'
+      Text 'Images'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -232,11 +807,92 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {0 false 42 46 [] false}
----[Unordered List (leaving)] {16 true 0 0 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#img'
+      Text 'Images'
+    Text
+
+---[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text
+      Link 'url=#link'
+        Text 'Links'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#em'
+        Text 'Emphasis'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#code'
+        Text 'Code'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#img'
+        Text 'Images'
+      Text
+
 ---[... Reset List Left Margin] re-set to 58.337999999999994
---[Unordered Item (leaving)] {0 false 42 46 [] false}
--[Unordered Item (entering) #4] {32 false 42 46 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#span'
+      Text 'Span Elements'
+    Text
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text
+        Link 'url=#link'
+          Text 'Links'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#em'
+          Text 'Emphasis'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#code'
+          Text 'Code'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#img'
+          Text 'Images'
+        Text
+
+-[Unordered Item (entering) #4] Container
+  Paragraph
+    Text
+    Link 'url=#misc'
+      Text 'Miscellaneous'
+    Text
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text
+        Link 'url=#backslash'
+          Text 'Backslash Escapes'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#autolink'
+          Text 'Automatic Links'
+        Text
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -248,9 +904,28 @@
 --[Text] 
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered List (entering)] {16 true 0 0 [] false}
+--[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text
+      Link 'url=#backslash'
+        Text 'Backslash Escapes'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#autolink'
+        Text 'Automatic Links'
+      Text
+
 --[... List Left Margin] set to 88.326
----[Unordered Item (entering) #1] {16 false 42 46 [] false}
+---[Unordered Item (entering) #1] Container
+  Paragraph
+    Text
+    Link 'url=#backslash'
+      Text 'Backslash Escapes'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -262,8 +937,20 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {16 false 42 46 [] false}
----[Unordered Item (entering) #2] {0 false 42 46 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#backslash'
+      Text 'Backslash Escapes'
+    Text
+
+---[Unordered Item (entering) #2] Container
+  Paragraph
+    Text
+    Link 'url=#autolink'
+      Text 'Automatic Links'
+    Text
+
 ---[cr()] LH=14
 ----[Paragraph (entering)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -275,11 +962,168 @@
 ----[Text] 
 ----[Paragraph (leaving)] 
 ----[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
-----[Unordered Item (leaving)] {0 false 42 46 [] false}
----[Unordered List (leaving)] {16 true 0 0 [] false}
+----[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#autolink'
+      Text 'Automatic Links'
+    Text
+
+---[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text
+      Link 'url=#backslash'
+        Text 'Backslash Escapes'
+      Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#autolink'
+        Text 'Automatic Links'
+      Text
+
 ---[... Reset List Left Margin] re-set to 58.337999999999994
---[Unordered Item (leaving)] {32 false 42 46 [] false}
--[Unordered List (leaving)] {16 true 0 0 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text
+    Link 'url=#misc'
+      Text 'Miscellaneous'
+    Text
+  List 'tight flags=start'
+    ListItem 'flags=start'
+      Paragraph
+        Text
+        Link 'url=#backslash'
+          Text 'Backslash Escapes'
+        Text
+    ListItem
+      Paragraph
+        Text
+        Link 'url=#autolink'
+          Text 'Automatic Links'
+        Text
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text
+      Link 'url=#overview'
+        Text 'Overview'
+      Text
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text
+          Link 'url=#philosophy'
+            Text 'Philosophy'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#html'
+            Text 'Inline HTML'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#autoescape'
+            Text 'Automatic Escaping for Special Charac…'
+          Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#block'
+        Text 'Block Elements'
+      Text
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text
+          Link 'url=#p'
+            Text 'Paragraphs and Line Breaks'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#header'
+            Text 'Headers'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#blockquote'
+            Text 'Blockquotes'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#list'
+            Text 'Lists'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#precode'
+            Text 'Code Blocks'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#hr'
+            Text 'Horizontal Rules'
+          Text
+  ListItem
+    Paragraph
+      Text
+      Link 'url=#span'
+        Text 'Span Elements'
+      Text
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text
+          Link 'url=#link'
+            Text 'Links'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#em'
+            Text 'Emphasis'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#code'
+            Text 'Code'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#img'
+            Text 'Images'
+          Text
+  ListItem 'flags=end'
+    Paragraph
+      Text
+      Link 'url=#misc'
+        Text 'Miscellaneous'
+      Text
+    List 'tight flags=start'
+      ListItem 'flags=start'
+        Paragraph
+          Text
+          Link 'url=#backslash'
+            Text 'Backslash Escapes'
+          Text
+      ListItem
+        Paragraph
+          Text
+          Link 'url=#autolink'
+            Text 'Automatic Links'
+          Text
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -426,7 +1270,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'This is a regular paragraph.\n\n<tabl…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -503,7 +1348,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'http://images.google.com/images?num=3…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -512,7 +1358,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'http://images.google.com/images?num=3…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -541,7 +1388,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '&copy;\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -550,7 +1398,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'AT&T\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -559,7 +1408,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'AT&amp;T\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -572,7 +1422,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '4 < 5\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -581,7 +1432,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '4 &lt; 5\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -688,7 +1540,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'This is an H1\n=============\n\nThis …'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -710,7 +1563,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '# This is an H1\n\n## This is an H2\n…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -719,7 +1573,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '# This is an H1 #\n\n## This is an H2…'
+
 [cr()] LH=14
 [HTMLBlock] <h3 id="blockquote">Blockquotes</h3>
 [cr()] LH=14
@@ -737,7 +1592,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '> This is a blockquote with two parag…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -749,7 +1605,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '> This is a blockquote with two parag…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -761,7 +1618,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '> This is the first level of quoting.…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -770,7 +1628,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '> ## This is a header.\n> \n> 1.   Th…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -796,7 +1655,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '*   Red\n*   Green\n*   Blue\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -805,7 +1665,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '+   Red\n+   Green\n+   Blue\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -814,7 +1675,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '-   Red\n-   Green\n-   Blue\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -823,7 +1685,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '1.  Bird\n2.  McHale\n3.  Parish\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -832,7 +1695,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<ol>\n<li>Bird</li>\n<li>McHale</li>\…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -841,7 +1705,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '1.  Bird\n1.  McHale\n1.  Parish\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -850,7 +1715,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '3. Bird\n1. McHale\n8. Parish\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -880,7 +1746,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '*   Lorem ipsum dolor sit amet, conse…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -889,7 +1756,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '*   Lorem ipsum dolor sit amet, conse…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -901,7 +1769,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '*   Bird\n*   Magic\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -910,7 +1779,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<ul>\n<li>Bird</li>\n<li>Magic</li>\n…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -919,7 +1789,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '*   Bird\n\n*   Magic\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -928,7 +1799,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<ul>\n<li><p>Bird</p></li>\n<li><p>Ma…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -937,7 +1809,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '1.  This is a list item with two para…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -946,7 +1819,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '*   This is a list item with two para…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -958,7 +1832,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '*   A list item with a blockquote:\n\…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -971,7 +1846,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '*   A list item with a code block:\n\…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -980,7 +1856,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '1986. What a great season.\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -993,7 +1870,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '1986\. What a great season.\n'
+
 [cr()] LH=14
 [HTMLBlock] <h3 id="precode">Code Blocks</h3>
 [cr()] LH=14
@@ -1018,7 +1896,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'This is a normal paragraph:\n\n    Th…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1027,7 +1906,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<p>This is a normal paragraph:</p>\n\…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1036,7 +1916,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'Here is an example of AppleScript:\n\…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1045,7 +1926,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<p>Here is an example of AppleScript:…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1070,7 +1952,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<div class="footer">\n        &co…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1079,7 +1962,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<pre><code>&lt;div class="footer"&gt;…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1101,7 +1985,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '* * *\n\n***\n\n*****\n\n- - -\n\n---…'
+
 [cr()] LH=14
 [HorizontalRule] 
 [cr()] LH=14
@@ -1147,7 +2032,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'This is [an example](http://example.c…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1156,7 +2042,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<p>This is <a href="http://example.co…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1165,7 +2052,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'See my [About](/about/) page for deta…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1174,7 +2062,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'This is [an example][id] reference-st…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1183,7 +2072,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'This is [an example] [id] reference-s…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1192,7 +2082,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '[id]: http://example.com/  "Optional …'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1201,9 +2092,28 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Unordered List (entering)] {16 true 0 0 [] false}
+[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Square brackets containing the link i…'
+  ListItem
+    Paragraph
+      Text 'followed by a colon;'
+  ListItem
+    Paragraph
+      Text 'followed by one or more spaces (or ta…'
+  ListItem
+    Paragraph
+      Text 'followed by the URL for the link;'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'optionally followed by a title attrib…'
+
 [... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] {16 false 42 46 [] false}
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'Square brackets containing the link i…'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -1211,8 +2121,14 @@
 --[Text] Square brackets containing the link identifier (optionally indented from the left margin using up to three spaces);
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered Item (leaving)] {16 false 42 46 [] false}
--[Unordered Item (entering) #2] {0 false 42 46 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'Square brackets containing the link i…'
+
+-[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'followed by a colon;'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -1220,8 +2136,14 @@
 --[Text] followed by a colon;
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered Item (leaving)] {0 false 42 46 [] false}
--[Unordered Item (entering) #3] {0 false 42 46 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'followed by a colon;'
+
+-[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'followed by one or more spaces (or ta…'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -1229,8 +2151,14 @@
 --[Text] followed by one or more spaces (or tabs);
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered Item (leaving)] {0 false 42 46 [] false}
--[Unordered Item (entering) #4] {0 false 42 46 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'followed by one or more spaces (or ta…'
+
+-[Unordered Item (entering) #4] Container
+  Paragraph
+    Text 'followed by the URL for the link;'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -1238,8 +2166,14 @@
 --[Text] followed by the URL for the link;
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered Item (leaving)] {0 false 42 46 [] false}
--[Unordered Item (entering) #5] {32 false 42 46 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'followed by the URL for the link;'
+
+-[Unordered Item (entering) #5] Container
+  Paragraph
+    Text 'optionally followed by a title attrib…'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -1247,8 +2181,27 @@
 --[Text] optionally followed by a title attribute for the link, enclosed in double or single quotes.
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered Item (leaving)] {32 false 42 46 [] false}
--[Unordered List (leaving)] {16 true 0 0 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'optionally followed by a title attrib…'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'Square brackets containing the link i…'
+  ListItem
+    Paragraph
+      Text 'followed by a colon;'
+  ListItem
+    Paragraph
+      Text 'followed by one or more spaces (or ta…'
+  ListItem
+    Paragraph
+      Text 'followed by the URL for the link;'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'optionally followed by a title attrib…'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -1258,7 +2211,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '[id]: <http://example.com/>  "Optiona…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1267,7 +2221,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '[id]: http://example.com/longish/path…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1287,7 +2242,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '[link text][a]\n[link text][A]\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1307,7 +2263,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '[Google][]\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1316,7 +2273,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '[Google]: http://google.com/\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1325,7 +2283,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'Visit [Daring Fireball][] for more in…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1334,7 +2293,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '[Daring Fireball]: http://daringfireb…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1350,7 +2310,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'I get 10 times more traffic from [Goo…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1359,7 +2320,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'I get 10 times more traffic from [Goo…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1368,7 +2330,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<p>I get 10 times more traffic from <…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1377,7 +2340,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'I get 10 times more traffic from [Goo…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1427,7 +2391,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '*single asterisks*\n\n_single undersc…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1436,7 +2401,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<em>single asterisks</em>\n\n<em>sing…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1452,7 +2418,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'un*fucking*believable\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1474,7 +2441,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '\*this text is surrounded by literal …'
+
 [cr()] LH=14
 [HTMLBlock] <h3 id="code">Code</h3>
 [cr()] LH=14
@@ -1489,7 +2457,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'Use the `printf()` function.\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1498,7 +2467,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<p>Use the <code>printf()</code> func…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1507,7 +2477,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '``There is a literal backtick (`) her…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1516,7 +2487,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<p><code>There is a literal backtick …'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1525,7 +2497,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'A single backtick in a code span: `` …'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1534,7 +2507,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<p>A single backtick in a code span: …'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1543,7 +2517,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf 'Please don't use any `<blink>` tags.\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1552,7 +2527,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<p>Please don't use any <code>&lt;bli…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1561,7 +2537,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '`&#8212;` is the decimal-encoded equi…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1570,7 +2547,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<p><code>&amp;#8212;</code> is the de…'
+
 [cr()] LH=14
 [HTMLBlock] <h3 id="img">Images</h3>
 [cr()] LH=14
@@ -1604,7 +2582,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '![Alt text](/path/to/img.jpg)\n\n![Al…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1613,9 +2592,30 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Unordered List (entering)] {16 true 0 0 [] false}
+[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'An exclamation mark:'
+      Code '!'
+      Text ';'
+  ListItem
+    Paragraph
+      Text 'followed by a set of square brackets,…'
+      Code 'alt'
+      Text '\nattribute text for the image;'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'followed by a set of parentheses, con…'
+      Code 'title'
+      Text 'attribute enclosed in double\nor sin…'
+
 [... List Left Margin] set to 58.338
--[Unordered Item (entering) #1] {16 false 42 46 [] false}
+-[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'An exclamation mark:'
+    Code '!'
+    Text ';'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -1626,8 +2626,18 @@
 --[Text] ;
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered Item (leaving)] {16 false 42 46 [] false}
--[Unordered Item (entering) #2] {0 false 42 46 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'An exclamation mark:'
+    Code '!'
+    Text ';'
+
+-[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'followed by a set of square brackets,…'
+    Code 'alt'
+    Text '\nattribute text for the image;'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -1638,8 +2648,18 @@
 --[Text]  attribute text for the image;
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered Item (leaving)] {0 false 42 46 [] false}
--[Unordered Item (entering) #3] {32 false 42 46 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'followed by a set of square brackets,…'
+    Code 'alt'
+    Text '\nattribute text for the image;'
+
+-[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'followed by a set of parentheses, con…'
+    Code 'title'
+    Text 'attribute enclosed in double\nor sin…'
+
 -[cr()] LH=14
 --[Paragraph (entering)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
@@ -1650,8 +2670,29 @@
 --[Text]  attribute enclosed in double or single quotes.
 --[Paragraph (leaving)] 
 --[... Margins (left, top, right, bottom:] 98.322 28.35 28.35 56.7
---[Unordered Item (leaving)] {32 false 42 46 [] false}
--[Unordered List (leaving)] {16 true 0 0 [] false}
+--[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'followed by a set of parentheses, con…'
+    Code 'title'
+    Text 'attribute enclosed in double\nor sin…'
+
+-[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'An exclamation mark:'
+      Code '!'
+      Text ';'
+  ListItem
+    Paragraph
+      Text 'followed by a set of square brackets,…'
+      Code 'alt'
+      Text '\nattribute text for the image;'
+  ListItem 'flags=end'
+    Paragraph
+      Text 'followed by a set of parentheses, con…'
+      Code 'title'
+      Text 'attribute enclosed in double\nor sin…'
+
 -[... Reset List Left Margin] re-set to 28.35
 [cr()] LH=14
 [Paragraph (entering)] 
@@ -1661,7 +2702,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '![Alt text][id]\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1670,7 +2712,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '[id]: url/to/image  "Optional title a…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1700,7 +2743,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<http://example.com/>\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1709,7 +2753,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<a href="http://example.com/">http://…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1718,7 +2763,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<address@example.com>\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1727,7 +2773,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '<a href="&#x6D;&#x61;i&#x6C;&#x74;&#x…'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1756,7 +2803,8 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '\*literal asterisks\*\n'
+
 [cr()] LH=14
 [Paragraph (entering)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
@@ -1765,7 +2813,7 @@
 [Paragraph (leaving)] 
 [... Margins (left, top, right, bottom:] 28.35 28.35 28.35 56.7
 [cr()] LH=14
-[Codeblock] {false [] 0 0 0}
+[Codeblock] Leaf '\   backslash\n`   backtick\n*   aste…'
+
 [cr()] LH=14
 [Document] Not Handled
-[RenderFooter] Not handled

@@ -22,10 +22,6 @@ The tests create log files that trace the BlackFriday parser
 callbacks. This is a valuable debug tool showing each callback 
 and data provided in each while the AST is presented.
 
-2019-09-23: It appears that the BlackFriday project is no longer active.
-There is a fork `gomarkdown/markdown` that I may be able to move to
-in the future if needed.
-
 ## Supported Markdown
 The supported elements of markdown are:
 - Emphasized and strong text 

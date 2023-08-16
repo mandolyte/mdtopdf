@@ -25,10 +25,13 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"reflect"
 	"strings"
 
 	"github.com/go-pdf/fpdf"
-	bf "github.com/russross/blackfriday/v2"
+	"github.com/gomarkdown/markdown"
+	"github.com/gomarkdown/markdown/ast"
+	"github.com/gomarkdown/markdown/parser"
 )
 
 // Color is a RGB set of ints; for a nice picker
@@ -119,6 +122,7 @@ type PdfRenderer struct {
 	InputBaseURL              string
 	Theme                     Theme
 	BackgroundColor           Color
+	documentMatter            ast.DocumentMatters // keep track of front/main/back matter.
 }
 
 // SetLightTheme sets theme to 'light'
@@ -170,11 +174,11 @@ func (r *PdfRenderer) SetLightTheme() {
 
 // SetDarkTheme sets theme to 'dark'
 func (r *PdfRenderer) SetDarkTheme() {
-	r.BackgroundColor = Colorlookup("eerieblack")
+	r.BackgroundColor = Colorlookup("black")
 	r.SetPageBackground("", r.BackgroundColor)
 	// Normal Text
 	r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
-		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("white")}
 
 	// Link text
 	r.Link = Styler{Font: "Arial", Style: "b", Size: 12, Spacing: 2,
@@ -264,7 +268,7 @@ func NewPdfRenderer(orient, papersz, pdfFile, tracerFile string, opts []RenderOp
 	r.IndentValue = 3 * r.em
 
 	r.cs = states{stack: make([]*containerState, 0)}
-	initcurrent := &containerState{containerType: bf.Paragraph,
+	initcurrent := &containerState{
 		listkind:  notlist,
 		textStyle: r.Normal, leftMargin: r.mleft}
 	r.cs.push(initcurrent)
@@ -318,22 +322,24 @@ func (r *PdfRenderer) Process(content []byte) error {
 // Run takes the markdown content, parses it but don't generate the PDF. you can access the PDF with youRenderer.Pdf
 func (r *PdfRenderer) Run(content []byte) error {
 	// Preprocess content by changing all CRLF to LF
-	s := string(content)
-	s = strings.ReplaceAll(s, "\r\n", "\n")
+	s := content
+	s = markdown.NormalizeNewlines(s)
 
 	if r.unicodeTranslator != nil {
-		s = r.unicodeTranslator(s)
+		s = []byte(r.unicodeTranslator(string(s)))
 	}
 
-	content = []byte(s)
-	_ = bf.Run(content, bf.WithRenderer(r))
+	exts := parser.CommonExtensions // parser.OrderedListStart | parser.NoEmptyLineBeforeBlock
+	p := parser.NewWithExtensions(exts)
+	doc := markdown.Parse(s, p)
+	_ = markdown.Render(doc, r)
 
 	return nil
 }
 
 // UpdateParagraphStyler - update with default styler
 func (r *PdfRenderer) UpdateParagraphStyler(defaultStyler Styler) {
-	initcurrent := &containerState{containerType: bf.Paragraph,
+	initcurrent := &containerState{
 		listkind:  notlist,
 		textStyle: defaultStyler, leftMargin: r.mleft}
 	r.cs.push(initcurrent)
@@ -379,76 +385,75 @@ func (r *PdfRenderer) writeLink(s Styler, display, url string) {
 // The typical behavior is to return GoToNext, which asks for the usual
 // traversal to the next node.
 // (above taken verbatim from the blackfriday v2 package)
-func (r *PdfRenderer) RenderNode(w io.Writer, node *bf.Node, entering bool) bf.WalkStatus {
-	switch node.Type {
-	case bf.Text:
+func (r *PdfRenderer) RenderNode(w io.Writer, node ast.Node, entering bool) ast.WalkStatus {
+	switch node := node.(type) {
+	case *ast.Text:
 		r.processText(node)
-	case bf.Softbreak:
+	case *ast.Softbreak:
 		r.tracer("Softbreak", "Output newline")
 		r.cr()
-	case bf.Hardbreak:
+	case *ast.Hardbreak:
 		r.tracer("Hardbreak", "Output newline")
 		r.cr()
-	case bf.Emph:
+	case *ast.Emph:
 		r.processEmph(node, entering)
-	case bf.Strong:
+	case *ast.Strong:
 		r.processStrong(node, entering)
-	case bf.Del:
+	case *ast.Del:
 		if entering {
 			r.tracer("DEL (entering)", "Not handled")
 		} else {
 			r.tracer("DEL (leaving)", "Not handled")
 		}
-	case bf.HTMLSpan:
+	case *ast.HTMLSpan:
 		r.tracer("HTMLSpan", "Not handled")
-	case bf.Link:
-		r.processLink(node, entering)
-	case bf.Image:
-		r.processImage(node, entering)
-	case bf.Code:
+	case *ast.Link:
+		r.processLink(*node, entering)
+	case *ast.Image:
+		r.processImage(*node, entering)
+	case *ast.Code:
 		r.processCode(node)
-	case bf.Document:
+	case *ast.Document:
 		r.tracer("Document", "Not Handled")
-	case bf.Paragraph:
+	case *ast.Paragraph:
 		r.processParagraph(node, entering)
-	case bf.BlockQuote:
+	case *ast.BlockQuote:
 		r.processBlockQuote(node, entering)
-	case bf.HTMLBlock:
+	case *ast.HTMLBlock:
 		r.processHTMLBlock(node)
-	case bf.Heading:
-		r.processHeading(node, entering)
-	case bf.HorizontalRule:
+	case *ast.Heading:
+		r.processHeading(*node, entering)
+	case *ast.HorizontalRule:
 		r.processHorizontalRule(node)
-	case bf.List:
-		r.processList(node, entering)
-	case bf.Item:
-		r.processItem(node, entering)
-	case bf.CodeBlock:
-		r.processCodeblock(node)
-	case bf.Table:
+	case *ast.List:
+		r.processList(*node, entering)
+	case *ast.ListItem:
+		r.processItem(*node, entering)
+	case *ast.CodeBlock:
+		r.processCodeblock(*node)
+	case *ast.Table:
 		r.processTable(node, entering)
-	case bf.TableHead:
+	case *ast.TableHeader:
 		r.processTableHead(node, entering)
-	case bf.TableBody:
+	case *ast.TableBody:
 		r.processTableBody(node, entering)
-	case bf.TableRow:
+	case *ast.TableRow:
 		r.processTableRow(node, entering)
-	case bf.TableCell:
-		r.processTableCell(node, entering)
+	case *ast.TableCell:
+		r.processTableCell(*node, entering)
 	default:
-		panic("Unknown node type " + node.Type.String())
+		panic("Unknown node type " + reflect.TypeOf(node).Name())
 	}
-	return bf.GoToNext
+	return ast.GoToNext
 }
 
 // RenderHeader is not supported.
-func (r *PdfRenderer) RenderHeader(w io.Writer, ast *bf.Node) {
+func (r *PdfRenderer) RenderHeader(w io.Writer, ast ast.Node) {
 	r.tracer("RenderHeader", "Not handled")
 }
 
 // RenderFooter is not supported.
-func (r *PdfRenderer) RenderFooter(w io.Writer, ast *bf.Node) {
-	r.tracer("RenderFooter", "Not handled")
+func (r *PdfRenderer) RenderFooter(w io.Writer, _ ast.Node) {
 }
 
 func (r *PdfRenderer) cr() {

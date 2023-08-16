@@ -98,7 +98,7 @@ func main() {
 	backgroundColor := "white"
 	if *themeArg == "dark" {
 		theme = mdtopdf.DARK
-		backgroundColor = "eerieblack"
+		backgroundColor = "black"
 		textColor = mdtopdf.Colorlookup("darkgray")
 		fillColor = mdtopdf.Colorlookup("black")
 	}

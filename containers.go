@@ -19,10 +19,6 @@
 
 package mdtopdf
 
-import (
-	bf "github.com/russross/blackfriday/v2"
-)
-
 type listType int
 
 const (
@@ -54,7 +50,6 @@ func (n listType) String() string {
 }
 
 type containerState struct {
-	containerType  bf.NodeType
 	textStyle      Styler
 	leftMargin     float64
 	firstParagraph bool

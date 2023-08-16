@@ -8,9 +8,22 @@
 -[Paragraph (leaving)] 
 -[... Margins (left, top, right, bottom:] 58.338 28.35 28.35 56.7
 -[cr()] LH=14
--[Unordered List (entering)] {16 true 0 0 [] false}
+-[Unordered List (entering)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'asterisk 1'
+  ListItem
+    Paragraph
+      Text 'asterisk 2'
+  ListItem
+    Paragraph
+      Text 'asterisk 3'
+
 -[... List Left Margin] set to 88.326
---[Unordered Item (entering) #1] {16 false 42 46 [] false}
+--[Unordered Item (entering) #1] Container
+  Paragraph
+    Text 'asterisk 1'
+
 --[cr()] LH=14
 ---[Paragraph (entering)] 
 ---[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -18,8 +31,14 @@
 ---[Text] asterisk 1
 ---[Paragraph (leaving)] 
 ---[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
----[Unordered Item (leaving)] {16 false 42 46 [] false}
---[Unordered Item (entering) #2] {0 false 42 46 [] false}
+---[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'asterisk 1'
+
+--[Unordered Item (entering) #2] Container
+  Paragraph
+    Text 'asterisk 2'
+
 --[cr()] LH=14
 ---[Paragraph (entering)] 
 ---[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -27,8 +46,14 @@
 ---[Text] asterisk 2
 ---[Paragraph (leaving)] 
 ---[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
----[Unordered Item (leaving)] {0 false 42 46 [] false}
---[Unordered Item (entering) #3] {0 false 42 46 [] false}
+---[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'asterisk 2'
+
+--[Unordered Item (entering) #3] Container
+  Paragraph
+    Text 'asterisk 3'
+
 --[cr()] LH=14
 ---[Paragraph (entering)] 
 ---[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
@@ -36,10 +61,22 @@
 ---[Text] asterisk 3
 ---[Paragraph (leaving)] 
 ---[... Margins (left, top, right, bottom:] 128.31 28.35 28.35 56.7
----[Unordered Item (leaving)] {0 false 42 46 [] false}
---[Unordered List (leaving)] {16 true 0 0 [] false}
+---[Unordered Item (leaving)] Container
+  Paragraph
+    Text 'asterisk 3'
+
+--[Unordered List (leaving)] Container
+  ListItem 'flags=start'
+    Paragraph
+      Text 'asterisk 1'
+  ListItem
+    Paragraph
+      Text 'asterisk 2'
+  ListItem
+    Paragraph
+      Text 'asterisk 3'
+
 --[... Reset List Left Margin] re-set to 58.337999999999994
 -[BlockQuote (leaving)] 
 [cr()] LH=14
 [Document] Not Handled
-[RenderFooter] Not handled

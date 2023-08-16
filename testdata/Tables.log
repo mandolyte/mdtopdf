@@ -1,7 +1,9 @@
 [RenderHeader] Not handled
 [Document] Not Handled
 [cr()] LH=14
-[Heading (1, entering)] {1  false}
+[Heading (1, entering)] Container
+  Text 'Table Tests'
+
 -[Text] Table Tests
 -[Heading (leaving)] 
 -[cr()] LH=29
@@ -51,4 +53,3 @@
 [Table (leaving)] 
 [cr()] LH=14
 [Document] Not Handled
-[RenderFooter] Not handled
