@@ -7,7 +7,7 @@
 ## Introduction: Markdown to PDF
 
 This package depends on two other packages:
-- The BlackFriday v2 parser to read the markdown source
+- The [gomarkdown](https://github.com/gomarkdown/markdown) parser to read the markdown source
 - The `fpdf` packace to generate the PDF
 
 Both of the above are documented at [Go Docs](http://godocs.org).
@@ -18,7 +18,7 @@ The tests create PDF files and thus while the tests may complete
 without errors, visual inspection of the created PDF is the
 only way to determine if the tests *really* pass!
 
-The tests create log files that trace the BlackFriday parser
+The tests create log files that trace the [gomarkdown](https://github.com/gomarkdown/markdown) parser
 callbacks. This is a valuable debug tool showing each callback 
 and data provided in each while the AST is presented.
 
@@ -192,7 +192,7 @@ $ GOPROXY=https://proxy.golang.org GO111MODULE=on go get github.com/mandolyte/md
 go: added github.com/go-pdf/fpdf v0.8.0
 go: added github.com/jessp01/gohighlight v0.21.1-7
 go: added github.com/mandolyte/mdtopdf v1.4.1
-go: added github.com/russross/blackfriday/v2 v2.1.0
+go: added github.com/gomarkdown/markdown 
 go: added gopkg.in/yaml.v2 v2.4.0
 ```
 
