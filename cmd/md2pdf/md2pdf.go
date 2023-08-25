@@ -85,7 +85,6 @@ func main() {
 		} else {
 			content, err = ioutil.ReadFile(*input)
 			if err != nil {
-				// log.Fatal(err)
 				fmt.Println(err.Error())
 				return
 			}
@@ -147,7 +146,7 @@ func main() {
 
 	err = pf.Process(content)
 	if err != nil {
-		fmt.Printf("error:%v\n", err)
+		fmt.Printf("error: %v\n", err)
 	}
 }
 

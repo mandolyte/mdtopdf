@@ -39,7 +39,6 @@ import (
 	"github.com/go-pdf/fpdf"
 	"github.com/gomarkdown/markdown/ast"
 	highlight "github.com/jessp01/gohighlight"
-	"github.com/sirupsen/logrus"
 )
 
 func (r *PdfRenderer) processText(node *ast.Text) {
@@ -320,21 +319,28 @@ func (r *PdfRenderer) processLink(node ast.Link, entering bool) {
 }
 
 func downloadFile(url, fileName string) error {
-	/* client := http.Client{
+	client := http.Client{
 		CheckRedirect: func(req *http.Request, via []*http.Request) error {
 			fmt.Println("Redirected to:", req.URL)
 			return nil
 		},
-	} */
+	}
+	req, err := http.NewRequest("GET", url, nil)
+
+	if err != nil {
+		return err
+	}
+
+	req.Header.Add("User-Agent", "curl/7.84.0")
 	// Get the response bytes from the url
-	response, err := http.Get(url)
+	response, err := client.Do(req)
 	if err != nil {
 		return err
 	}
 	defer response.Body.Close()
 
 	if response.StatusCode != 200 {
-		return errors.New("Received non 200 response code")
+		return errors.New("Received non 200 response code: " + fmt.Sprintf("HTTP %d", response.StatusCode))
 	}
 	// Create a empty file
 	file, err := os.Create(fileName)
@@ -384,15 +390,18 @@ func (r *PdfRenderer) processImage(node ast.Image, entering bool) {
 			matches := re.FindStringSubmatch(string(contents))
 			tf, err := os.CreateTemp(tempDir, "*.svg")
 			if err != nil {
-				log.Fatal(err)
+				log.Println(err)
+				return
 			}
 
 			if _, err := tf.Write(contents); err != nil {
 				tf.Close()
-				log.Fatal(err)
+				log.Println(err)
+				return
 			}
 			if err := tf.Close(); err != nil {
-				log.Fatal(err)
+				log.Println(err)
+				return
 			}
 			os.Rename(destination, tf.Name())
 			destination = tf.Name()
@@ -401,7 +410,8 @@ func (r *PdfRenderer) processImage(node ast.Image, entering bool) {
 			chrome := svg2png.NewChrome().SetHeight(int(height)).SetWith(int(width))
 			outputFileName := destination + ".png"
 			if err := chrome.Screenshoot(destination, outputFileName); err != nil {
-				logrus.Panic(err)
+				log.Println(err)
+				return
 			}
 			destination = outputFileName
 		}
