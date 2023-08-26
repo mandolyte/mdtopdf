@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -31,6 +32,19 @@ var logFile = flag.String("log-file", "md2pdf_trace.log", "Path to log file")
 var help = flag.Bool("help", false, "Show usage message")
 
 var opts []mdtopdf.RenderOption
+
+func processRemoteInputFile(url string) ([]byte, error) {
+	resp, err := http.Get(url)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != 200 {
+		return nil, errors.New("Received non 200 response code: " + fmt.Sprintf("HTTP %d", resp.StatusCode))
+	}
+	content, rerr := ioutil.ReadAll(resp.Body)
+	return content, rerr
+}
 
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
@@ -70,24 +84,16 @@ func main() {
 	} else {
 		httpRegex := regexp.MustCompile("^http(s)?://")
 		if httpRegex.Match([]byte(*input)) {
-			resp, err := http.Get(*input)
+			content, err = processRemoteInputFile(*input)
 			if err != nil {
 				log.Fatal(err)
-			}
-			defer resp.Body.Close()
-			content, err = ioutil.ReadAll(resp.Body)
-			if err != nil {
-				fmt.Println(err.Error())
-				return
 			}
 			// get the base URL so we can adjust relative links and images
 			inputBaseURL = strings.Replace(filepath.Dir(*input), ":/", "://", 1)
 		} else {
 			content, err = ioutil.ReadFile(*input)
 			if err != nil {
-				// log.Fatal(err)
-				fmt.Println(err.Error())
-				return
+				log.Fatal(err)
 			}
 		}
 	}
@@ -147,7 +153,7 @@ func main() {
 
 	err = pf.Process(content)
 	if err != nil {
-		fmt.Printf("error:%v\n", err)
+		fmt.Printf("error: %v\n", err)
 	}
 }
 
