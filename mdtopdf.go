@@ -141,6 +141,11 @@ func (r *PdfRenderer) SetLightTheme() {
 	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
 		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
 
+	// Quoted Text
+
+	r.Blockquote = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
+
 	// Code text
 	r.Code = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
 		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
@@ -178,6 +183,10 @@ func (r *PdfRenderer) SetDarkTheme() {
 	r.SetPageBackground("", r.BackgroundColor)
 	// Normal Text
 	r.Normal = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
+		FillColor: Colorlookup("black"), TextColor: Colorlookup("white")}
+
+	// Quoted Text
+	r.Blockquote = Styler{Font: "Arial", Style: "", Size: 12, Spacing: 2,
 		FillColor: Colorlookup("black"), TextColor: Colorlookup("white")}
 
 	// Link text
