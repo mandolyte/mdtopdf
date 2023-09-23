@@ -10,6 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"runtime"
 	"strings"
 
 	"github.com/mandolyte/mdtopdf"
@@ -30,6 +31,8 @@ var pageSize = flag.String("page-size", "A4", "[A3 | A4 | A5]")
 var orientation = flag.String("orientation", "portrait", "[portrait | landscape]")
 var logFile = flag.String("log-file", "md2pdf_trace.log", "Path to log file")
 var help = flag.Bool("help", false, "Show usage message")
+var version = "dev"
+var _, fileName, fileLine, ok = runtime.Caller(0)
 
 var opts []mdtopdf.RenderOption
 
@@ -159,7 +162,7 @@ func main() {
 
 func usage(msg string) {
 	fmt.Println(msg + "\n")
-	fmt.Print("Usage: convert [options]\n")
+	fmt.Printf("Usage: %s (%s) [options]\n", filepath.Base(fileName), version)
 	flag.PrintDefaults()
 	os.Exit(0)
 }
