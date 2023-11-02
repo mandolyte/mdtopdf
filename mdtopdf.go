@@ -25,7 +25,7 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"reflect"
+
 	"strings"
 
 	"github.com/go-pdf/fpdf"
@@ -338,7 +338,8 @@ func (r *PdfRenderer) Run(content []byte) error {
 		s = []byte(r.unicodeTranslator(string(s)))
 	}
 
-	exts := parser.CommonExtensions // parser.OrderedListStart | parser.NoEmptyLineBeforeBlock
+	// exts := parser.CommonExtensions // parser.OrderedListStart | parser.NoEmptyLineBeforeBlock
+	exts := parser.NoIntraEmphasis | parser.Tables | parser.FencedCode | parser.Autolink | parser.Strikethrough | parser.SpaceHeadings | parser.HeadingIDs | parser.BackslashLineBreak | parser.DefinitionLists
 	p := parser.NewWithExtensions(exts)
 	doc := markdown.Parse(s, p)
 	_ = markdown.Render(doc, r)
@@ -450,8 +451,10 @@ func (r *PdfRenderer) RenderNode(w io.Writer, node ast.Node, entering bool) ast.
 		r.processTableRow(node, entering)
 	case *ast.TableCell:
 		r.processTableCell(*node, entering)
+	/*case *ast.Math:
+	r.processMath(node)*/
 	default:
-		panic("Unknown node type " + reflect.TypeOf(node).Name())
+		fmt.Printf("Unknown node type: %T. Skipping\n", node)
 	}
 	return ast.GoToNext
 }

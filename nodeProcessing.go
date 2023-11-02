@@ -88,6 +88,13 @@ func (r *PdfRenderer) processText(node *ast.Text) {
 	}
 }
 
+// This is a stub implementation. For now, the MathAjax extension is disabled.
+func (r *PdfRenderer) processMath(node *ast.Math) {
+	currentStyle := r.cs.peek().textStyle
+	s := string(node.Literal)
+	r.write(currentStyle, s)
+}
+
 func (r *PdfRenderer) outputUnhighlightedCodeBlock(codeBlock string) {
 	r.cr() // start on next line!
 	r.setStyler(r.Backtick)
