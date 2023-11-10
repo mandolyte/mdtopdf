@@ -13,8 +13,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/mandolyte/mdtopdf"
 	"github.com/gomarkdown/markdown/parser"
+	"github.com/mandolyte/mdtopdf"
 	"golang.org/x/exp/slices"
 )
 
@@ -52,15 +52,15 @@ func processRemoteInputFile(url string) ([]byte, error) {
 }
 
 func glob(dir string, validExts []string) ([]string, error) {
-  files := []string{}
-  err := filepath.Walk(dir, func(path string, f os.FileInfo, err error) error {
-    if slices.Contains(validExts,filepath.Ext(path)) {
-      files = append(files, path)
-    }
-    return nil
-  })
+	files := []string{}
+	err := filepath.Walk(dir, func(path string, f os.FileInfo, err error) error {
+		if slices.Contains(validExts, filepath.Ext(path)) {
+			files = append(files, path)
+		}
+		return nil
+	})
 
-  return files, err
+	return files, err
 }
 
 func main() {
@@ -103,38 +103,38 @@ func main() {
 		if httpRegex.Match([]byte(*input)) {
 			content, err = processRemoteInputFile(*input)
 			if err != nil {
-			    log.Fatal(err)
+				log.Fatal(err)
 			}
 			// get the base URL so we can adjust relative links and images
 			inputBaseURL = strings.Replace(filepath.Dir(*input), ":/", "://", 1)
 		} else {
 			fileInfo, err := os.Stat(*input)
 			if err != nil {
-			    log.Fatal(err)
+				log.Fatal(err)
 			}
 
 			if fileInfo.IsDir() {
-			    opts = append(opts, mdtopdf.IsHorizontalRuleNewPage(true))
-			    validExts := []string{".md",".markdown"}
-			    files, err := glob(*input, validExts)
-			    if err != nil {
-				log.Fatal(err)
-			    }
-			    for i, file_path := range(files){
-				file_contents, err := ioutil.ReadFile(file_path)
+				opts = append(opts, mdtopdf.IsHorizontalRuleNewPage(true))
+				validExts := []string{".md", ".markdown"}
+				files, err := glob(*input, validExts)
 				if err != nil {
-				    log.Fatal(err)
+					log.Fatal(err)
 				}
-				content = append(content, file_contents...)
-				if (i < len(files) -1){
-				    content = append(content, []byte("---\n")...)
+				for i, filePath := range files {
+					fileContents, err := ioutil.ReadFile(filePath)
+					if err != nil {
+						log.Fatal(err)
+					}
+					content = append(content, fileContents...)
+					if i < len(files)-1 {
+						content = append(content, []byte("---\n")...)
+					}
 				}
-			    }
 			} else {
-			    content, err = ioutil.ReadFile(*input)
-			    if err != nil {
-				log.Fatal(err)
-			    }
+				content, err = ioutil.ReadFile(*input)
+				if err != nil {
+					log.Fatal(err)
+				}
 			}
 		}
 	}
