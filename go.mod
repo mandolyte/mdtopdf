@@ -10,4 +10,5 @@ require (
 	github.com/jessp01/gohighlight v0.21.1-7
 	github.com/mcuadros/go-version v0.0.0-20190830083331-035f6764e8d2 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
+	golang.org/x/exp v0.0.0-20231108232855-2478ac86f678 // indirect
 )

@@ -14,9 +14,11 @@ import (
 	"strings"
 
 	"github.com/mandolyte/mdtopdf"
+	"github.com/gomarkdown/markdown/parser"
+	"golang.org/x/exp/slices"
 )
 
-var input = flag.String("i", "", "Input filename or HTTP(s) URL; default is os.Stdin")
+var input = flag.String("i", "", "Input filename, dir consisting of .md|.markdown files or HTTP(s) URL; default is os.Stdin")
 var output = flag.String("o", "", "Output PDF filename; required")
 var pathToSyntaxFiles = flag.String("s", "", "Path to github.com/jessp01/gohighlight/syntax_files")
 var title = flag.String("title", "", "Presentation title")
@@ -47,6 +49,18 @@ func processRemoteInputFile(url string) ([]byte, error) {
 	}
 	content, rerr := ioutil.ReadAll(resp.Body)
 	return content, rerr
+}
+
+func glob(dir string, validExts []string) ([]string, error) {
+  files := []string{}
+  err := filepath.Walk(dir, func(path string, f os.FileInfo, err error) error {
+    if slices.Contains(validExts,filepath.Ext(path)) {
+      files = append(files, path)
+    }
+    return nil
+  })
+
+  return files, err
 }
 
 func main() {
@@ -89,14 +103,38 @@ func main() {
 		if httpRegex.Match([]byte(*input)) {
 			content, err = processRemoteInputFile(*input)
 			if err != nil {
-				log.Fatal(err)
+			    log.Fatal(err)
 			}
 			// get the base URL so we can adjust relative links and images
 			inputBaseURL = strings.Replace(filepath.Dir(*input), ":/", "://", 1)
 		} else {
-			content, err = ioutil.ReadFile(*input)
+			fileInfo, err := os.Stat(*input)
 			if err != nil {
+			    log.Fatal(err)
+			}
+
+			if fileInfo.IsDir() {
+			    opts = append(opts, mdtopdf.IsHorizontalRuleNewPage(true))
+			    validExts := []string{".md",".markdown"}
+			    files, err := glob(*input, validExts)
+			    if err != nil {
 				log.Fatal(err)
+			    }
+			    for i, file_path := range(files){
+				file_contents, err := ioutil.ReadFile(file_path)
+				if err != nil {
+				    log.Fatal(err)
+				}
+				content = append(content, file_contents...)
+				if (i < len(files) -1){
+				    content = append(content, []byte("---\n")...)
+				}
+			    }
+			} else {
+			    content, err = ioutil.ReadFile(*input)
+			    if err != nil {
+				log.Fatal(err)
+			    }
 			}
 		}
 	}
@@ -119,6 +157,7 @@ func main() {
 	pf.Pdf.SetSubject(*title, true)
 	pf.Pdf.SetTitle(*title, true)
 	pf.BackgroundColor = mdtopdf.Colorlookup(backgroundColor)
+	pf.Extensions = parser.NoIntraEmphasis | parser.Tables | parser.FencedCode | parser.Autolink | parser.Strikethrough | parser.SpaceHeadings | parser.HeadingIDs | parser.BackslashLineBreak | parser.DefinitionLists
 
 	if *fontFile != "" && *fontName != "" {
 		pf.Pdf.AddFont(*fontName, "", *fontFile)
