@@ -123,6 +123,7 @@ type PdfRenderer struct {
 	Theme                     Theme
 	BackgroundColor           Color
 	documentMatter            ast.DocumentMatters // keep track of front/main/back matter.
+	Extensions                parser.Extensions
 }
 
 // SetLightTheme sets theme to 'light'
@@ -338,9 +339,7 @@ func (r *PdfRenderer) Run(content []byte) error {
 		s = []byte(r.unicodeTranslator(string(s)))
 	}
 
-	// exts := parser.CommonExtensions // parser.OrderedListStart | parser.NoEmptyLineBeforeBlock
-	exts := parser.NoIntraEmphasis | parser.Tables | parser.FencedCode | parser.Autolink | parser.Strikethrough | parser.SpaceHeadings | parser.HeadingIDs | parser.BackslashLineBreak | parser.DefinitionLists
-	p := parser.NewWithExtensions(exts)
+	p := parser.NewWithExtensions(r.Extensions)
 	doc := markdown.Parse(s, p)
 	_ = markdown.Render(doc, r)
 

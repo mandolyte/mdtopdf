@@ -86,6 +86,11 @@ To benefit from Syntax highlighting, invoke thusly:
 $ go run md2pdf.go -i syn_test.md -s /path/to/syntax_files -o test.pdf
 ```
 
+To convert multiple MD files into a single PDF, use:
+```
+$ go run md2pdf.go -i /path/to/md/directory -o test.pdf
+```
+
 This repo has the [gohighlight module](https://github.com/jessp01/gohighlight) configured as a submodule so if you clone
 with `--recursive`, you will have the `highlight` dir in its root. Alternatively, you may issue the below to update an
 existing clone:
@@ -106,7 +111,7 @@ annotation name must match syntax base filename.*
 
 ```sh
   -i string
-    	Input text filename; default is os.Stdin
+	Input filename, dir consisting of .md|.markdown files or HTTP(s) URL; default is os.Stdin
   -o string
     	Output PDF filename; required
   -s string
