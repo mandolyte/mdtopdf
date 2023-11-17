@@ -64,11 +64,15 @@ func glob(dir string, validExts []string) ([]string, error) {
 }
 
 func main() {
+	if len(os.Args[1:]) < 1 {
+		usage("")
+	}
+
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	flag.Parse()
 
 	if *help {
-		usage("Help Message")
+		usage("")
 	}
 
 	if *output == "" {

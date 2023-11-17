@@ -16,6 +16,8 @@ github.com/google/go-cmp v0.5.8/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeN
 github.com/jessp01/gohighlight v0.21.1-7 h1:u1CurHm8ogal3AFeDMF97pDJ4aPlPdgZg5PL6ULeTb0=
 github.com/jessp01/gohighlight v0.21.1-7/go.mod h1:52r0Yxd1+T9f7uLenaO2/34K3gPOejxCxXwdNc/2Z8Y=
 github.com/jung-kurt/gofpdf v1.0.0/go.mod h1:7Id9E/uU8ce6rXgefFLlgrJj/GYY22cpxn+r32jIOes=
+github.com/mandolyte/mdtopdf/v2 v2.2.4 h1:NY9Y6TvMaGxnsZ3+hWWsrPfyJvDpcoy0JfgBW19UH2w=
+github.com/mandolyte/mdtopdf/v2 v2.2.4/go.mod h1:UWWYDIIkzaU9crQSYfk4+455ZjBCrWM9Imj6GUbWRfI=
 github.com/mattn/go-colorable v0.1.13/go.mod h1:7S9/ev0klgBDR4GtXTXX8a3vIGJpMovkB8vQcUbaXHg=
 github.com/mattn/go-isatty v0.0.16/go.mod h1:kYGgaQfpe5nmfYZH+SKPsOc2e4SrIfOl2e/yFXSvRLM=
 github.com/mattn/go-isatty v0.0.17/go.mod h1:kYGgaQfpe5nmfYZH+SKPsOc2e4SrIfOl2e/yFXSvRLM=

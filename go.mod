@@ -8,6 +8,7 @@ require (
 	github.com/go-pdf/fpdf v0.9.0
 	github.com/gomarkdown/markdown v0.0.0-20230922105210-14b16010c2ee
 	github.com/jessp01/gohighlight v0.21.1-7
+	github.com/mandolyte/mdtopdf/v2 v2.2.4 // indirect
 	github.com/mcuadros/go-version v0.0.0-20190830083331-035f6764e8d2 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/stretchr/testify v1.8.4 // indirect
