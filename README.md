@@ -4,8 +4,7 @@
 [![GoDoc][go-docs-badge]][go-docs]
 [![License][badge-license]][license]
 
-## Introduction: Markdown to PDF **just a test**
-
+## Introduction: Markdown to PDF
 This package depends on two other packages:
 - The [gomarkdown](https://github.com/gomarkdown/markdown) parser to read the markdown source
 - The `fpdf` packace to generate the PDF
