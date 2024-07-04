@@ -139,16 +139,16 @@ func (r *PdfRenderer) SetLightTheme() {
 		TextColor: Colorlookup("cornflowerblue")}
 
 	// Backticked text
-	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+	r.Backtick = Styler{Font: "Times", Style: "", Size: 12, Spacing: 2,
 		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
 
 	// Quoted Text
 
-	r.Blockquote = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+	r.Blockquote = Styler{Font: "Times", Style: "", Size: 12, Spacing: 2,
 		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
 
 	// Code text
-	r.Code = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+	r.Code = Styler{Font: "Times", Style: "", Size: 12, Spacing: 2,
 		TextColor: Color{37, 27, 14}, FillColor: Color{200, 200, 200}}
 
 	// Headings
@@ -169,7 +169,7 @@ func (r *PdfRenderer) SetLightTheme() {
 		TextColor: Colorlookup("black"), FillColor: Colorlookup("white")}
 
 	// Table Header Text
-	r.THeader = Styler{Font: "Arial", Style: "B", Size: 12, Spacing: 2,
+	r.THeader = Styler{Font: "Arial", Style: "b", Size: 12, Spacing: 2,
 		TextColor: Colorlookup("black"), FillColor: Color{180, 180, 180}}
 
 	// Table Body Text
@@ -195,11 +195,11 @@ func (r *PdfRenderer) SetDarkTheme() {
 		TextColor: Colorlookup("cornflowerblue")}
 
 	// Backticked text
-	r.Backtick = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+	r.Backtick = Styler{Font: "Times", Style: "", Size: 12, Spacing: 2,
 		TextColor: Colorlookup("lightgrey"), FillColor: Color{32, 35, 37}}
 
 	// Code text
-	r.Code = Styler{Font: "Courier", Style: "", Size: 12, Spacing: 2,
+	r.Code = Styler{Font: "Times", Style: "", Size: 12, Spacing: 2,
 		TextColor: Colorlookup("lightgrey"), FillColor: Color{32, 35, 37}}
 
 	// Headings
@@ -220,7 +220,7 @@ func (r *PdfRenderer) SetDarkTheme() {
 		FillColor: Colorlookup("black"), TextColor: Colorlookup("darkgray")}
 
 	// Table Header Text
-	r.THeader = Styler{Font: "Arial", Style: "B", Size: 12, Spacing: 2,
+	r.THeader = Styler{Font: "Arial", Style: "b", Size: 12, Spacing: 2,
 		TextColor: Colorlookup("darkgray"), FillColor: Color{27, 27, 27}}
 
 	// Table Body Text
@@ -365,6 +365,13 @@ func (r *PdfRenderer) UpdateBlockquoteStyler() {
 }
 
 func (r *PdfRenderer) setStyler(s Styler) {
+	// see https://github.com/mandolyte/mdtopdf/issues/18#issuecomment-2179694815
+	// This does not address the root cause 
+	// (https://github.com/mandolyte/mdtopdf/issues/18#issuecomment-2179694815) 
+	// but it will correct all cases and is safer.
+	if s.Style == "bb" {
+	   s.Style = "b"
+	}
 	r.Pdf.SetFont(s.Font, s.Style, s.Size)
 	r.Pdf.SetTextColor(s.TextColor.Red, s.TextColor.Green, s.TextColor.Blue)
 	r.Pdf.SetFillColor(s.FillColor.Red, s.FillColor.Green, s.FillColor.Blue)
