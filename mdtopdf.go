@@ -366,11 +366,11 @@ func (r *PdfRenderer) UpdateBlockquoteStyler() {
 
 func (r *PdfRenderer) setStyler(s Styler) {
 	// see https://github.com/mandolyte/mdtopdf/issues/18#issuecomment-2179694815
-	// This does not address the root cause 
-	// (https://github.com/mandolyte/mdtopdf/issues/18#issuecomment-2179694815) 
+	// This does not address the root cause
+	// (https://github.com/mandolyte/mdtopdf/issues/18#issuecomment-2179694815)
 	// but it will correct all cases and is safer.
 	if s.Style == "bb" {
-	   s.Style = "b"
+		s.Style = "b"
 	}
 	r.Pdf.SetFont(s.Font, s.Style, s.Size)
 	r.Pdf.SetTextColor(s.TextColor.Red, s.TextColor.Green, s.TextColor.Blue)
