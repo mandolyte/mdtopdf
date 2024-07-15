@@ -23,7 +23,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -120,7 +119,7 @@ func (r *PdfRenderer) processCodeblock(node ast.CodeBlock) {
 	if strings.HasPrefix(string(node.Literal), "<script") && string(node.Info) == "html" {
 		node.Info = []byte("javascript")
 	}
-	syntaxFile, lerr := ioutil.ReadFile(r.SyntaxHighlightBaseDir + "/" + string(node.Info) + ".yaml")
+	syntaxFile, lerr := os.ReadFile(r.SyntaxHighlightBaseDir + "/" + string(node.Info) + ".yaml")
 	if lerr != nil {
 		r.outputUnhighlightedCodeBlock(string(node.Literal))
 		return
@@ -393,7 +392,7 @@ func (r *PdfRenderer) processImage(node ast.Image, entering bool) {
 		mtype, err := mimetype.DetectFile(destination)
 		if mtype.Is("image/svg+xml") {
 			re := regexp.MustCompile(`<svg\s*.*\s*width="([0-9\.]+)"\sheight="([0-9\.]+)".*>`)
-			contents, _ := ioutil.ReadFile(destination)
+			contents, _ := os.ReadFile(destination)
 			matches := re.FindStringSubmatch(string(contents))
 			tf, err := os.CreateTemp(tempDir, "*.svg")
 			if err != nil {

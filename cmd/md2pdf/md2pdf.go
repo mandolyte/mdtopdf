@@ -4,7 +4,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -47,7 +47,7 @@ func processRemoteInputFile(url string) ([]byte, error) {
 	if resp.StatusCode != 200 {
 		return nil, errors.New("Received non 200 response code: " + fmt.Sprintf("HTTP %d", resp.StatusCode))
 	}
-	content, rerr := ioutil.ReadAll(resp.Body)
+	content, rerr := io.ReadAll(resp.Body)
 	return content, rerr
 }
 
@@ -94,7 +94,7 @@ func main() {
 	var err error
 	var inputBaseURL string
 	if *input == "" {
-		content, err = ioutil.ReadAll(os.Stdin)
+		content, err = io.ReadAll(os.Stdin)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -121,7 +121,7 @@ func main() {
 					log.Fatal(err)
 				}
 				for i, filePath := range files {
-					fileContents, err := ioutil.ReadFile(filePath)
+					fileContents, err := os.ReadFile(filePath)
 					if err != nil {
 						log.Fatal(err)
 					}
@@ -131,7 +131,7 @@ func main() {
 					}
 				}
 			} else {
-				content, err = ioutil.ReadFile(*input)
+				content, err = os.ReadFile(*input)
 				if err != nil {
 					log.Fatal(err)
 				}
