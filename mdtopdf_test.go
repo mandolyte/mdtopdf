@@ -20,7 +20,7 @@
 package mdtopdf
 
 import (
-	"io/ioutil"
+	"os"
 	"path"
 	"strings"
 	"testing"
@@ -36,7 +36,7 @@ func testit(inputf string, gohighlight bool, t *testing.T) {
 	pdffile := path.Join(inputd, strings.TrimSuffix(path.Base(input), ".text"))
 	pdffile += ".pdf"
 
-	content, err := ioutil.ReadFile(input)
+	content, err := os.ReadFile(input)
 	if err != nil {
 		t.Errorf("%v:%v", input, err)
 	}
