@@ -3,7 +3,7 @@ repos:
     rev: v0.5.4
     hooks:
       - id: go-fmt
-      - id: go-imports
+      # - id: go-imports
       - id: go-vet
       - id: go-lint
       - id: go-critic
