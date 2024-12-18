@@ -6,7 +6,7 @@ require (
 	github.com/canhlinh/svg2png v0.0.0-20201124065332-6ba87c82371f
 	github.com/gabriel-vasile/mimetype v1.4.2
 	github.com/go-pdf/fpdf v0.9.0
-	github.com/gomarkdown/markdown v0.0.0-20230922105210-14b16010c2ee
+	github.com/gomarkdown/markdown v0.0.0-20240729212818-a2a9c4f76ef5
 	github.com/jessp01/gohighlight v0.21.1-7
 	golang.org/x/exp v0.0.0-20240707233637-46b078467d37
 )

@@ -59,7 +59,13 @@ func (r *PdfRenderer) processText(node *ast.Text) {
 		if r.cs.peek().isHeader {
 			r.setStyler(currentStyle)
 			// get the string width of header value
-			hw := r.Pdf.GetStringWidth(s) + (2 * r.em)
+			initialWidth := r.Pdf.GetStringWidth(s)
+			/* if initialWidth == 0 {
+			    initialWidth = 30
+			}
+			log.Println(s + ":")
+			log.Println(initialWidth)*/
+			hw := initialWidth + (2 * r.em)
 			// now append it
 			cellwidths = append(cellwidths, hw)
 			// now write it...
@@ -673,6 +679,7 @@ func (r *PdfRenderer) processTableRow(node ast.Node, entering bool) {
 
 func (r *PdfRenderer) processTableCell(node ast.TableCell, entering bool) {
 	if entering {
+
 		r.tracer("TableCell (entering)", "")
 		x := &containerState{
 			textStyle: r.Normal, listkind: notlist,
