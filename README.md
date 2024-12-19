@@ -55,7 +55,9 @@ This is a planned fix; [see here](https://github.com/mandolyte/mdtopdf/issues/1)
 
 ## Installation 
 
-To install the package, run the usual `go get`:
+You can obtain the pre-built `md2pdf` for your OS and arch [here](https://github.com/mandolyte/mdtopdf/releases),
+alternatively, install golang and run `go get`:
+
 ```
 $ go get github.com/mandolyte/mdtopdf
 ```
