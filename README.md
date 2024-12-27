@@ -7,7 +7,7 @@
 ## Introduction: Markdown to PDF
 This package depends on two other packages:
 - The [gomarkdown](https://github.com/gomarkdown/markdown) parser to read the markdown source
-- The `fpdf` packace to generate the PDF
+- The `fpdf` package to generate the PDF
 
 Both of the above are documented at [Go Docs](http://godocs.org).
 
@@ -47,7 +47,7 @@ This is a planned fix; [see here](https://github.com/mandolyte/mdtopdf/issues/1)
 
 5. Definition lists are not supported (not sure that markdown supports them -- I need to research this)
 
-6. The following text features may be tweaked: font, size, spacing, styile, fill color, and text color. These are exported and available via the `Styler` struct. Note that fill color only works if the text is ouput using CellFormat(). This is the case for: tables, codeblocks, and backticked text.
+6. The following text features may be tweaked: font, size, spacing, style, fill color, and text color. These are exported and available via the `Styler` struct. Note that fill color only works when using `CellFormat()`. This is the case for: tables, codeblocks, and backticked text.
 
 7. Tables are supported, but no attempt is made to ensure fit. You can, however, change the font size and spacing to make it smaller. See example.
 
@@ -155,7 +155,7 @@ $ go run md2pdf.go  -i /path/to/md \
 
 ## Using non-ASCII Glyphs/Fonts
 
-In order to use a non-ASCII language there are a number things that must be done. The PDF generator must be configured WithUnicodeTranslator:
+In order to use a non-ASCII language there are a number things that must be done. The PDF generator must be configured with `WithUnicodeTranslator`:
 
 ```go
 // https://en.wikipedia.org/wiki/Windows-1251
@@ -164,7 +164,7 @@ pf := mdtopdf.NewPdfRenderer("", "", *output, "trace.log", mdtopdf.WithUnicodeTr
 
 In addition, this package's `Styler` must be used to set the font to match that is configured with the PDF generator.
 
-A complete working example may be found for Russian in the `cmd` folder nameed
+A complete working example may be found for Russian in the `cmd` folder named
 `russian.go`.
 
 For a full example, run:
