@@ -33,9 +33,9 @@ Both of the above are documented at [Go Docs](http://godocs.org).
 - Code blocks and backticked text
 
 ## Tests
-The tests included here are from the BlackFriday package.
-See the "testdata" folder.
-The tests create PDF files and thus while the tests may complete
+
+The tests included in this repo (see the `testdata` folder) were taken from the BlackFriday package.
+They create PDF files and while the tests may complete
 without errors, visual inspection of the created PDF is the
 only way to determine if the tests *really* pass!
 
