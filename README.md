@@ -1,28 +1,28 @@
-# mdtopdf
 
 [![CI][badge-build]][build]
 [![GoDoc][go-docs-badge]][go-docs]
 [![License][badge-license]][license]
 
-## Introduction: Markdown to PDF
+## Markdown to PDF
+
+A CLI utility which, as the name implies, generates PDF from Markdown.
+
 This package depends on two other packages:
 - The [gomarkdown](https://github.com/gomarkdown/markdown) parser to read the markdown source
 - The `fpdf` package to generate the PDF
 
 Both of the above are documented at [Go Docs](http://godocs.org).
 
-The tests included here are from the BlackFriday package.
-See the "testdata" folder.
-The tests create PDF files and thus while the tests may complete
-without errors, visual inspection of the created PDF is the
-only way to determine if the tests *really* pass!
+## Features
 
-The tests create log files that trace the [gomarkdown](https://github.com/gomarkdown/markdown) parser
-callbacks. This is a valuable debug tool showing each callback 
-and data provided in each while the AST is presented.
+- Syntax highlighting (for code blocks)
+- Dark and light themes
+- Pagination control (using horizontal lines - especially useful for presentations)
+- Page Footer (consisting of author, title and page number)
+- Support of non-Latin charsets and multiple fonts
 
-## Supported Markdown
-The supported elements of markdown are:
+## Supported Markdown elements
+
 - Emphasized and strong text 
 - Headings 1-6
 - Ordered and unordered lists
@@ -32,7 +32,16 @@ The supported elements of markdown are:
 - Links
 - Code blocks and backticked text
 
-How to use of non-Latin fonts/languages is documented in a section below.
+## Tests
+The tests included here are from the BlackFriday package.
+See the "testdata" folder.
+The tests create PDF files and thus while the tests may complete
+without errors, visual inspection of the created PDF is the
+only way to determine if the tests *really* pass!
+
+The tests create log files that trace the [gomarkdown](https://github.com/gomarkdown/markdown) parser
+callbacks. This is a valuable debug tool showing each callback 
+and data provided in each while the AST is presented.
 
 ## Limitations and Known Issues
 
@@ -175,7 +184,7 @@ $ go run md2pdf.go -i russian.md -o russian.pdf \
 ```
 
 
-# Note to Self
+### Post release note 
 
 In order to update `pkg.go.dev` with latest release, the following will do the trick. 
 Essentially, it is creating a module and then running the go get command for the
