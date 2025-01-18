@@ -9,8 +9,8 @@
  * Dependencies
  * This package depends on two other packages:
  *
- * Blackfriday Markdown Processor
- *   Available at http://github.com/russross/blackfriday
+ * Go Markdown processor
+ *   Available at https://github.com/gomarkdown/markdown
  *
  * fpdf - a PDF document generator with high level support for
  *   text, drawing and images.

@@ -5,9 +5,9 @@ Package mdtopdf implements a PDF document generator for markdown documents.
 
 This package depends on two other packages:
 
-* The BlackFriday v2 parser to read the markdown source
+* The [gomarkdown](https://github.com/gomarkdown/markdown) parser to read the markdown source
 
-* The fpdf packace to generate the PDF
+* The fpdf package to generate the PDF
 
 The tests included here are from the BlackFriday package.
 See the "testdata" folder.

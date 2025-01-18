@@ -2,15 +2,15 @@
  * Markdown to PDF Converter
  * Available at http://github.com/mandolyte/mdtopdf
  *
- * Copyright © 2018 Cecil New <cecil.new@gmail.com>.
+ * Copyright © Cecil New <cecil.new@gmail.com>, Jesse Portnoy <jesse@packman.io>.
  * Distributed under the MIT License.
  * See README.md for details.
  *
  * Dependencies
  * This package depends on two other packages:
  *
- * Blackfriday Markdown Processor
- *   Available at http://github.com/russross/blackfriday
+ * Go markdown processor
+ *   Available at https://github.com/gomarkdown/markdown
  *
  * fpdf - a PDF document generator with high level support for
  *   text, drawing and images.
