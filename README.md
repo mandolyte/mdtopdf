@@ -216,6 +216,12 @@ golangci-lint-full.......................................................Passed
 
 - Submit a pull request and include a succinct description of the feature or issue it addresses 
 
+## Consulting
+
+If you're interested in integration or customisation of md2pdf to suit your
+needs, [get in touch](https://solwork.io/contact)
+
+services](https://docs.asciinema.org/consulting/).
 [license]: ./LICENSE
 [badge-license]: https://img.shields.io/github/license/solworktech/md2pdf.svg
 [go-docs-badge]: https://godoc.org/github.com/solworktech/md2pdf?status.svg
