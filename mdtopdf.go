@@ -555,14 +555,20 @@ func (r *PdfRenderer) UpdateBlockquoteStyler() {
 	r.NeedBlockquoteStyleUpdate = true
 }
 
-func (r *PdfRenderer) setStyler(s Styler) {
-	// see https://github.com/solworktech/md2pdf/issues/18#issuecomment-2179694815
-	// This does not address the root cause
-	// (https://github.com/solworktech/md2pdf/issues/18#issuecomment-2179694815)
-	// but it will correct all cases and is safer.
-	if s.Style == "bb" {
-		s.Style = "b"
+// dedupeStyle drops repeated style letters: "ii" (italic text inside a blockquote, whose own style is italic) and
+// "bb" (bold inside a bold heading) name no font, and fpdf fails on them with `could not locate "helveticaii"`.
+func dedupeStyle(style string) string {
+	var out []rune
+	for _, c := range style {
+		if !strings.ContainsRune(string(out), c) {
+			out = append(out, c)
+		}
 	}
+	return string(out)
+}
+
+func (r *PdfRenderer) setStyler(s Styler) {
+	s.Style = dedupeStyle(s.Style)
 	r.Pdf.SetFont(s.Font, s.Style, s.Size)
 	r.Pdf.SetTextColor(s.TextColor.Red, s.TextColor.Green, s.TextColor.Blue)
 	r.Pdf.SetFillColor(s.FillColor.Red, s.FillColor.Green, s.FillColor.Blue)
