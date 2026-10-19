@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"io/fs"
 	"log"
 	"net/http"
 	"os"
@@ -15,7 +16,7 @@ import (
 
 	"github.com/gomarkdown/markdown/parser"
 	"github.com/solworktech/md2pdf/v2"
-	"golang.org/x/exp/slices"
+	"slices"
 )
 
 var input = flag.String("i", "", "Input filename, dir consisting of .md|.markdown files or HTTP(s) URL; default is os.Stdin")
@@ -59,10 +60,14 @@ func processRemoteInputFile(url string) ([]byte, error) {
 	return content, rerr
 }
 
+
 func glob(dir string, validExts []string) ([]string, error) {
-	files := []string{}
-	err := filepath.Walk(dir, func(path string, f os.FileInfo, err error) error {
-		if slices.Contains(validExts, filepath.Ext(path)) {
+	var files []string
+	err := filepath.WalkDir(dir, func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if !d.IsDir() && slices.Contains(validExts, filepath.Ext(path)) {
 			files = append(files, path)
 		}
 		return nil
